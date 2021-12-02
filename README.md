@@ -6,7 +6,7 @@
 ![Repo size](https://img.shields.io/github/repo-size/Searge/filmoteka?style=flat-square)
 ![Lines of code](https://img.shields.io/tokei/lines/github/Searge/filmoteka?style=flat-square&color=orange)
 
-![Deploy](https://github.com/Searge/filmoteka/workflows/Build-and-Deploy/badge.svg?branch=main&style=flat-square)
+![Deploy](https://github.com/Searge/filmoteka/workflows/build-and-deploy/badge.svg?branch=main&style=flat-square)
 
 ### Validation
 
