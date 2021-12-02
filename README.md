@@ -28,4 +28,14 @@
 ### Contributors
 
 <!-- readme: contributors -start -->
+<table>
+<tr>
+    <td align="center">
+        <a href="https://github.com/Searge">
+            <img src="https://avatars.githubusercontent.com/u/2125311?v=4" width="100;" alt="Searge"/>
+            <br />
+            <sub><b>Searge</b></sub>
+        </a>
+    </td></tr>
+</table>
 <!-- readme: contributors -end -->
