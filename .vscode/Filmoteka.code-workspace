@@ -1,0 +1,76 @@
+{
+  "folders": [
+    {
+      "path": ".."
+    }
+  ],
+  "settings": {
+    "files.autoSave": "afterDelay",
+    "files.trimTrailingWhitespace": true,
+    "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/node_modules/*/**": true,
+      "**/bootstrap/**": true,
+      "**/public/**": true,
+      "**/storage/**": true,
+      "**/vendor/**": true,
+      "**/.venv/**": true,
+      "**/.env/**": true
+    },
+    "explorer.sortOrder": "type",
+    "editor.suggestSelection": "first",
+    "editor.snippetSuggestions": "top",
+    "editor.rulers": [
+      72,
+      79
+    ],
+    // WEB
+    "emmet.syntaxProfiles": {
+      "html": {
+        "filters": "bem",
+        "emmet.triggerExpansionOnTab": true,
+        "filter.commentTrigger": true
+      }
+    },
+    "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.rulers": [
+        92,
+        108
+      ],
+      "editor.tabSize": 2
+    },
+    "html.format.wrapLineLength": 108,
+    "[css]": {
+      "breadcrumbs.showArrays": true,
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.suggest.insertMode": "replace"
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    // GIT
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+  },
+  "extensions": {
+    "recommendations": [
+      // Code Style
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "formulahendry.auto-rename-tag",
+      "mrmlnc.vscode-attrs-sorter",
+      // Visual helpers
+      "eamodio.gitlens",
+      "mhutchie.git-graph",
+      "usernamehw.errorlens",
+      "wayou.vscode-todo-highlight",
+      "coenraads.bracket-pair-colorizer-2",
+      // Theming
+      "github.github-vscode-theme",
+      "zhuangtongfa.material-theme",
+      "pkief.material-icon-theme"
+    ]
+  }
+}
