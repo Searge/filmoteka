@@ -1,8 +1,0 @@
-﻿_extends: github-settings
-
-from_owner:
-  - github-actions[bot]
-
-apply_labels:
-  - autoapproved
-  - merge
