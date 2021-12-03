@@ -1,3 +1,5 @@
+import { fetchPopularMovies } from '../api-service';
+
 const cardsMain = document.querySelector('.gallery');
 const genres = [
   {
@@ -77,27 +79,28 @@ const genres = [
     name: 'Western',
   },
 ];
-const template = `
-<li class="gallery__item">
-        <button class="gallery__link">
-          <img class="gallery__image" src=${poster_path} alt="">
-          <h2 class="gallery__title">
-            ${original_title}
-          </h2>
-          <p class="gallery__text">
-          ${genre_ids
-            .map((num, index) => {
-              if (index > 3) {
-                return;
-              }
-              return genreSwitch(num);
-            })
-            .join(', ')}
-          , Other
-          </p>
-        </button>
-      </li>
-`;
+
+// const template = `
+// <li class="gallery__item">
+//         <button class="gallery__link">
+//           <img class="gallery__image" src='https://image.tmdb.org/t/p/w500/${poster_path}' alt="">
+//           <h2 class="gallery__title">
+//             ${original_title}
+//           </h2>
+//           <p class="gallery__text">
+//           ${genre_ids
+//             .map((num, index) => {
+//               if (index > 3) {
+//                 return;
+//               }
+//               return genreSwitch(num);
+//             })
+//             .join(', ')}
+//           , Other
+//           </p>
+//         </button>
+//       </li>
+// `;
 const genreSwitch = number => {
   genres.forEach(element => {
     if (element.id === number) {
@@ -105,3 +108,5 @@ const genreSwitch = number => {
     }
   });
 };
+
+console.dir(JSON.parse(fetchPopularMovies()));
