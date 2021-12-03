@@ -9,7 +9,7 @@ async function fetchMoviesBySearch() {
 }
 
 const fetchPopularMovies = async () => {
-  const url = `${BASE_URL}/trending/all/day?api_key=${API_KEY}`;
+  const url = `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&language=en`;
   const response = await axios(url);
   return response;
 };
