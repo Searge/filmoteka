@@ -4,10 +4,6 @@
   "description": "",
   "main": "index.js",
   "homepage": "https://searge.github.io/filmoteka",
-  "scripts": {
-    "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /parcel-project-template/"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Searge/filmoteka.git"
@@ -19,6 +15,8 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "devDependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
     "parcel-bundler": "^1.12.5",
     "parcel-plugin-handlebars-precompile": "^1.0.2",
     "parcel-plugin-nuke-dist": "^1.0.1",
@@ -32,5 +30,13 @@
     "react-loading": "^2.0.3",
     "spin.js": "^4.1.1",
     "tui-pagination": "^3.4.1"
+  },
+  "scripts": {
+    "dev": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /parcel-project-template/",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }
