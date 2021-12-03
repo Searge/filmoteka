@@ -1,6 +1,12 @@
+name: ContributeList
+permissions: write-all
+
 on:
   pull_request_target:
     branches:
+      - main
+  push:
+    branches: 
       - main
 
 jobs:
