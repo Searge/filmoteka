@@ -85,12 +85,15 @@ const template = `
             ${original_title}
           </h2>
           <p class="gallery__text">
-          ${genre_ids.map((num, index) => {
-            genreSwitch(num);
-            if (index === 3) {
-              return;
-            }
-          })}, Other
+          ${genre_ids
+            .map((num, index) => {
+              if (index > 3) {
+                return;
+              }
+              return genreSwitch(num);
+            })
+            .join(', ')}
+          , Other
           </p>
         </button>
       </li>
