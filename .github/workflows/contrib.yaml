@@ -2,6 +2,9 @@ on:
   pull_request_target:
     branches:
       - main
+  push:
+    branches: 
+      - main
 
 jobs:
   contrib-readme-job:
