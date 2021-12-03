@@ -12,16 +12,17 @@
     />
   </head>
   <body>
-    <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
+    <!-- HEADER -->
     <include src="./partials/header.html"></include>
 
+    <!-- MAIN -->
     <main>
-      <h2>Main</h2>
+      <include src="./partials/main.html"></include>
     </main>
 
+    <!-- FOOTER -->
     <include src="./partials/footer.html"></include>
 
-    <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>
   </body>
 </html>
