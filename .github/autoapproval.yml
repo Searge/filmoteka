@@ -1,6 +1,8 @@
-﻿from_owner:
-  - dependabot[bot]
-required_labels:
-  - dependencies
+﻿_extends: github-settings
+
+from_owner:
+  - github-actions[bot]
+
 apply_labels:
   - autoapproved
+  - merge
