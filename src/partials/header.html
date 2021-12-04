@@ -9,15 +9,15 @@
     <nav class="header__navigation">
       <ul class="header__list">
         <li class="header__item">
-          <a class="header__nav-link" href="">Home</a>
+          <a class="header__nav-link" id="home" href="">Home</a>
         </li>
         <li class="header__item">
-          <a class="header__nav-link" href="">My library</a>
+          <a class="header__nav-link" id="my-library" href="">My library</a>
         </li>
       </ul>
     </nav>
 
-    <form class="header__form">
+    <form class="header__form is-hidden">
       <input type="text" placeholder="Поиск фильмов" />
       <button class="header__btn" type="submit">
         <svg class="header__btn-svg" width="12" height="12">
@@ -26,7 +26,7 @@
       </button>
     </form>
 
-    <div class="header__mylibrary">
+    <div class="header__mylibrary is-hidden">
       <button class="header__mylibrary-watched">Watched</button>
       <button class="header__mylibrary-queue">Queue</button>
     </div>
