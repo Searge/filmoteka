@@ -107,34 +107,7 @@ const func = async () => {
   );
   cardsMain.innerHTML = res.join('');
 };
-
 func();
-
-// const listCardss = listInfo.map(num => {
-//   return (
-//      `
-// <li class="gallery__item">
-//         <button class="gallery__link">
-//           <img class="gallery__image" src="https://image.tmdb.org/t/p/w500/${num.poster_path}" alt="">
-//           <h2 class="gallery__title">
-//             ${num.original_title}
-//           </h2>
-//           <p class="gallery__text">
-//           ${num.genre_ids
-//             .map((num, index) => {
-//               if (index > 3) {
-//                 return;
-//               }
-//               return genreSwitch(num);
-//             })
-//             .join(', ')}
-//           , Other
-//           </p>
-//         </button>
-//       </li>
-// `
-//    )
-// })
 
 const genreSwitch = number => {
   genres.forEach(element => {

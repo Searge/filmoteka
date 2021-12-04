@@ -16,9 +16,11 @@
 .gallery__link {
   appearance: none;
   border: none;
+  background: none;
 }
 .gallery__image {
   display: block;
+  width: 100%;
 }
 .gallery__title {
   font-family: Roboto;
