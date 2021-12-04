@@ -21,4 +21,10 @@ const fetchMovieDetails = async movieId => {
   return response;
 };
 
-export { fetchMoviesBySearch, fetchPopularMovies, fetchMovieDetails };
+const fetchMoviesGenres = async () => {
+  const url = `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`;
+  const genres = await axios(url);
+  return genres;
+};
+
+export { fetchMoviesBySearch, fetchPopularMovies, fetchMovieDetails, fetchMoviesGenres };
