@@ -73,4 +73,4 @@ const e=document.querySelector('[id="home"]'),d=document.querySelector('[id="my-
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("../src/js/main/main-cards"),require("../src/js/header");
 },{"./sass/main.scss":"clu1","../src/js/main/main-cards":"RcC7","../src/js/header":"cGsR"}]},{},["Focm"], null)
-//# sourceMappingURL=/parcel-project-template/src.17906c8a.js.map
+//# sourceMappingURL=/filmoteka/src.fae8d1f4.js.map
