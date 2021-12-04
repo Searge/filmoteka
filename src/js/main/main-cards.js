@@ -27,7 +27,7 @@ const func = async () => {
 
 func();
 
-const genreSwitch = moviesID => {
+export const genreSwitch = moviesID => {
   const list = [];
   genres.forEach(element => {
     if (element.id === moviesID) {
@@ -37,7 +37,7 @@ const genreSwitch = moviesID => {
   return list[0];
 };
 
-const filterEl = array => {
+export const filterEl = array => {
   const list = [];
   array.filter((num, index) => {
     if (index < 2) {
