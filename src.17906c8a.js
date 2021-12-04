@@ -68,7 +68,9 @@ module.exports=require("./lib/axios");
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e=[{id:28,name:"Action"},{id:12,name:"Adventure"},{id:16,name:"Animation"},{id:35,name:"Comedy"},{id:80,name:"Crime"},{id:99,name:"Documentary"},{id:18,name:"Drama"},{id:10751,name:"Family"},{id:14,name:"Fantasy"},{id:36,name:"History"},{id:27,name:"Horror"},{id:10402,name:"Music"},{id:9648,name:"Mystery"},{id:10749,name:"Romance"},{id:878,name:"Science Fiction"},{id:10770,name:"TV Movie"},{id:53,name:"Thriller"},{id:10752,name:"War"},{id:37,name:"Western"}];exports.default=e;
 },{}],"RcC7":[function(require,module,exports) {
 "use strict";var e=require("../api-service"),t=n(require("./genres"));function n(e){return e&&e.__esModule?e:{default:e}}const l=document.querySelector(".gallery__list"),r=async()=>{const t=await(0,e.fetchPopularMovies)().then(({data:e})=>e.results.map(e=>`\n<li class="gallery__item">\n        <button class="gallery__link">\n          <img class="gallery__image" src="https://image.tmdb.org/t/p/w500/${e.poster_path}" alt="">\n          <h2 class="gallery__title">\n            ${e.original_title}\n          </h2>\n          <p class="gallery__text">\n          ${a(e.genre_ids)} | ${e.release_date.slice(0,4)}\n          </p>\n        </button>\n      </li>\n`));l.innerHTML=t.join("")};r();const s=e=>{const n=[];return t.default.forEach(t=>{t.id===e&&n.push(t.name)}),n[0]},a=e=>{const t=[];return e.filter((e,n)=>{n<2&&t.push(s(e)),2===n&&t.push("Other")}),t.join(", ")};
-},{"../api-service":"hC31","./genres":"SGnk"}],"Focm":[function(require,module,exports) {
-"use strict";require("./sass/main.scss"),require("../src/js/main/main-cards");
-},{"./sass/main.scss":"clu1","../src/js/main/main-cards":"RcC7"}]},{},["Focm"], null)
-//# sourceMappingURL=/parcel-project-template/src.804626c8.js.map
+},{"../api-service":"hC31","./genres":"SGnk"}],"cGsR":[function(require,module,exports) {
+const e=document.querySelector('[id="home"]'),d=document.querySelector('[id="my-library"]'),i=document.querySelector(".header__form"),t=document.querySelector(".header__mylibrary");function s(e){e.preventDefault(),i.classList.remove("is-hidden"),t.classList.add("is-hidden")}function r(e){e.preventDefault(),i.classList.add("is-hidden"),t.classList.remove("is-hidden")}i.classList.remove("is-hidden"),e.addEventListener("click",s),d.addEventListener("click",r);
+},{}],"Focm":[function(require,module,exports) {
+"use strict";require("./sass/main.scss"),require("../src/js/main/main-cards"),require("../src/js/header");
+},{"./sass/main.scss":"clu1","../src/js/main/main-cards":"RcC7","../src/js/header":"cGsR"}]},{},["Focm"], null)
+//# sourceMappingURL=/parcel-project-template/src.17906c8a.js.map
