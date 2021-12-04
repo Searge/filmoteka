@@ -64,6 +64,13 @@
             <br />
             <sub><b>OlgaOnoshko</b></sub>
         </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Serhii-P79">
+            <img src="https://avatars.githubusercontent.com/u/84634254?v=4" width="100;" alt="Serhii-P79"/>
+            <br />
+            <sub><b>Serhii-P79</b></sub>
+        </a>
     </td></tr>
 </table>
 <!-- readme: contributors -end -->
