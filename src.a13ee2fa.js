@@ -69,4 +69,4 @@ module.exports=require("./lib/axios");
 },{"../api-service":"hC31"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("../src/js/main/main-cards");
 },{"./sass/main.scss":"clu1","../src/js/main/main-cards":"RcC7"}]},{},["Focm"], null)
-//# sourceMappingURL=/parcel-project-template/src.040fb90d.js.map
+//# sourceMappingURL=/parcel-project-template/src.a13ee2fa.js.map
