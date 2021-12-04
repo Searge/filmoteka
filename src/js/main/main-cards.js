@@ -1,84 +1,6 @@
 import { fetchPopularMovies } from '../api-service';
-
+import genres from './genres';
 const cardsMain = document.querySelector('.gallery__list');
-const genres = [
-  {
-    id: 28,
-    name: 'Action',
-  },
-  {
-    id: 12,
-    name: 'Adventure',
-  },
-  {
-    id: 16,
-    name: 'Animation',
-  },
-  {
-    id: 35,
-    name: 'Comedy',
-  },
-  {
-    id: 80,
-    name: 'Crime',
-  },
-  {
-    id: 99,
-    name: 'Documentary',
-  },
-  {
-    id: 18,
-    name: 'Drama',
-  },
-  {
-    id: 10751,
-    name: 'Family',
-  },
-  {
-    id: 14,
-    name: 'Fantasy',
-  },
-  {
-    id: 36,
-    name: 'History',
-  },
-  {
-    id: 27,
-    name: 'Horror',
-  },
-  {
-    id: 10402,
-    name: 'Music',
-  },
-  {
-    id: 9648,
-    name: 'Mystery',
-  },
-  {
-    id: 10749,
-    name: 'Romance',
-  },
-  {
-    id: 878,
-    name: 'Science Fiction',
-  },
-  {
-    id: 10770,
-    name: 'TV Movie',
-  },
-  {
-    id: 53,
-    name: 'Thriller',
-  },
-  {
-    id: 10752,
-    name: 'War',
-  },
-  {
-    id: 37,
-    name: 'Western',
-  },
-];
 
 const func = async () => {
   const res = await fetchPopularMovies().then(({ data }) =>
@@ -93,12 +15,7 @@ const func = async () => {
             ${num.original_title}
           </h2>
           <p class="gallery__text">
-          ${num.genre_ids
-            .filter((num, index) => {
-              return genreSwitch(num);
-            })
-            .join(', ')}
-         
+          ${filterEl(num.genre_ids)} | ${num.release_date.slice(0, 4)}
           </p>
         </button>
       </li>
@@ -107,12 +24,28 @@ const func = async () => {
   );
   cardsMain.innerHTML = res.join('');
 };
+
 func();
 
-const genreSwitch = number => {
+const genreSwitch = moviesID => {
+  const list = [];
   genres.forEach(element => {
-    if (element.id === number) {
-      return element.name;
+    if (element.id === moviesID) {
+      list.push(element.name);
     }
   });
+  return list[0];
+};
+
+const filterEl = array => {
+  const list = [];
+  array.filter((num, index) => {
+    if (index < 2) {
+      list.push(genreSwitch(num));
+    }
+    if (index === 2) {
+      list.push('Other');
+    }
+  });
+  return list.join(', ');
 };
