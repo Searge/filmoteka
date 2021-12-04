@@ -15,10 +15,11 @@ const fetchPopularMovies = async () => {
   return response;
 };
 
-const fetchMovieDetails = async movieId => {
-  const url = `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}language=en-US`;
+const fetchMovieById = async movieId => {
+  const url = `${BASE_URL}/movie/911365?api_key=${API_KEY}&language=en-US`;
   const response = await axios(url);
   return response;
+  // ${BASE_URL}/movie/${movieId}?api_key=${API_KEY}language=en-US
 };
 
-export { fetchMoviesBySearch, fetchPopularMovies, fetchMovieDetails };
+export { fetchMoviesBySearch, fetchPopularMovies, fetchMovieById };
