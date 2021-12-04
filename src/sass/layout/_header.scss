@@ -1,0 +1,14 @@
+.header__mylibrary {
+  display: inline;
+}
+
+.header__mylibrary.is-hidden {
+  display: none;
+}
+
+.header__form.is-hidden {
+  display: none;
+}
+.header__form {
+  display: block;
+}

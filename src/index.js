@@ -1,3 +1,4 @@
 import './sass/main.scss';
-import '../src/js/main/main-cards';
-import '../src/js/main/movies-search.js';
+import './js/header';
+import './js/main/main-cards';
+import './js/main/movies-search.js';

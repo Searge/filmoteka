@@ -7,36 +7,46 @@
 .gallery__list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 20px;
 }
 .gallery__item {
   width: calc((100% - 40px) / 3);
 }
 .gallery__link {
+  cursor: pointer;
   appearance: none;
   border: none;
   background: none;
+  padding: 0;
+  &:hover .gallery__image {
+    box-shadow: 0px 0px 6px 3px rgba(0, 0, 0, 0.9);
+  }
 }
 .gallery__image {
   display: block;
   width: 100%;
+  transition: all 250ms linear;
+  border-radius: 5px;
 }
 .gallery__title {
+  margin-top: 10px;
+  text-align: left;
   font-family: Roboto;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 12px;
   line-height: 14px;
   text-transform: uppercase;
   color: #000000;
 }
 .gallery__text {
+  margin-top: 10px;
+  text-align: left;
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 14px;
-  text-transform: uppercase;
   color: #ff6b08;
 }

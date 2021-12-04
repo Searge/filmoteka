@@ -1,0 +1,17 @@
+// Responsive design
+// If you want we could use this mixins too
+// https://gist.github.com/davidgilbertson/ad24b42b0eddde2dc6b1b51f9460af11#file-css-breakpoint-mixins-scss
+
+// Style will work only from this breakpoint
+@mixin respond-from-min($breakpoint) {
+  @media screen and (min-width: #{$breakpoint}) {
+    @content;
+  }
+}
+
+// Style will work only to this breakpoint
+@mixin respond-to-max($breakpoint) {
+  @media screen and (max-width: #{$breakpoint}) {
+    @content;
+  }
+}

@@ -1,0 +1,20 @@
+// Wrapper
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+
+  max-width: $mobile;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include respond-from-min($tablet) {
+    max-width: $tablet;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include respond-from-min($desktop) {
+    max-width: $desktop;
+  }
+}
