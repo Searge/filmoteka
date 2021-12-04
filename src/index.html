@@ -3,32 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- META -->
+    <include src="./partials/meta-tags.html"></include>
+
     <title>Filmoteka</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
-      integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="../src/index.js" />
+
+    <link rel="stylesheet" href="./index.js" />
   </head>
   <body>
-    <!-- HEADER -->
-    <include src="./partials/header.html"></include>
+    <header class="header">
+      <div class="container">
+        <!-- HEADER -->
+        <include src="./partials/header.html"></include>
+      </div>
+    </header>
 
-    <!-- MAIN -->
     <main>
-      <include src="./partials/main.html"></include>
+      <section>
+        <!-- MAIN GALLERY -->
+        <include src="./partials/main.html"></include>
+      </section>
     </main>
 
-    <!-- FOOTER -->
-    <include src="./partials/footer.html"></include>
+    <footer>
+      <div class="container">
+        <!-- FOOTER -->
+        <include src="./partials/footer.html"></include>
+      </div>
+    </footer>
 
     <!-- MOVIE MODAL -->
     <include src="./partials/modal.html"></include>
