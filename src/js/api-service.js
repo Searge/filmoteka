@@ -10,9 +10,15 @@ const fetchMoviesBySearch = async (searchQuery, page) => {
 };
 
 const fetchPopularMovies = async () => {
-  const url = `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&language=en`;
+  const url = `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&language=en-US`;
   const response = await axios(url);
   return response;
 };
 
-export { fetchMoviesBySearch, fetchPopularMovies };
+const fetchMovieDetails = async movieId => {
+  const url = `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}language=en-US`;
+  const response = await axios(url);
+  return response;
+};
+
+export { fetchMoviesBySearch, fetchPopularMovies, fetchMovieDetails };
