@@ -1,6 +1,6 @@
 import { fetchPopularMovies } from '../api-service';
 
-const cardsMain = document.querySelector('.gallery');
+const cardsMain = document.querySelector('.gallery__list');
 const genres = [
   {
     id: 28,
@@ -80,15 +80,47 @@ const genres = [
   },
 ];
 
-// const template = `
+const func = async () => {
+  const res = await fetchPopularMovies().then(({ data }) =>
+    data.results.map(num => {
+      return `
+<li class="gallery__item">
+        <button class="gallery__link">
+          <img class="gallery__image" src="https://image.tmdb.org/t/p/w500/${
+            num.poster_path
+          }" alt="">
+          <h2 class="gallery__title">
+            ${num.original_title}
+          </h2>
+          <p class="gallery__text">
+          ${num.genre_ids
+            .filter((num, index) => {
+              return genreSwitch(num);
+            })
+            .join(', ')}
+         
+          </p>
+        </button>
+      </li>
+`;
+    }),
+  );
+  cardsMain.innerHTML = res.join('');
+};
+
+func();
+
+// const listCardss = listInfo.map(num => {
+//   return (
+//      `
 // <li class="gallery__item">
 //         <button class="gallery__link">
-//           <img class="gallery__image" src='https://image.tmdb.org/t/p/w500/${poster_path}' alt="">
+//           <img class="gallery__image" src="https://image.tmdb.org/t/p/w500/${num.poster_path}" alt="">
 //           <h2 class="gallery__title">
-//             ${original_title}
+//             ${num.original_title}
 //           </h2>
 //           <p class="gallery__text">
-//           ${genre_ids
+//           ${num.genre_ids
 //             .map((num, index) => {
 //               if (index > 3) {
 //                 return;
@@ -100,7 +132,10 @@ const genres = [
 //           </p>
 //         </button>
 //       </li>
-// `;
+// `
+//    )
+// })
+
 const genreSwitch = number => {
   genres.forEach(element => {
     if (element.id === number) {
@@ -108,5 +143,3 @@ const genreSwitch = number => {
     }
   });
 };
-
-console.dir(JSON.parse(fetchPopularMovies()));

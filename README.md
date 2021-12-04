@@ -56,6 +56,7 @@
             <img src="https://avatars.githubusercontent.com/u/83830229?v=4" width="100;" alt="Huk2021"/>
             <br />
             <sub><b>Viktoriia Huk</b></sub>
+
         </a>
     </td>
     <td align="center">
