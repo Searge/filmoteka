@@ -6,12 +6,9 @@
 ![Repo size](https://img.shields.io/github/repo-size/Searge/filmoteka?style=flat-square)
 ![Lines of code](https://img.shields.io/tokei/lines/github/Searge/filmoteka?style=flat-square&color=orange)
 
-![Deploy](https://github.com/Searge/filmoteka/workflows/Build-n-Deploy/badge.svg?branch=main&style=flat-square) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/d811f2e895fb4925aa1fccb5f6a2a130)](https://www.codacy.com/gh/Searge/filmoteka/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Searge/filmoteka&amp;utm_campaign=Badge_Grade)
-
-### Validation
-
-1. [Index](https://validator.w3.org/nu/?doc=https%3A%2F%2Fsearge.github.io%2Ffilmoteka%2F)
-   ![w3c](https://img.shields.io/w3c-validation/default?targetUrl=https%3A%2F%2Fsearge.github.io%2Ffilmoteka%2F&style=flat-square)
+![Deploy](https://github.com/Searge/filmoteka/workflows/Build-n-Deploy/badge.svg?branch=main&style=flat-square)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/d811f2e895fb4925aa1fccb5f6a2a130)](https://www.codacy.com/gh/Searge/filmoteka/dashboard?utm_source=github.com&utm_medium=referral&utm_content=Searge/filmoteka&utm_campaign=Badge_Grade)
+[![w3c](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fsearge.pp.ua%2Ffilmoteka%2F)](https://validator.w3.org/nu/?showsource=yes&showoutline=yes&doc=https%3A%2F%2Fsearge.pp.ua%2Ffilmoteka%2F)
 
 ### Technologies
 
