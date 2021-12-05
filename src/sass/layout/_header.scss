@@ -2,7 +2,7 @@
   height: 230px;
   margin-left: auto;
   margin-right: auto;
-  min-width: $mobile;
+  min-width: $mobileS;
 
   &__background {
     background: rgba(0, 0, 0, 0.56);
@@ -109,8 +109,6 @@
 }
 
 .library__background {
-  height: 100%;
-  max-width: 767px;
   background: $primary-color-alpha;
   background-repeat: no-repeat;
   background-size: cover;
@@ -184,7 +182,7 @@
 @include respond-from-min($desktop) {
   .header {
     min-width: $desktop;
-    max-width: 1600px;
+    max-width: $desktopMax;
 
     &__background {
       background-image: $line-gradient, url('../images/desktop/header_home.jpg');
@@ -193,8 +191,7 @@
   }
 
   .library__background {
-    height: 100%;
-    max-width: 1600px;
+    max-width: $desktopMax;
     background-image: $line-gradient, url('../images/desktop/header_mylibrary.jpg');
     @include retina('../images/desktop/header_mylibrary@2x.jpg', $desktop, $line-gradient);
   }
