@@ -15,7 +15,7 @@ const fetchPopularMovies = async () => {
   return response;
 };
 
-const fetchMovieDetails = async movieId => {
+const fetchMovieById = async movieId => {
   const url = `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}language=en-US`;
   const response = await axios(url);
   return response;
@@ -27,4 +27,5 @@ const fetchMoviesGenres = async () => {
   return genres;
 };
 
-export { fetchMoviesBySearch, fetchPopularMovies, fetchMovieDetails, fetchMoviesGenres };
+export { fetchMoviesBySearch, fetchPopularMovies, fetchMovieById, fetchMoviesGenres };
+
