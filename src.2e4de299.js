@@ -86,4 +86,4 @@ var t;!function(e,n){"object"==typeof exports&&"object"==typeof module?module.ex
 },{"./api-service":"hC31","axios":"dZBD","./main/genres":"SGnk"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/header"),require("./js/main/main-cards"),require("./js/main/movies-search.js"),require("./js/modal");
 },{"./sass/main.scss":"clu1","./js/header":"cGsR","./js/main/main-cards":"RcC7","./js/main/movies-search.js":"Byr9","./js/modal":"RSqK"}]},{},["Focm"], null)
-//# sourceMappingURL=/filmoteka/src.b1312cac.js.map
+//# sourceMappingURL=/filmoteka/src.2e4de299.js.map
