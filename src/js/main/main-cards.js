@@ -8,9 +8,11 @@ const func = async () => {
       return `
 <li class="gallery__item">
         <button class="gallery__link">
+        <div class="gallery__image-box">
           <img class="gallery__image" src="https://image.tmdb.org/t/p/w500/${
             num.poster_path
           }" alt="">
+          </div>
           <h2 class="gallery__title">
             ${num.original_title}
           </h2>

@@ -1,13 +1,16 @@
 // Wrapper
 .container {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
 
   max-width: $mobile;
   margin-left: auto;
   margin-right: auto;
 
   @include respond-from-min($tablet) {
+    padding-left: 15px;
+    padding-right: 15px;
+
     max-width: $tablet;
 
     margin-left: auto;

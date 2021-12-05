@@ -60,14 +60,16 @@ function renderGallery(moviesArr) {
       return `
 <li class="gallery__item">
         <button class="gallery__link" data-id="${movie.id}">
+        <div class="gallery__image-box">
           <img class="gallery__image" src="https://image.tmdb.org/t/p/w500/${
             movie.poster_path
           }" alt="${movie.original_title}">
+          </div>
           <h2 class="gallery__title">
             ${movie.original_title}
           </h2>
           <p class="gallery__text">
-          ${movie.genre_ids ? filterEl(movie.genre_ids) : 'Genre not defined'} | ${
+          ${movie.genre_ids ? filterEl(movie.genre_ids) : 'N/A'} | ${
         movie.release_date ? movie.release_date.slice(0, 4) : 'N/A'
       }
           </p>
@@ -79,4 +81,9 @@ function renderGallery(moviesArr) {
   moviesGalleryEl.innerHTML = markup;
 }
 
-function onClick() {}
+function onClick() {
+  pagination.on('beforeMove', evt => {
+    currentPage = evt.page;
+  });
+  pagination.movePageTo(currentPage);
+}
