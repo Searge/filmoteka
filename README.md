@@ -44,17 +44,17 @@
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/Huk2021">
-            <img src="https://avatars.githubusercontent.com/u/83830229?v=4" width="100;" alt="Huk2021"/>
-            <br />
-            <sub><b>Viktoriia Huk</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/omykhalska">
             <img src="https://avatars.githubusercontent.com/u/83216292?v=4" width="100;" alt="omykhalska"/>
             <br />
             <sub><b>Omykhalska</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Huk2021">
+            <img src="https://avatars.githubusercontent.com/u/83830229?v=4" width="100;" alt="Huk2021"/>
+            <br />
+            <sub><b>Viktoriia Huk</b></sub>
         </a>
     </td>
     <td align="center">
