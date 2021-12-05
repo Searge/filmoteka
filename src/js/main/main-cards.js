@@ -27,10 +27,10 @@ const func = async () => {
 
 func();
 
-export const genreSwitch = moviesID => {
+export const genreSwitch = genreID => {
   const list = [];
   genres.forEach(element => {
-    if (element.id === moviesID) {
+    if (element.id === genreID) {
       list.push(element.name);
     }
   });
