@@ -1,8 +1,9 @@
 import { fetchMoviesBySearch, fetchMoviesGenres } from '../api-service.js';
-import { filterEl, genreSwitch } from './main-cards';
+import { filterEl } from './main-cards';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import Pagination from 'tui-pagination';
 import css from 'tui-pagination/dist/tui-pagination.min.css';
+import imgPlaceholder from '../../images/no-poster-available.jpg';
 
 const WARNING_MESSAGE = 'The search string cannot be empty. Please specify your search query.';
 const ERROR_MESSAGE = 'Sorry, there are no movies matching your search query. Please try again.';
@@ -51,7 +52,7 @@ function createMoviesGallery() {
         pagination.reset(response.data.total_results);
       }
     })
-    .catch(error => console.log(error));
+    .catch(error => console.log(error.message));
 }
 
 function renderGallery(moviesArr) {
@@ -63,7 +64,9 @@ function renderGallery(moviesArr) {
         <div class="gallery__image-box">
           <img class="gallery__image" src="https://image.tmdb.org/t/p/w500/${
             movie.poster_path
-          }" alt="${movie.original_title}">
+          }" alt="${
+        movie.original_title
+      }" onerror="this.onerror=null;this.src='${imgPlaceholder}';">
           </div>
           <h2 class="gallery__title">
             ${movie.original_title}
