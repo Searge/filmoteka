@@ -15,3 +15,31 @@
     @content;
   }
 }
+
+@mixin retina($image, $width: 'false', $gradient: 'false') {
+  @if $width != 'false' and $gradient != 'false' {
+    @media screen and (min-device-pixel-ratio: 2) and (min-width: $width),
+      screen and (min-resolution: 192dpi) and (min-width: $width),
+      screen and (min-resolution: 2dppx) and (min-width: $width) {
+      background-image: $gradient, url($image);
+    }
+  } @else if $width != 'false' and $gradient == 'false' {
+    @media screen and (min-device-pixel-ratio: 2) and (min-width: $width),
+      screen and (min-resolution: 192dpi) and (min-width: $width),
+      screen and (min-resolution: 2dppx) and (min-width: $width) {
+      background-image: url($image);
+    }
+  } @else if $width == 'false' and $gradient == 'false' {
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url($image);
+    }
+  } @else if $width == 'false' and $gradient != 'false' {
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: $gradient, url($image);
+    }
+  }
+}

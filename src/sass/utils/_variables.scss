@@ -6,6 +6,7 @@ $primary-color-light: #ffffff;
 $secondary-color-light: #f7f7f7;
 $accent-color: #ff6b08;
 $primary-color-alpha: rgba(0, 0, 0, 0.56);
+$line-gradient: linear-gradient($primary-color-alpha, $primary-color-alpha);
 
 // FONTS
 $main-font: 'Roboto', sans-serif;
