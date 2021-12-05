@@ -3,8 +3,10 @@
 ## GoIT Team B2B Project [ JavaScript | SASS | Parcel ]
 
 ![Created](https://img.shields.io/date/1638451438.svg?style=flat-square&logo=github)
+![GitHub](https://img.shields.io/github/license/searge/filmoteka?style=flat-square)
 ![Repo size](https://img.shields.io/github/repo-size/Searge/filmoteka?style=flat-square)
 ![Lines of code](https://img.shields.io/tokei/lines/github/Searge/filmoteka?style=flat-square&color=orange)
+![GitHub top language](https://img.shields.io/github/languages/top/searge/filmoteka?style=flat-square)
 
 ![Deploy](https://github.com/Searge/filmoteka/workflows/Build-n-Deploy/badge.svg?branch=main&style=flat-square)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/d811f2e895fb4925aa1fccb5f6a2a130)](https://www.codacy.com/gh/Searge/filmoteka/dashboard?utm_source=github.com&utm_medium=referral&utm_content=Searge/filmoteka&utm_campaign=Badge_Grade)
