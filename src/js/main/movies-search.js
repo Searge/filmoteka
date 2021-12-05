@@ -1,4 +1,5 @@
-import { fetchMoviesBySearch } from '../api-service.js';
+import { fetchMoviesBySearch, fetchMoviesGenres } from '../api-service.js';
+import { filterEl, genreSwitch } from './main-cards';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const formEl = document.querySelector('.header__form');
@@ -42,12 +43,16 @@ function renderGallery(moviesArr) {
         <button class="gallery__link" data-id=${movie.id}>
           <img class="gallery__image" src="https://image.tmdb.org/t/p/w500/${
             movie.poster_path
-          }" alt="">
+          }" alt="${movie.original_title}">
           <h2 class="gallery__title">
             ${movie.original_title}
           </h2>
           <p class="gallery__text">
-          genres | ${movie.release_date.slice(0, 4)}
+          ${movie.genre_ids ? filterEl(movie.genre_ids) : 'N/A'} | ${
+        movie.release_date ? movie.release_date.slice(0, 4) : 'N/A'
+      } | <span class="movie-rate">${
+        movie.vote_average ? String(movie.vote_average).padEnd(3, '.0') : 'N/A'
+      }</span>
           </p>
         </button>
       </li>

@@ -16,10 +16,16 @@ const fetchPopularMovies = async () => {
 };
 
 const fetchMovieById = async movieId => {
-  const url = `${BASE_URL}/movie/911365?api_key=${API_KEY}&language=en-US`;
+  const url = `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}language=en-US`;
   const response = await axios(url);
   return response;
-  // ${BASE_URL}/movie/${movieId}?api_key=${API_KEY}language=en-US
 };
 
-export { fetchMoviesBySearch, fetchPopularMovies, fetchMovieById };
+const fetchMoviesGenres = async () => {
+  const url = `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`;
+  const genres = await axios(url);
+  return genres;
+};
+
+export { fetchMoviesBySearch, fetchPopularMovies, fetchMovieById, fetchMoviesGenres };
+

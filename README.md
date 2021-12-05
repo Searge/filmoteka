@@ -6,7 +6,7 @@
 ![Repo size](https://img.shields.io/github/repo-size/Searge/filmoteka?style=flat-square)
 ![Lines of code](https://img.shields.io/tokei/lines/github/Searge/filmoteka?style=flat-square&color=orange)
 
-![Deploy](https://github.com/Searge/filmoteka/workflows/Build-n-Deploy/badge.svg?branch=main&style=flat-square)
+![Deploy](https://github.com/Searge/filmoteka/workflows/Build-n-Deploy/badge.svg?branch=main&style=flat-square) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/d811f2e895fb4925aa1fccb5f6a2a130)](https://www.codacy.com/gh/Searge/filmoteka/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Searge/filmoteka&amp;utm_campaign=Badge_Grade)
 
 ### Validation
 
@@ -63,6 +63,13 @@
             <img src="https://avatars.githubusercontent.com/u/84858305?v=4" width="100;" alt="OlgaOnoshko"/>
             <br />
             <sub><b>OlgaOnoshko</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Serhii-P79">
+            <img src="https://avatars.githubusercontent.com/u/84634254?v=4" width="100;" alt="Serhii-P79"/>
+            <br />
+            <sub><b>Serhii-P79</b></sub>
         </a>
     </td></tr>
 </table>
