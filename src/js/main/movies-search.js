@@ -40,10 +40,10 @@ function renderGallery(moviesArr) {
     .map(movie => {
       return `
 <li class="gallery__item">
-        <button class="gallery__link" data-id=${movie.id}>
+        <button class="gallery__link">
           <img class="gallery__image" src="https://image.tmdb.org/t/p/w500/${
             movie.poster_path
-          }" alt="${movie.original_title}">
+          }" alt="${movie.original_title}" data-id=${movie.id}>
           <h2 class="gallery__title">
             ${movie.original_title}
           </h2>
