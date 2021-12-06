@@ -11,7 +11,7 @@ const func = async () => {
         <div class="gallery__image-box">
           <img class="gallery__image" src="https://image.tmdb.org/t/p/w500/${
             num.poster_path
-          }" alt="">
+          }" alt="" data-id="${num.id}"">
           </div>
           <h2 class="gallery__title">
             ${num.original_title}
