@@ -5,7 +5,7 @@
   min-width: $mobileS;
 
   &__background {
-    background: rgba(0, 0, 0, 0.56);
+    background: $primary-color-alpha;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -28,14 +28,14 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 1.16;
-    color: #ffffff;
+    color: $primary-color-light;
   }
   &__form {
     display: block;
     width: 280px;
     margin-left: auto;
     margin-right: auto;
-    border-bottom: 0.5px solid #ffffff;
+    border-bottom: 0.5px solid $primary-color-light;
     background: transparent;
   }
 
@@ -46,13 +46,13 @@
   &__search-film {
     background-color: transparent;
     border: none;
-    color: #ffffff;
+    color: $primary-color-light;
     outline: none;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.14;
     &::placeholder {
-      color: #ffffff;
+      color: $primary-color-light;
     }
   }
 
@@ -80,8 +80,8 @@
   &__mylibrary-btn {
     width: 130px;
     height: 44px;
-    color: #ffffff;
-    background: #ff6b01;
+    color: $primary-color-light;
+    background: $accent-color-fill;
     border-radius: 5px;
     text-transform: uppercase;
     font-weight: 500;
@@ -94,7 +94,7 @@
     box-shadow: 0, 8px rgba(255, 107, 1, 0.6);
     &:hover,
     &:focus {
-      border: 1px solid #ffffff;
+      border: 1px solid $primary-color-light;
       background: transparent;
     }
   }
@@ -105,7 +105,7 @@
 }
 
 .current {
-  border-bottom: 3px solid #ff6b08;
+  border-bottom: 3px solid $accent-color;
 }
 
 .library__background {
@@ -141,7 +141,7 @@
 
     &__logo-span {
       display: inline;
-      color: #ffffff;
+      color: $primary-color-light;
       font-weight: 500;
       font-size: 30px;
       line-height: 1.16;
@@ -191,7 +191,6 @@
   }
 
   .library__background {
-    max-width: $desktopMax;
     background-image: $line-gradient, url('../images/desktop/header_mylibrary.jpg');
     @include retina('../images/desktop/header_mylibrary@2x.jpg', $desktop, $line-gradient);
   }

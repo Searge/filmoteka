@@ -16,7 +16,7 @@ const fetchPopularMovies = async () => {
 };
 
 const fetchMovieById = async movieId => {
-  const url = `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}language=en-US`;
+  const url = `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`;
   const response = await axios(url);
   return response;
 };
@@ -28,4 +28,3 @@ const fetchMoviesGenres = async () => {
 };
 
 export { fetchMoviesBySearch, fetchPopularMovies, fetchMovieById, fetchMoviesGenres };
-
