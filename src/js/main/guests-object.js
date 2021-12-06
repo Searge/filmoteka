@@ -5,7 +5,7 @@ export const myLibrary = {
   _queue: [], // добавленные в очередь
 
   // инициализация
-  InitializationLibrary() {
+  initializationLibrary() {
     this._readLibrary();
   },
 
