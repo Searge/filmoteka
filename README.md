@@ -37,17 +37,17 @@
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/omykhalska">
-            <img src="https://avatars.githubusercontent.com/u/83216292?v=4" width="100;" alt="omykhalska"/>
-            <br />
-            <sub><b>Omykhalska</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/ruslanpetrovup">
             <img src="https://avatars.githubusercontent.com/u/48686933?v=4" width="100;" alt="ruslanpetrovup"/>
             <br />
             <sub><b>Ruslan Petrov</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/omykhalska">
+            <img src="https://avatars.githubusercontent.com/u/83216292?v=4" width="100;" alt="omykhalska"/>
+            <br />
+            <sub><b>Omykhalska</b></sub>
         </a>
     </td>
     <td align="center">
