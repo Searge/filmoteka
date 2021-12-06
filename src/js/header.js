@@ -1,3 +1,7 @@
+import { myLibrary } from './main/guests-object';
+
+myLibrary.initializationLibrary();
+
 const homeLink = document.querySelector('[id="home"]');
 const libraryLink = document.querySelector('[id="my-library"]');
 const formHeader = document.querySelector('.header__form');
