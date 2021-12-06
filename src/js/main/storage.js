@@ -14,7 +14,8 @@ const load = key => {
     return serializedState === null ? undefined : JSON.parse(serializedState);
   } catch (error) {
     Notify.warning(`Get state error: ${error.message}`);
+    return undefined;
   }
 };
 
-export default { save, load };
+export { save, load };

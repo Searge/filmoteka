@@ -28,8 +28,10 @@ export const myLibrary = {
   },
 
   _readLibrary() {
-    this._watched = load('watched');
-    this._queue = load('queue');
+    let dataLoad = load('watched');
+    this._watched = dataLoad ? dataLoad : [];
+    dataLoad = load('queue');
+    this._queue = dataLoad ? dataLoad : [];
   },
 
   // просмотренные фильмы
