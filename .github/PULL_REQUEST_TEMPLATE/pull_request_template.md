@@ -13,7 +13,7 @@ Please delete options that are not relevant or add yours.
       expected)
 - [ ] This change requires a documentation update
 
-# Checklist
+## Checklist
 
 - [ ] My code follows the style guidelines of this project
 - [ ] I have performed a self-review of my own code
