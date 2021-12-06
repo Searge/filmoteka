@@ -66,7 +66,7 @@ function renderGallery(moviesArr) {
             movie.poster_path
           }" alt="${
         movie.original_title
-      }" onerror="this.onerror=null;this.src='${imgPlaceholder}';">
+      }" onerror="this.onerror=null;this.src='${imgPlaceholder}';" data-id="${movie.id}">
           </div>
           <h2 class="gallery__title">
             ${movie.original_title}
