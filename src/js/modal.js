@@ -1,19 +1,21 @@
 import { fetchMovieById } from './api-service';
+import { myLibrary, foundFilms } from './main/guests-object';
 import axios from 'axios';
 import genres from './main/genres';
 import './main/main-cards';
 
+myLibrary.initializationLibrary();
+
 const gallery = document.querySelector('.gallery__list');
-// причепити слухач на кнопку на модалці
 const backdrop = document.querySelector('[data-modal]');
-// const closeModalBtn = document.querySelector('[data-modal-close]');
+// const closeModalBtn = document.querySelector('[data-action="modal-close"]');
 const modal = document.querySelector('.modal');
-const movieCard = document.querySelector('.gallery__link');
+// const movieCard = document.querySelector('.gallery__link');
 
 gallery.addEventListener('click', onMovieCLick);
-document.addEventListener('keydown', onEscClose);
+
 // closeModalBtn.addEventListener('click', onBtnClose);
-document.addEventListener('click', onClickClose);
+// document.addEventListener('click', onClickClose);
 
 function onMovieCLick(event) {
   event.preventDefault();
@@ -21,13 +23,13 @@ function onMovieCLick(event) {
     return;
   }
   backdrop.classList.remove('is-hidden');
-  console.log(event.target.dataset.id);
   const movieId = event.target.dataset.id;
   fetchMovieById(movieId).then(responce => {
     const movieInfo = responce.data;
-    console.log(movieInfo);
     renderModalCard(movieInfo);
   });
+  document.addEventListener('keydown', onEscClose);
+  document.addEventListener('click', onClickClose);
 }
 
 function renderModalCard({
@@ -39,7 +41,9 @@ function renderModalCard({
   original_title,
   genres,
   overview,
+  id,
 }) {
+  const genresList = genres.map(genre => genre.name).join(', ');
   modal.innerHTML = `<div>
   <div class="movie__container">
     <div class="image__container"> 
@@ -59,20 +63,18 @@ function renderModalCard({
       </li> 
       <li class="movie__info-item">
         <!-- подумати ще над оформленням списку жанрів -->
-        <span class="movie__info-title">Genre</span><span class="movie__info-data">${{
-          genres,
-        }}</span>
+        <span class="movie__info-title">Genre</span><span class="movie__info-data">${genresList}</span>
       </li>
     </ul>
     <h3 class="movie__overview-title">ABOUT</h3>
     <p class="movie__overview-text">${overview}</p>
     <div class="movie__buttons">
-    <button type="button" class="add-button" data-id="modal__watched-btn">ADD TO WATCHED</button>
-    <button type="button" class="add-button" data-id="modal__btn">ADD TO QUEUE</button>
-    <button data-modal-close class="modal__close" data-id="modal__close-btn">
-        <!-- <svg width="11px" height="11px">
-                    <use href="./images/svg/icons.svg#icon-cross"></use>
-                </svg> -->
+    <button type="button" class="add-button" data-id="${id}" data-action="button__watched">ADD TO WATCHED</button>
+    <button type="button" class="add-button" data-id="${id}" data-action="button__queue">ADD TO QUEUE</button>
+    <button type="button" id="modal-close" class="modal__close">
+    <svg class="close-icon" width="30px" height="30px">
+    <use href="../images/sprite.svg#icon-search"></use>
+    </svg>
       </button>
     </div>
     </div>
@@ -80,17 +82,17 @@ function renderModalCard({
 }
 
 function onClickClose(event) {
-  if (event.target === backdrop) {
+  if (event.target === backdrop || event.target.id === 'modal-close') {
     backdrop.classList.add('is-hidden');
+    document.removeEventListener('click', onClickClose);
+    document.removeEventListener('keydown', onEscClose);
   }
 }
 
 function onEscClose(event) {
   if (event.key === 'Escape') {
     backdrop.classList.add('is-hidden');
+    document.removeEventListener('click', onClickClose);
+    document.removeEventListener('keydown', onEscClose);
   }
-}
-
-function onBtnClose(event) {
-  backdrop.classList.add('is-hidden');
 }
