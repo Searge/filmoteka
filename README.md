@@ -37,10 +37,17 @@
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/Huk2021">
-            <img src="https://avatars.githubusercontent.com/u/83830229?v=4" width="100;" alt="Huk2021"/>
+        <a href="https://github.com/ruslanpetrovup">
+            <img src="https://avatars.githubusercontent.com/u/48686933?v=4" width="100;" alt="ruslanpetrovup"/>
             <br />
-            <sub><b>Viktoriia Huk</b></sub>
+            <sub><b>Ruslan Petrov</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Lozikkk">
+            <img src="https://avatars.githubusercontent.com/u/68775142?v=4" width="100;" alt="Lozikkk"/>
+            <br />
+            <sub><b>Oleksandr Lozinskyi</b></sub>
         </a>
     </td>
     <td align="center">
@@ -51,17 +58,10 @@
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/ruslanpetrovup">
-            <img src="https://avatars.githubusercontent.com/u/48686933?v=4" width="100;" alt="ruslanpetrovup"/>
+        <a href="https://github.com/Huk2021">
+            <img src="https://avatars.githubusercontent.com/u/83830229?v=4" width="100;" alt="Huk2021"/>
             <br />
-            <sub><b>Ruslan Petrov</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/OlgaOnoshko">
-            <img src="https://avatars.githubusercontent.com/u/84858305?v=4" width="100;" alt="OlgaOnoshko"/>
-            <br />
-            <sub><b>OlgaOnoshko</b></sub>
+            <sub><b>Viktoriia Huk</b></sub>
         </a>
     </td>
     <td align="center">
@@ -69,6 +69,14 @@
             <img src="https://avatars.githubusercontent.com/u/84634254?v=4" width="100;" alt="Serhii-P79"/>
             <br />
             <sub><b>Serhii-P79</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/OlgaOnoshko">
+            <img src="https://avatars.githubusercontent.com/u/84858305?v=4" width="100;" alt="OlgaOnoshko"/>
+            <br />
+            <sub><b>OlgaOnoshko</b></sub>
         </a>
     </td></tr>
 </table>
