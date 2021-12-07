@@ -192,6 +192,7 @@
       background-image: $line-gradient, url('../images/desktop/header_home.jpg');
       @include retina('../images/desktop/header_home@2x.jpg', $desktop, $line-gradient);
     }
+
     &__item:not(:first-child) {
       margin-right: 55px;
     }
