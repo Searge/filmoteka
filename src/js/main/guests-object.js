@@ -44,25 +44,27 @@ export const myLibrary = {
   addWatched(movie = {}) {
     // movie.id
     if (!this._watched.find(element => element.id === movie.id)) {
-      this._watched.puch(movie);
+      this._watched.push(movie);
       this._saveWatched();
-      this._deleteQueue(movie);
     }
+    this._deleteQueue(movie);
   },
 
   // очередь
   addQueue(movie = {}) {
     if (!this._queue.find(element => element.id === movie.id)) {
-      this._queue.puch(movie);
+      this._queue.push(movie);
       this._saveQueue();
     }
   },
 
   // удалить из очереди
   _deleteQueue(movie = {}) {
-    if (this._queue.find((element, index) => element.id === movie.id)) {
-      this._queue.splice(index, 1);
-      this._saveQueue();
-    }
+    this._queue.find((element, index) => {
+      if (element.id === movie.id) {
+        this._queue.splice(index, 1);
+        this._saveQueue();
+      }
+    });
   },
 };
