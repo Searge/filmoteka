@@ -16,29 +16,185 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  padding: 40px;
-  width: 450px;
-  height: 609px;
+  padding-top: 48px;
+  padding-bottom: 41px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 280px;
+  // height: 609px;
 
-  background-color: rgba(255, 255, 255, 1);
+  background-color: $primary-color-light;
 
   transform: translate(-50%, -50%);
   box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
     0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 
-  @media screen and (min-width: 1200px) {
-    width: 528px;
-    height: 581px;
+  @media screen and (min-width: $tablet) {
+    padding-top: 42px;
+    padding-left: 28px;
+    padding-right: 30px;
+    width: 618px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding-top: 50px;
+    padding-bottom: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 882px;
   }
 }
 
-// Modal Close Button
+.image__container {
+  display: block;
+  width: 240px;
+  height: 357px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  overflow: hidden;
+
+  @media screen and (min-width: $tablet) {
+    min-width: 264px;
+    height: 374px;
+    margin-right: 32px;
+    // подивитись чи це потрібно
+  }
+
+  @media screen and (min-width: $desktop) {
+    min-width: 396px;
+    height: 478px;
+    margin-right: 30px;
+    // margin-right: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+.modal__movie-img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.movie__container {
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+// movie info styles
+
+.modal__movie-title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.15;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: $desktop) {
+    font-size: 30px;
+    line-height: 1.17;
+  }
+}
+
+.movie__info-item {
+  display: flex;
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+}
+
+.movie__info-item:last-child {
+  margin-bottom: 20px;
+}
+
+.movie__info-title {
+  display: block;
+  width: 108px;
+  color: $ternary-color;
+
+  @media screen and (min-width: $desktop) {
+    width: 152px;
+  }
+}
+
+.movie__info-data {
+  display: flex;
+}
+
+.votes__colored {
+  display: block;
+  background-color: $accent-color-fill;
+  color: $primary-color-light;
+  height: 14px;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 9px;
+}
+
+.vote__divide {
+  display: block;
+  max-width: 8px;
+  color: $ternary-color;
+  margin-left: 4px;
+  margin-right: 7px;
+}
+
+.original-title {
+  text-transform: uppercase;
+}
+
+.movie__overview-title {
+  margin-bottom: 10px;
+}
+
+.movie__overview-text {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.67;
+  margin-bottom: 21px;
+}
+
+// Modal Buttons  Styles
+.movie__buttons {
+  display: flex;
+}
+
+.add-button {
+  width: 113px;
+  height: 44px;
+  padding-top: 5px;
+
+  background-color: $primary-color-light;
+  border: 1px solid $primary-color;
+  border-radius: 5px;
+
+  @media screen and (min-width: $tablet) {
+    width: 125px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 136px;
+  }
+}
+
+.add-button:hover {
+  background-color: $accent-color-fill;
+  border: 1px solid $accent-color-fill;
+  color: $primary-color-light;
+  cursor: pointer;
+}
+
+.add-button:nth-child(1) {
+  margin-right: 15px;
+}
+
 .modal__close {
   position: absolute;
-  top: 30px;
-  right: 30px;
-
-  width: 25px;
-  height: 25px;
-  border-radius: 50px;
+  top: 18px;
+  right: 18px;
+  width: 14px;
+  height: 14px;
 }
