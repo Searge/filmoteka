@@ -33,13 +33,14 @@
     color: $primary-color-light;
   }
   &__form {
-    display: block;
+    display: flex;
+    justify-content: space-between;
     width: 280px;
     margin-left: auto;
     margin-right: auto;
-    border-bottom: 0.5px solid $primary-color-light;
     background: transparent;
     padding-top: 45px;
+    border-bottom: 0.5px solid $primary-color-light;
   }
 
   &__form.is-hidden {
@@ -47,6 +48,7 @@
   }
 
   &__search-film {
+    width: 280px;
     background-color: transparent;
     border: none;
     color: $primary-color-light;
@@ -54,6 +56,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 1.14;
+
     &::placeholder {
       color: $primary-color-light;
     }
@@ -64,7 +67,6 @@
     outline: none;
     background-color: transparent;
     cursor: pointer;
-    margin-left: 90px;
   }
 
   &__logo-span {
@@ -161,8 +163,8 @@
       padding-top: 37px;
     }
 
-    &__btn {
-      margin-left: 145px;
+    &__search-film {
+      width: 336px;
     }
 
     &__mylibrary {
