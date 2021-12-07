@@ -4,6 +4,7 @@ import axios from 'axios';
 import genres from './main/genres';
 import './main/main-cards';
 import sprite from '../images/sprite.svg';
+import imgPlaceholder from '../images/no-poster-available.png';
 
 myLibrary.initializationLibrary();
 
@@ -40,10 +41,13 @@ function renderModalCard({
   id,
 }) {
   const genresList = genres.map(genre => genre.name).join(', ');
+  // if (poster_path === null) {
+  //   src='${imgPlaceholder}
+  // }
   modal.innerHTML = `<div>
   <div class="movie__container">
     <div class="image__container"> 
-    <img class="modal__movie-img" src='https://image.tmdb.org/t/p/w500/${poster_path}' alt="">
+    <img class="modal__movie-img" src='https://image.tmdb.org/t/p/w500/${poster_path}' alt="${title}" onerror="this.onerror=null;this.src='${imgPlaceholder}';">
     </div>
     <div class="movie__info">
     <h2 class="modal__movie-title">${title}</h2>
