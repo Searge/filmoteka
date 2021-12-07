@@ -17,13 +17,15 @@
     justify-content: space-between;
     align-items: flex-end;
     padding-top: 58px;
-    padding-bottom: 45px;
   }
   &__list {
     display: flex;
   }
-  &__nav-link {
+
+  &__item:not(:first-child) {
     margin-left: 39px;
+  }
+  &__nav-link {
     text-transform: uppercase;
     font-weight: 500;
     font-size: 12px;
@@ -37,6 +39,7 @@
     margin-right: auto;
     border-bottom: 0.5px solid $primary-color-light;
     background: transparent;
+    padding-top: 45px;
   }
 
   &__form.is-hidden {
@@ -71,6 +74,7 @@
   &__mylibrary {
     display: flex;
     justify-content: center;
+    padding-top: 53px;
   }
 
   &__mylibrary.is-hidden {
@@ -130,7 +134,10 @@
 
     &__nav {
       padding-top: 41px;
-      padding-bottom: 37px;
+      // padding-bottom: 37px;
+    }
+    &__item:not(:first-child) {
+      margin-right: 60px;
     }
 
     &__logo-link {
@@ -147,22 +154,17 @@
       line-height: 1.16;
       margin-left: 12px;
     }
-    &__list {
-      display: flex;
-    }
-    &__nav-link {
-      margin-left: 39px;
 
-      &:last-child {
-        margin-right: 30px;
-      }
-    }
     &__form {
       width: 336px;
+      padding-top: 37px;
     }
 
     &__btn {
       margin-left: 145px;
+    }
+    &__mylibrary {
+      padding-top: 45px;
     }
     &__mylibrary-btn {
       width: 136px;
@@ -187,6 +189,9 @@
     &__background {
       background-image: $line-gradient, url('../images/desktop/header_home.jpg');
       @include retina('../images/desktop/header_home@2x.jpg', $desktop, $line-gradient);
+    }
+    &__item:not(:first-child) {
+      margin-right: 55px;
     }
   }
 
