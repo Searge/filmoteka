@@ -14,17 +14,21 @@ const modal = document.querySelector('.modal');
 
 gallery.addEventListener('click', onMovieCLick);
 
-function onMovieCLick(event) {
+async function onMovieCLick(event) {
   event.preventDefault();
+
   if (event.target.nodeName !== 'IMG') {
     return;
   }
   backdrop.classList.remove('is-hidden');
   const movieId = event.target.dataset.id;
-  fetchMovieById(movieId).then(responce => {
-    const movieInfo = responce.data;
-    renderModalCard(movieInfo);
-  });
+
+  await fetchMovieById(movieId)
+    .then(responce => {
+      const movieInfo = responce.data;
+      renderModalCard(movieInfo);
+    })
+    .catch(error => console.log(error));
   document.addEventListener('keydown', onEscClose);
   document.addEventListener('click', onClickClose);
 }
