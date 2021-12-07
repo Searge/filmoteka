@@ -1,4 +1,4 @@
-import { myLibrary } from './main/guests-object';
+import { myLibrary, foundFilms } from './main/guests-object';
 
 myLibrary.initializationLibrary();
 
