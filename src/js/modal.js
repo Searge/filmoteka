@@ -41,32 +41,41 @@ function renderModalCard({
   overview,
 }) {
   modal.innerHTML = `<div>
-    <button data-modal-close class="modal__close">
+  <div class="movie__container">
+    <div class="image__container"> 
+    <img class="modal__movie-img" src='https://image.tmdb.org/t/p/w500/${poster_path}' alt="">
+    </div>
+    <div class="movie__info">
+    <h2 class="modal__movie-title">${title}</h2>
+    <ul class="modal__movie-info">
+      <li class="movie__info-item">
+        <span class="movie__info-title">Vote / Votes</span><span class="movie__info-data"><span class="votes__colored">${vote_average}</span><span class="vote__divide">/</span> ${vote_count}</span>
+      </li>
+      <li class="movie__info-item">
+        <span class="movie__info-title">Popularity</span><span class="movie__info-data">${popularity}</span>
+      </li>
+      <li class="movie__info-item">
+        <span class="movie__info-title">Original Title</span><span class="movie__info-data original-title">${original_title}</span>
+      </li> 
+      <li class="movie__info-item">
+        <!-- подумати ще над оформленням списку жанрів -->
+        <span class="movie__info-title">Genre</span><span class="movie__info-data">${{
+          genres,
+        }}</span>
+      </li>
+    </ul>
+    <h3 class="movie__overview-title">ABOUT</h3>
+    <p class="movie__overview-text">${overview}</p>
+    <div class="movie__buttons">
+    <button type="button" class="add-button" data-id="modal__watched-btn">ADD TO WATCHED</button>
+    <button type="button" class="add-button" data-id="modal__btn">ADD TO QUEUE</button>
+    <button data-modal-close class="modal__close" data-id="modal__close-btn">
         <!-- <svg width="11px" height="11px">
                     <use href="./images/svg/icons.svg#icon-cross"></use>
                 </svg> -->
       </button>
-    <img src='https://image.tmdb.org/t/p/w500/${poster_path}' alt="">
-    <h2>${title}</h2>
-    <ul>
-      <li>
-        <span class="">Vote / Votes</span><span class="">${vote_average} / ${vote_count}</span>
-      </li>
-      <li>
-        <span class="">Popularity</span><span class="">${popularity}</span>
-      </li>
-      <li>
-        <span>Original Title</span><span>${original_title}</span>
-      </li>
-      <li>
-        <!-- подумати ще над оформленням списку жанрів -->
-        <span>Genre</span><span>${genres}</span>
-      </li>
-    </ul>
-    <h3>About</h3>
-    <p>${overview}</p>
-    <button type="button" class="add-button watched">Add to watched</button>
-    <button type="button" class="add-button queue">Add to Queue</button>
+    </div>
+    </div>
     </div>`;
 }
 
