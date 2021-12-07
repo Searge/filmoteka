@@ -26,7 +26,7 @@
 
 ### Contributors
 
-<!-- readme: collaborators -start -->
+<!-- readme: contributors,ImgBotApp/- -start -->
 <table>
 <tr>
     <td align="center">
@@ -80,4 +80,4 @@
         </a>
     </td></tr>
 </table>
-<!-- readme: collaborators -end -->
+<!-- readme: contributors -end -->
