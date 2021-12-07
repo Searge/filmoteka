@@ -44,17 +44,17 @@
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/omykhalska">
-            <img src="https://avatars.githubusercontent.com/u/83216292?v=4" width="100;" alt="omykhalska"/>
-            <br />
-            <sub><b>Omykhalska</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/ruslanpetrovup">
             <img src="https://avatars.githubusercontent.com/u/48686933?v=4" width="100;" alt="ruslanpetrovup"/>
             <br />
             <sub><b>Ruslan Petrov</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/omykhalska">
+            <img src="https://avatars.githubusercontent.com/u/83216292?v=4" width="100;" alt="omykhalska"/>
+            <br />
+            <sub><b>Omykhalska</b></sub>
         </a>
     </td>
     <td align="center">
@@ -69,6 +69,14 @@
             <img src="https://avatars.githubusercontent.com/u/84634254?v=4" width="100;" alt="Serhii-P79"/>
             <br />
             <sub><b>Serhii-P79</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/ImgBotApp">
+            <img src="https://avatars.githubusercontent.com/u/31427850?v=4" width="100;" alt="ImgBotApp"/>
+            <br />
+            <sub><b>Imgbot</b></sub>
         </a>
     </td></tr>
 </table>
