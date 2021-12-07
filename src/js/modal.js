@@ -3,19 +3,15 @@ import { myLibrary, foundFilms } from './main/guests-object';
 import axios from 'axios';
 import genres from './main/genres';
 import './main/main-cards';
+import sprite from '../images/sprite.svg';
 
 myLibrary.initializationLibrary();
 
 const gallery = document.querySelector('.gallery__list');
 const backdrop = document.querySelector('[data-modal]');
-// const closeModalBtn = document.querySelector('[data-action="modal-close"]');
 const modal = document.querySelector('.modal');
-// const movieCard = document.querySelector('.gallery__link');
 
 gallery.addEventListener('click', onMovieCLick);
-
-// closeModalBtn.addEventListener('click', onBtnClose);
-// document.addEventListener('click', onClickClose);
 
 function onMovieCLick(event) {
   event.preventDefault();
@@ -62,7 +58,6 @@ function renderModalCard({
         <span class="movie__info-title">Original Title</span><span class="movie__info-data original-title">${original_title}</span>
       </li> 
       <li class="movie__info-item">
-        <!-- подумати ще над оформленням списку жанрів -->
         <span class="movie__info-title">Genre</span><span class="movie__info-data">${genresList}</span>
       </li>
     </ul>
@@ -73,7 +68,7 @@ function renderModalCard({
     <button type="button" class="add-button" data-id="${id}" data-action="button__queue">ADD TO QUEUE</button>
     <button type="button" id="modal-close" class="modal__close">
     <svg class="close-icon" width="30px" height="30px">
-    <use href="../images/sprite.svg#icon-search"></use>
+    <use href="${sprite}#icon-close"></use>
     </svg>
       </button>
     </div>

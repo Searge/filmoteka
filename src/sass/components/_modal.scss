@@ -110,11 +110,11 @@
 
 .movie__info-title {
   display: block;
-  width: 108px;
+  min-width: 108px;
   color: $ternary-color;
 
   @media screen and (min-width: $desktop) {
-    width: 152px;
+    min-width: 152px;
   }
 }
 
