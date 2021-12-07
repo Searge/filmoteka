@@ -94,4 +94,4 @@ module.exports="/filmoteka/no-poster-available.8ea734a8.png";
 },{"axios":"dZBD"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/header"),require("./js/main/main-cards"),require("./js/main/movies-search.js"),require("./js/modal"),require("./js/footer/contributors.js");
 },{"./sass/main.scss":"clu1","./js/header":"cGsR","./js/main/main-cards":"RcC7","./js/main/movies-search.js":"Byr9","./js/modal":"RSqK","./js/footer/contributors.js":"hn9G"}]},{},["Focm"], null)
-//# sourceMappingURL=/filmoteka/src.dabb0f10.js.map
+//# sourceMappingURL=/filmoteka/src.9dbbcc77.js.map
