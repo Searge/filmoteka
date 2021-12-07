@@ -90,6 +90,15 @@ function onClickClose(event) {
     document.removeEventListener('click', onClickClose);
     document.removeEventListener('keydown', onEscClose);
   }
+
+  switch (event.target.dataset.action) {
+    case 'button__watched':
+      myLibrary.addWatched(myLibrary.film);
+      break;
+    case 'button__queue':
+      myLibrary.addQueue(myLibrary.film);
+      break;
+  }
 }
 
 function onEscClose(event) {
