@@ -22,6 +22,7 @@ function onMovieCLick(event) {
   const movieId = event.target.dataset.id;
   fetchMovieById(movieId).then(responce => {
     const movieInfo = responce.data;
+    myLibrary.film = movieInfo;
     renderModalCard(movieInfo);
   });
   document.addEventListener('keydown', onEscClose);
@@ -81,6 +82,15 @@ function onClickClose(event) {
     backdrop.classList.add('is-hidden');
     document.removeEventListener('click', onClickClose);
     document.removeEventListener('keydown', onEscClose);
+  }
+
+  switch (event.target.dataset.action) {
+    case 'button__watched':
+      myLibrary.addWatched(myLibrary.film);
+      break;
+    case 'button__queue':
+      myLibrary.addQueue(myLibrary.film);
+      break;
   }
 }
 
