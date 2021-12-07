@@ -3,7 +3,7 @@ import { myLibrary, foundFilms } from './main/guests-object';
 import axios from 'axios';
 import genres from './main/genres';
 import './main/main-cards';
-
+import sprite from '../images/sprite.svg';
 myLibrary.initializationLibrary();
 
 const gallery = document.querySelector('.gallery__list');
@@ -73,7 +73,7 @@ function renderModalCard({
     <button type="button" class="add-button" data-id="${id}" data-action="button__queue">ADD TO QUEUE</button>
     <button type="button" id="modal-close" class="modal__close">
     <svg class="close-icon" width="30px" height="30px">
-    <use href="../images/sprite.svg#icon-search"></use>
+    <use href="${sprite}#icon-close"></use>
     </svg>
       </button>
     </div>
