@@ -26,7 +26,7 @@
 
 ### Contributors
 
-<!-- readme: contributors -start -->
+<!-- readme: collaborators -start -->
 <table>
 <tr>
     <td align="center">
@@ -72,4 +72,4 @@
         </a>
     </td></tr>
 </table>
-<!-- readme: contributors -end -->
+<!-- readme: collaborators -end -->
