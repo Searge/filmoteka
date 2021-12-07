@@ -1,5 +1,11 @@
 import { save, load } from './storage';
 
+export const foundFilms = {
+  currentPage: 1,
+  total_pages: 0,
+  arrayFilms: [],
+};
+
 export const myLibrary = {
   _watched: [], // просмотренные фильмы
   _queue: [], // добавленные в очередь
