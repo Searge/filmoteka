@@ -57,14 +57,12 @@
     min-width: 264px;
     height: 374px;
     margin-right: 32px;
-    // подивитись чи це потрібно
   }
 
   @media screen and (min-width: $desktop) {
     min-width: 396px;
     height: 478px;
     margin-right: 30px;
-    // margin-right: 0px;
     margin-bottom: 0px;
   }
 }
@@ -197,4 +195,12 @@
   right: 18px;
   width: 14px;
   height: 14px;
+  // border: none;
+  background-color: transparent;
+  background-image: url(../images/sprite.svg#icon-close);
+  // fill: black;
 }
+
+// .close-icon {
+//   fill: black;
+// }
