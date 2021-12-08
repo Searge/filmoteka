@@ -45,9 +45,6 @@ function renderModalCard({
   id,
 }) {
   const genresList = genres.map(genre => genre.name).join(', ');
-  // if (poster_path === null) {
-  //   src='${imgPlaceholder}
-  // }
   modal.innerHTML = `<div>
   <div class="movie__container">
     <div class="image__container"> 
@@ -75,8 +72,8 @@ function renderModalCard({
     <button type="button" class="add-button" data-id="${id}" data-action="button__watched">ADD TO WATCHED</button>
     <button type="button" class="add-button" data-id="${id}" data-action="button__queue">ADD TO QUEUE</button>
     <button type="button" id="modal-close" class="modal__close">
-    <svg class="close-icon" width="30px" height="30px">
-    <use href="${sprite}#icon-close"></use>
+    <svg class="close-icon" id="close-icon" width="14px" height="14px">
+    <use id="close-svg" href="${sprite}#icon-close"></use>
     </svg>
       </button>
     </div>
@@ -85,7 +82,12 @@ function renderModalCard({
 }
 
 function onClickClose(event) {
-  if (event.target === backdrop || event.target.id === 'modal-close') {
+  if (
+    event.target === backdrop ||
+    event.target.id === 'modal-close' ||
+    event.target.id === 'close-icon' ||
+    event.target.id === 'close-svg'
+  ) {
     backdrop.classList.add('is-hidden');
     document.removeEventListener('click', onClickClose);
     document.removeEventListener('keydown', onEscClose);
