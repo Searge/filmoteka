@@ -70,7 +70,7 @@ async function createMoviesGallery(currentPage) {
           paginationBoxEl.classList.remove('visually-hidden');
         }
       }
-      // stopSpin();
+      stopSpin();
     })
     .catch(error => console.log(error));
 
