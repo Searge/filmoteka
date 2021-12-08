@@ -190,17 +190,20 @@
 }
 
 .modal__close {
+  appearance: none;
+  display: block;
   position: absolute;
   top: 18px;
   right: 18px;
-  width: 14px;
-  height: 14px;
-  // border: none;
-  background-color: transparent;
-  background-image: url(../images/sprite.svg#icon-close);
-  // fill: black;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
-// .close-icon {
-//   fill: black;
-// }
+.close-icon {
+  position: absolute;
+  top: 0px;
+  left: 6px;
+}
