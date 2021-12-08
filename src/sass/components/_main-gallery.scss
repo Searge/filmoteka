@@ -92,3 +92,17 @@
 .tui-pagination {
   padding-bottom: 38px;
 }
+
+.tui-pagination,
+.tui-page-btn {
+  font-family: $main-font !important;
+  font-weight: 500 !important;
+}
+
+.tui-custom-styles {
+  border-right: $accent-color !important;
+  border-left: $accent-color !important;
+  background: $accent-color !important;
+  border-color: $accent-color !important;
+  border-radius: 5px;
+}
