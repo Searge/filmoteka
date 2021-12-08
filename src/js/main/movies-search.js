@@ -4,6 +4,7 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.min.css';
 import { paginationOptions } from '../pagination.js';
 import imgPlaceholder from '../../images/no-poster-available.png';
+import { startSpin, stopSpin } from '../spinner';
 
 const WARNING_MESSAGE = 'The search string cannot be empty. Please specify your search query.';
 const ERROR_MESSAGE = 'Sorry, there are no movies matching your search query. Please try again.';
@@ -30,6 +31,8 @@ function onSearchSubmit(e) {
 }
 
 async function createMoviesGallery(currentPage) {
+  startSpin();
+
   const searchQuery = formEl.elements.searchQuery.value.trim();
 
   if (!searchQuery) {
@@ -67,6 +70,7 @@ async function createMoviesGallery(currentPage) {
           paginationBoxEl.classList.remove('visually-hidden');
         }
       }
+      // stopSpin();
     })
     .catch(error => console.log(error));
 
