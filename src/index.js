@@ -4,3 +4,4 @@ import './js/main/main-cards';
 import './js/main/movies-search.js';
 import './js/modal';
 import './js/footer/contributors.js';
+import './js/spinner';
