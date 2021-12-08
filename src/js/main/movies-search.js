@@ -2,6 +2,7 @@ import { fetchMoviesBySearch, fetchMoviesGenres } from '../api-service.js';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.min.css';
+import { paginationOptions } from '../pagination.js';
 import imgPlaceholder from '../../images/no-poster-available.png';
 
 const WARNING_MESSAGE = 'The search string cannot be empty. Please specify your search query.';
@@ -12,16 +13,12 @@ const formEl = document.querySelector('.header__form');
 const moviesGalleryEl = document.querySelector('.gallery__list');
 const paginationBoxEl = document.querySelector('#tui-pagination-container');
 
-const pagination = new Pagination(paginationBoxEl, {
-  totalItems: 20,
-  itemsPerPage: 20,
-  visiblePages: 5,
-  centerAlign: true,
-});
-
+let pagination;
 let currentPage = FIRST_PAGE;
 let list = [];
-let isApiResponseEmpty = false;
+let isApiResponseNotEmpty = false;
+
+initPagination();
 
 formEl.addEventListener('submit', onSearchSubmit);
 paginationBoxEl.addEventListener('click', onClick);
@@ -49,7 +46,7 @@ async function createMoviesGallery(currentPage) {
       if (results.length === 0) {
         Notify.failure(ERROR_MESSAGE);
       } else {
-        isApiResponseEmpty = true;
+        isApiResponseNotEmpty = true;
         list = [];
         results.forEach(movie => {
           let movieData = {
@@ -64,11 +61,16 @@ async function createMoviesGallery(currentPage) {
         });
 
         if (currentPage === FIRST_PAGE) pagination.reset(response.data.total_results);
+        if (response.data.total_pages === 1) {
+          paginationBoxEl.classList.add('visually-hidden');
+        } else {
+          paginationBoxEl.classList.remove('visually-hidden');
+        }
       }
     })
     .catch(error => console.log(error));
 
-  if (isApiResponseEmpty) {
+  if (isApiResponseNotEmpty) {
     await fetchMoviesGenres()
       .then(response => {
         const {
@@ -104,7 +106,7 @@ async function createMoviesGallery(currentPage) {
       .catch(error => console.log(error));
   }
 
-  isApiResponseEmpty && renderGallery(list);
+  isApiResponseNotEmpty && renderGallery(list);
 }
 
 function renderGallery(moviesArr) {
@@ -130,7 +132,11 @@ function renderGallery(moviesArr) {
     })
     .join('');
   moviesGalleryEl.innerHTML = markup;
-  isApiResponseEmpty = false;
+  isApiResponseNotEmpty = false;
+}
+
+function initPagination() {
+  pagination = new Pagination(paginationBoxEl, paginationOptions);
 }
 
 async function onClick() {
