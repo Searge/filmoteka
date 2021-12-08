@@ -4,6 +4,7 @@ import axios from 'axios';
 import genres from './main/genres';
 import './main/main-cards';
 import sprite from '../images/sprite.svg';
+import imgPlaceholder from '../images/no-poster-available.png';
 
 myLibrary.initializationLibrary();
 
@@ -13,18 +14,21 @@ const modal = document.querySelector('.modal');
 
 gallery.addEventListener('click', onMovieCLick);
 
-function onMovieCLick(event) {
+async function onMovieCLick(event) {
   event.preventDefault();
+
   if (event.target.nodeName !== 'IMG') {
     return;
   }
   backdrop.classList.remove('is-hidden');
   const movieId = event.target.dataset.id;
-  fetchMovieById(movieId).then(responce => {
-    const movieInfo = responce.data;
-    myLibrary.film = movieInfo;
-    renderModalCard(movieInfo);
-  });
+
+  await fetchMovieById(movieId)
+    .then(responce => {
+      const movieInfo = responce.data;
+      renderModalCard(movieInfo);
+    })
+    .catch(error => console.log(error));
   document.addEventListener('keydown', onEscClose);
   document.addEventListener('click', onClickClose);
 }
@@ -41,10 +45,13 @@ function renderModalCard({
   id,
 }) {
   const genresList = genres.map(genre => genre.name).join(', ');
+  // if (poster_path === null) {
+  //   src='${imgPlaceholder}
+  // }
   modal.innerHTML = `<div>
   <div class="movie__container">
     <div class="image__container"> 
-    <img class="modal__movie-img" src='https://image.tmdb.org/t/p/w500/${poster_path}' alt="">
+    <img class="modal__movie-img" src='https://image.tmdb.org/t/p/w500/${poster_path}' alt="${title}" onerror="this.onerror=null;this.src='${imgPlaceholder}';">
     </div>
     <div class="movie__info">
     <h2 class="modal__movie-title">${title}</h2>
