@@ -1,108 +1,84 @@
 .main__container {
-  @include respond-from-min($tablet) {
-    padding: 0 75px;
-  }
+  padding-top: 20px;
+  padding-bottom: 40px;
 
-  @include respond-from-min($desktop) {
-    padding: 0 70px;
+  @include respond-from-min($tablet) {
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
 }
 
 .gallery {
-  margin: 0 auto;
-  padding-top: 20px;
-  padding-bottom: 26px;
+  &__list {
+    margin-left: -20px;
+    margin-top: -20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
-  @include respond-from-min($tablet) {
-    padding-top: 60px;
-    padding-bottom: 36px;
-  }
-}
-
-.gallery__list {
-  margin-left: -20px;
-  margin-top: -20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-
-  @include respond-from-min($tablet) {
-    margin-left: -30px;
-    margin-top: -30px;
-  }
-}
-
-.gallery__item {
-  margin-left: 20px;
-  margin-top: 20px;
-  max-width: 280px;
-  flex-basis: calc(100% - 20px);
-
-  @include respond-from-min($tablet) {
-    margin-left: 30px;
-    margin-top: 30px;
-    flex-basis: calc((100% - 60px) / 2);
+    @include respond-from-min($tablet) {
+      margin-left: -30px;
+      margin-top: -30px;
+    }
   }
 
-  @include respond-from-min($desktop) {
-    flex-basis: calc((100% - 90px) / 3);
+  &__item {
+    margin-left: 20px;
+    margin-top: 20px;
+    max-width: 280px;
+    flex-basis: calc(100% - 20px);
+
+    @include respond-from-min($tablet) {
+      margin-left: 30px;
+      margin-top: 30px;
+
+      max-width: 294px;
+      flex-basis: calc((100% - 60px) / 2);
+    }
+
+    @include respond-from-min($desktop) {
+      max-width: 274px;
+      flex-basis: calc((100% - 90px) / 3);
+    }
   }
-}
 
-.gallery__link {
-  width: 100%;
-  cursor: pointer;
-  appearance: none;
-  border: none;
-  background: none;
-  padding: 0;
-  &:hover .gallery__image {
-    box-shadow: 0px 0px 6px 3px rgba(0, 0, 0, 0.9);
+  &__link {
+    width: 100%;
+    cursor: pointer;
+    appearance: none;
+    border: none;
+    background: none;
+    padding: 0;
+    &:hover .gallery__image {
+      box-shadow: 0px 0px 6px 3px rgba(0, 0, 0, 0.9);
+    }
   }
-}
-.gallery__image-box {
-  height: 398px;
-}
+  &__image-box {
+    height: 398px;
+  }
 
-.gallery__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: all 250ms linear;
-  border-radius: 5px;
-}
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 250ms linear;
+    border-radius: 5px;
+  }
 
-.gallery__title {
-  margin-top: 10px;
-  text-align: left;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 1.33;
-  text-transform: uppercase;
-}
+  &__title {
+    margin-top: 10px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 1.33;
+    text-transform: uppercase;
+  }
 
-.gallery__text {
-  margin-top: 5px;
-  text-align: left;
-  font-weight: 500;
-  line-height: 1.33;
-  color: $accent-color;
-}
-
-.tui-pagination {
-  padding-bottom: 38px;
-}
-
-.tui-pagination,
-.tui-page-btn {
-  font-family: $main-font !important;
-  font-weight: 500 !important;
-}
-
-.tui-custom-styles {
-  border-right: $accent-color !important;
-  border-left: $accent-color !important;
-  background: $accent-color !important;
-  border-color: $accent-color !important;
-  border-radius: 5px;
+  &__text {
+    margin-top: 5px;
+    text-align: left;
+    font-weight: 500;
+    line-height: 1.33;
+    color: $accent-color;
+  }
 }
