@@ -1,7 +1,8 @@
-import { fetchMoviesBySearch, fetchMoviesGenres } from '../api-service.js';
+import { fetchMoviesBySearch, fetchMoviesGenres } from '../api-service';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import imgPlaceholder from '../../images/no-poster-available.png';
 import { startSpin, stopSpin } from '../spinner';
+import { backToTop } from '../scrolling';
 import {
   initPagination,
   updateTotalPagesNumber,
@@ -24,7 +25,7 @@ let isApiResponseNotEmpty = false;
 initPagination();
 
 formEl.addEventListener('submit', onSearchSubmit);
-paginationBoxEl.addEventListener('click', onNextPageClick);
+paginationBoxEl.addEventListener('click', onPageBtnClick);
 
 function onSearchSubmit(e) {
   e.preventDefault();
@@ -141,7 +142,8 @@ function renderGallery(moviesArr) {
   isApiResponseNotEmpty = false;
 }
 
-async function onNextPageClick() {
+async function onPageBtnClick() {
   currentPage = getCurrentPage();
+  backToTop();
   await createMoviesGallery(currentPage);
 }
