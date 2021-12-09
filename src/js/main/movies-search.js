@@ -1,10 +1,14 @@
 import { fetchMoviesBySearch, fetchMoviesGenres } from '../api-service.js';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.min.css';
-import { paginationOptions } from '../pagination.js';
 import imgPlaceholder from '../../images/no-poster-available.png';
 import { startSpin, stopSpin } from '../spinner';
+import {
+  initPagination,
+  updateTotalPagesNumber,
+  getCurrentPage,
+  stylePagination,
+  paginationBoxEl,
+} from '../pagination.js';
 
 const WARNING_MESSAGE = 'The search string cannot be empty. Please specify your search query.';
 const ERROR_MESSAGE = 'Sorry, there are no movies matching your search query. Please try again.';
@@ -12,9 +16,7 @@ const FIRST_PAGE = 1;
 
 const formEl = document.querySelector('.header__form');
 const moviesGalleryEl = document.querySelector('.gallery__list');
-const paginationBoxEl = document.querySelector('#tui-pagination-container');
 
-let pagination;
 let currentPage = FIRST_PAGE;
 let list = [];
 let isApiResponseNotEmpty = false;
@@ -37,11 +39,13 @@ async function createMoviesGallery(currentPage) {
     Notify.info(WARNING_MESSAGE);
     return;
   }
+
   startSpin();
 
   await fetchMoviesBySearch(searchQuery, currentPage)
     .then(response => {
       const {
+        data,
         data: { results },
       } = response;
 
@@ -62,8 +66,7 @@ async function createMoviesGallery(currentPage) {
           list.push(movieData);
         });
 
-        if (currentPage === FIRST_PAGE) pagination.reset(response.data.total_results);
-        paginationOptions.totalPages = response.data.total_pages;
+        currentPage === FIRST_PAGE && updateTotalPagesNumber(data.total_results, data.total_pages);
       }
 
       !isApiResponseNotEmpty && stopSpin();
@@ -108,31 +111,7 @@ async function createMoviesGallery(currentPage) {
   }
 
   isApiResponseNotEmpty && renderGallery(list);
-  let { totalPages, visiblePages } = paginationOptions;
-
-  if (totalPages === 1) {
-    paginationBoxEl.classList.add('visually-hidden');
-  } else {
-    document.querySelector('.tui-page-btn-custom.tui-last').innerHTML = `${totalPages}`;
-    document.querySelector('.tui-page-btn-custom.tui-first').innerHTML = `${FIRST_PAGE}`;
-
-    if (currentPage === FIRST_PAGE || totalPages <= visiblePages) {
-      document.querySelector('.tui-page-btn-custom.tui-first').classList.add('visually-hidden');
-      document.querySelector('.tui-page-btn-custom.tui-prev').classList.add('visually-hidden');
-    } else {
-      document.querySelector('.tui-page-btn-custom.tui-first').classList.remove('visually-hidden');
-      document.querySelector('.tui-page-btn-custom.tui-prev').classList.remove('visually-hidden');
-    }
-
-    if (currentPage === totalPages || totalPages <= visiblePages) {
-      document.querySelector('.tui-page-btn-custom.tui-last').classList.add('visually-hidden');
-      document.querySelector('.tui-page-btn-custom.tui-next').classList.add('visually-hidden');
-    } else {
-      document.querySelector('.tui-page-btn-custom.tui-last').classList.remove('visually-hidden');
-      document.querySelector('.tui-page-btn-custom.tui-next').classList.remove('visually-hidden');
-    }
-    paginationBoxEl.classList.remove('visually-hidden');
-  }
+  stylePagination(FIRST_PAGE, currentPage);
 }
 
 function renderGallery(moviesArr) {
@@ -162,12 +141,7 @@ function renderGallery(moviesArr) {
   isApiResponseNotEmpty = false;
 }
 
-function initPagination() {
-  pagination = new Pagination(paginationBoxEl, paginationOptions);
-  paginationBoxEl.classList.add('visually-hidden');
-}
-
 async function onNextPageClick() {
-  currentPage = pagination.getCurrentPage();
+  currentPage = getCurrentPage();
   await createMoviesGallery(currentPage);
 }
