@@ -22,7 +22,7 @@ let isApiResponseNotEmpty = false;
 initPagination();
 
 formEl.addEventListener('submit', onSearchSubmit);
-paginationBoxEl.addEventListener('click', onClick);
+paginationBoxEl.addEventListener('click', onNextPageClick);
 
 function onSearchSubmit(e) {
   e.preventDefault();
@@ -31,14 +31,13 @@ function onSearchSubmit(e) {
 }
 
 async function createMoviesGallery(currentPage) {
-  startSpin();
-
   const searchQuery = formEl.elements.searchQuery.value.trim();
 
   if (!searchQuery) {
     Notify.info(WARNING_MESSAGE);
     return;
   }
+  startSpin();
 
   await fetchMoviesBySearch(searchQuery, currentPage)
     .then(response => {
@@ -62,15 +61,16 @@ async function createMoviesGallery(currentPage) {
 
           list.push(movieData);
         });
-
+        console.log(response.data);
         if (currentPage === FIRST_PAGE) pagination.reset(response.data.total_results);
         if (response.data.total_pages === 1) {
           paginationBoxEl.classList.add('visually-hidden');
         } else {
           paginationBoxEl.classList.remove('visually-hidden');
         }
+        paginationOptions.totalPages = response.data.total_pages;
       }
-      stopSpin();
+      !isApiResponseNotEmpty && stopSpin();
     })
     .catch(error => console.log(error));
 
@@ -106,11 +106,20 @@ async function createMoviesGallery(currentPage) {
               break;
           }
         });
+        stopSpin();
       })
       .catch(error => console.log(error));
   }
-
   isApiResponseNotEmpty && renderGallery(list);
+
+  if (Number(paginationOptions.totalPages) > paginationOptions.visiblePages) {
+    document.querySelector(
+      '.tui-page-btn-custom.tui-last',
+    ).innerHTML = `${paginationOptions.totalPages}`;
+    document.querySelector('.tui-page-btn-custom.tui-last').style.background = '#f7f7f7';
+    document.querySelector('.tui-page-btn-custom.tui-first').innerHTML = `${FIRST_PAGE}`;
+    document.querySelector('.tui-page-btn-custom.tui-first').style.background = '#f7f7f7';
+  }
 }
 
 function renderGallery(moviesArr) {
@@ -135,15 +144,17 @@ function renderGallery(moviesArr) {
 `;
     })
     .join('');
+
   moviesGalleryEl.innerHTML = markup;
   isApiResponseNotEmpty = false;
 }
 
 function initPagination() {
   pagination = new Pagination(paginationBoxEl, paginationOptions);
+  paginationBoxEl.classList.add('visually-hidden');
 }
 
-async function onClick() {
+async function onNextPageClick() {
   currentPage = pagination.getCurrentPage();
   await createMoviesGallery(currentPage);
 }

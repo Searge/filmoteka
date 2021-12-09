@@ -73,10 +73,8 @@
     margin-left: 0;
   }
 
-  .tui-first,
   .tui-prev,
   .tui-next,
-  .tui-last,
   .tui-prev-is-ellip,
   .tui-next-is-ellip {
     height: 40px;
@@ -101,8 +99,8 @@
     border-left: 0;
   }
 
-  .tui-ico-first,
-  .tui-ico-last,
+  // .tui-ico-first,
+  // .tui-ico-last,
   .tui-ico-prev,
   .tui-ico-next,
   .tui-ico-ellip {
@@ -112,6 +110,21 @@
     vertical-align: middle;
     font-size: 0px;
   }
+
+  .tui-ico-last,
+  .tui-ico-first {
+    height: 40px;
+    padding: 0;
+    line-height: 26px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  //   .tui-ico-prev,
+  //   .tui-ico-next {
+  //     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10'><path d='M3.33329 8H12.6666' stroke='black' stroke-width='1.33333' stroke-linecap='round' stroke-linejoin='round'/>
+  // </svg>");
+  //   }
 
   .tui-prev-is-ellip,
   .tui-next-is-ellip {
