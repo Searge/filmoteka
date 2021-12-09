@@ -61,15 +61,11 @@ async function createMoviesGallery(currentPage) {
 
           list.push(movieData);
         });
-        console.log(response.data);
+
         if (currentPage === FIRST_PAGE) pagination.reset(response.data.total_results);
-        if (response.data.total_pages === 1) {
-          paginationBoxEl.classList.add('visually-hidden');
-        } else {
-          paginationBoxEl.classList.remove('visually-hidden');
-        }
         paginationOptions.totalPages = response.data.total_pages;
       }
+
       !isApiResponseNotEmpty && stopSpin();
     })
     .catch(error => console.log(error));
@@ -110,15 +106,32 @@ async function createMoviesGallery(currentPage) {
       })
       .catch(error => console.log(error));
   }
-  isApiResponseNotEmpty && renderGallery(list);
 
-  if (Number(paginationOptions.totalPages) > paginationOptions.visiblePages) {
-    document.querySelector(
-      '.tui-page-btn-custom.tui-last',
-    ).innerHTML = `${paginationOptions.totalPages}`;
-    document.querySelector('.tui-page-btn-custom.tui-last').style.background = '#f7f7f7';
+  isApiResponseNotEmpty && renderGallery(list);
+  let { totalPages, visiblePages } = paginationOptions;
+
+  if (totalPages === 1) {
+    paginationBoxEl.classList.add('visually-hidden');
+  } else {
+    document.querySelector('.tui-page-btn-custom.tui-last').innerHTML = `${totalPages}`;
     document.querySelector('.tui-page-btn-custom.tui-first').innerHTML = `${FIRST_PAGE}`;
-    document.querySelector('.tui-page-btn-custom.tui-first').style.background = '#f7f7f7';
+
+    if (currentPage === FIRST_PAGE || totalPages <= visiblePages) {
+      document.querySelector('.tui-page-btn-custom.tui-first').classList.add('visually-hidden');
+      document.querySelector('.tui-page-btn-custom.tui-prev').classList.add('visually-hidden');
+    } else {
+      document.querySelector('.tui-page-btn-custom.tui-first').classList.remove('visually-hidden');
+      document.querySelector('.tui-page-btn-custom.tui-prev').classList.remove('visually-hidden');
+    }
+
+    if (currentPage === totalPages || totalPages <= visiblePages) {
+      document.querySelector('.tui-page-btn-custom.tui-last').classList.add('visually-hidden');
+      document.querySelector('.tui-page-btn-custom.tui-next').classList.add('visually-hidden');
+    } else {
+      document.querySelector('.tui-page-btn-custom.tui-last').classList.remove('visually-hidden');
+      document.querySelector('.tui-page-btn-custom.tui-next').classList.remove('visually-hidden');
+    }
+    paginationBoxEl.classList.remove('visually-hidden');
   }
 }
 
