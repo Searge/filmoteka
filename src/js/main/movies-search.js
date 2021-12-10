@@ -1,6 +1,7 @@
 import { fetchMoviesBySearch, fetchMoviesGenres } from '../api-service';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import imgPlaceholder from '../../images/no-poster-available.png';
+import 'lazysizes';
+import imgPlaceholder from '../../images/no-poster-available.jpg';
 import { startSpin, stopSpin } from '../spinner';
 import { backToTop } from '../scrolling';
 import {
@@ -106,7 +107,6 @@ async function createMoviesGallery(currentPage) {
               break;
           }
         });
-        // stopSpin();
       })
       .catch(error => console.log(error));
   }
@@ -122,8 +122,8 @@ function renderGallery(moviesArr) {
 <li class="gallery__item">
         <button class="gallery__link" data-id="${id}">
         <div class="gallery__image-box">
-          <img class="gallery__image"
-          src="https://image.tmdb.org/t/p/w500/${poster}" 
+          <img class="gallery__image lazyload"
+          data-src="https://image.tmdb.org/t/p/w500/${poster}"
           alt="${title}" 
           onerror="this.onerror=null;this.src='${imgPlaceholder}';" 
           data-id="${id}">
@@ -140,6 +140,7 @@ function renderGallery(moviesArr) {
 
   moviesGalleryEl.innerHTML = markup;
   isApiResponseNotEmpty = false;
+  stopSpin();
 }
 
 async function onPageBtnClick() {

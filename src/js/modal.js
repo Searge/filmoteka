@@ -4,8 +4,9 @@ import axios from 'axios';
 import genres from './main/genres';
 import './main/main-cards';
 import sprite from '../images/sprite.svg';
-import imgPlaceholder from '../images/no-poster-available.png';
+import imgPlaceholder from '../images/no-poster-available.jpg';
 import { startSpin, stopSpin } from './spinner';
+
 
 myLibrary.initializationLibrary();
 

@@ -1,5 +1,6 @@
 import { fetchPopularMovies } from '../api-service';
 import genres from './genres';
+import 'lazysizes';
 const cardsMain = document.querySelector('.gallery__list');
 import { startSpin, stopSpin } from '../spinner';
 
@@ -12,7 +13,7 @@ const func = async () => {
 <li class="gallery__item">
         <button class="gallery__link">
         <div class="gallery__image-box">
-          <img class="gallery__image" src="https://image.tmdb.org/t/p/w500/${
+          <img class="gallery__image lazyload" data-src="https://image.tmdb.org/t/p/w500/${
             num.poster_path
           }" alt="" data-id="${num.id}"">
           </div>
