@@ -60,8 +60,8 @@
   .tui-is-selected-custom {
     background-color: $accent-color;
     color: $primary-color-light;
-    filter: drop-shadow(0px 4px 4px $primary-drop-shadow-color)
-      drop-shadow(0px 4px 4px $secondary-drop-shadow-color);
+    filter: drop-shadow(0 4px 4px $primary-drop-shadow-color)
+      drop-shadow(0 4px 4px $secondary-drop-shadow-color);
   }
 
   .tui-is-selected-custom:hover {
