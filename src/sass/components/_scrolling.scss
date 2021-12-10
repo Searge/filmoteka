@@ -14,7 +14,7 @@
   justify-content: center;
   opacity: 0;
   visibility: hidden;
-  filter: $drop-shadow;
+  filter: drop-shadow($primary-drop-shadow-color) drop-shadow($secondary-drop-shadow-color);
 
   @include respond-from-min($tablet) {
     width: 50px;
