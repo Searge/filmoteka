@@ -1,8 +1,10 @@
 import { fetchPopularMovies } from '../api-service';
 import genres from './genres';
 const cardsMain = document.querySelector('.gallery__list');
+import { startSpin, stopSpin } from '../spinner';
 
 const func = async () => {
+  startSpin();
   const res = await fetchPopularMovies().then(({ data }) =>
     data.results.map(num => {
       return `
@@ -25,6 +27,7 @@ const func = async () => {
     }),
   );
   cardsMain.innerHTML = res.join('');
+  stopSpin();
 };
 
 func();
