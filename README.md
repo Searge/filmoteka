@@ -26,7 +26,7 @@
 
 ### Contributors
 
-<!-- readme: contributors,ImgBotApp/- -start -->
+<!-- readme: contributors,<ImgBotApp/-> -start -->
 <table>
 <tr>
     <td align="center">
