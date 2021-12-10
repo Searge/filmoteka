@@ -5,6 +5,7 @@ import genres from './main/genres';
 import './main/main-cards';
 import sprite from '../images/sprite.svg';
 import imgPlaceholder from '../images/no-poster-available.png';
+import { startSpin, stopSpin } from './spinner';
 
 myLibrary.initializationLibrary();
 
@@ -12,29 +13,27 @@ const gallery = document.querySelector('.gallery__list');
 const backdrop = document.querySelector('[data-modal]');
 const modal = document.querySelector('.modal');
 const body = document.querySelector('body');
-console.log(body);
 const toTopArrow = document.querySelector('.back-to-top');
-console.log(toTopArrow);
 
 gallery.addEventListener('click', onMovieCLick);
 
 async function onMovieCLick(event) {
   event.preventDefault();
-
+  startSpin();
+  modal.innerHTML = '';
   if (event.target.nodeName !== 'IMG') {
     return;
   }
-  backdrop.classList.remove('is-hidden');
-  body.classList.add('no-scroll');
-  toTopArrow.classList.remove('back-to-top_show');
-  const movieId = event.target.dataset.id;
+  openModal();
 
+  const movieId = event.target.dataset.id;
   await fetchMovieById(movieId)
     .then(responce => {
       const movieInfo = responce.data;
       renderModalCard(movieInfo);
     })
     .catch(error => console.log(error));
+  stopSpin();
   document.addEventListener('keydown', onEscClose);
   document.addEventListener('click', onClickClose);
 }
@@ -89,11 +88,7 @@ function renderModalCard({
 
 function onEscClose(event) {
   if (event.key === 'Escape') {
-    backdrop.classList.add('is-hidden');
-    body.classList.remove('no-scroll');
-    toTopArrow.classList.add('back-to-top_show');
-    document.removeEventListener('click', onClickClose);
-    document.removeEventListener('keydown', onEscClose);
+    closeModal();
   }
 }
 
@@ -104,12 +99,22 @@ function onClickClose(event) {
     event.target.id === 'close-icon' ||
     event.target.id === 'close-svg'
   ) {
-    backdrop.classList.add('is-hidden');
-    body.classList.remove('no-scroll');
-    toTopArrow.classList.add('back-to-top_show');
-    document.removeEventListener('click', onClickClose);
-    document.removeEventListener('keydown', onEscClose);
+    closeModal();
   }
+}
+
+function openModal() {
+  backdrop.classList.remove('is-hidden');
+  body.classList.add('no-scroll');
+  toTopArrow.classList.remove('back-to-top_show');
+}
+
+function closeModal() {
+  backdrop.classList.add('is-hidden');
+  body.classList.remove('no-scroll');
+  toTopArrow.classList.add('back-to-top_show');
+  document.removeEventListener('click', onClickClose);
+  document.removeEventListener('keydown', onEscClose);
 }
 
 switch (event.target.dataset.action) {
