@@ -104,4 +104,4 @@ module.exports="/filmoteka/sprite.1f287725.svg";
 },{"axios":"dZBD"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/header"),require("./js/main/main-cards"),require("./js/main/movies-search"),require("./js/modal"),require("./js/footer/contributors"),require("./js/spinner"),require("./js/scrolling");
 },{"./sass/main.scss":"clu1","./js/header":"cGsR","./js/main/main-cards":"RcC7","./js/main/movies-search":"Byr9","./js/modal":"RSqK","./js/footer/contributors":"hn9G","./js/spinner":"Sc1o","./js/scrolling":"dSQt"}]},{},["Focm"], null)
-//# sourceMappingURL=/filmoteka/src.69bb26c4.js.map
+//# sourceMappingURL=/filmoteka/src.0f02d245.js.map
