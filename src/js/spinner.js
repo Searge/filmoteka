@@ -25,8 +25,14 @@ var opts = {
 const body = document.getElementById('spinner');
 const spinner = new Spinner(opts);
 
-const startSpin = () => spinner.spin(body);
-const stopSpin = () => spinner.stop();
+const startSpin = () => {
+  spinner.spin(body);
+  // body.setAttribute("style", "overflow: is-hidden");
+};
+const stopSpin = () => {
+  spinner.stop();
+  // body.setAttribute("style", "");
+};
 
 export { startSpin, stopSpin };
 

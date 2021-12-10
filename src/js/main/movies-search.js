@@ -42,6 +42,7 @@ async function createMoviesGallery(currentPage) {
   }
 
   startSpin();
+  setTimeout(stopSpin, 500);
 
   await fetchMoviesBySearch(searchQuery, currentPage)
     .then(response => {
@@ -106,7 +107,7 @@ async function createMoviesGallery(currentPage) {
               break;
           }
         });
-        stopSpin();
+        // stopSpin();
       })
       .catch(error => console.log(error));
   }
