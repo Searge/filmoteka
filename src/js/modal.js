@@ -11,6 +11,10 @@ myLibrary.initializationLibrary();
 const gallery = document.querySelector('.gallery__list');
 const backdrop = document.querySelector('[data-modal]');
 const modal = document.querySelector('.modal');
+const body = document.querySelector('body');
+console.log(body);
+const toTopArrow = document.querySelector('.back-to-top');
+console.log(toTopArrow);
 
 gallery.addEventListener('click', onMovieCLick);
 
@@ -21,6 +25,8 @@ async function onMovieCLick(event) {
     return;
   }
   backdrop.classList.remove('is-hidden');
+  body.classList.add('no-scroll');
+  toTopArrow.classList.remove('back-to-top_show');
   const movieId = event.target.dataset.id;
 
   await fetchMovieById(movieId)
@@ -81,6 +87,16 @@ function renderModalCard({
     </div>`;
 }
 
+function onEscClose(event) {
+  if (event.key === 'Escape') {
+    backdrop.classList.add('is-hidden');
+    body.classList.remove('no-scroll');
+    toTopArrow.classList.add('back-to-top_show');
+    document.removeEventListener('click', onClickClose);
+    document.removeEventListener('keydown', onEscClose);
+  }
+}
+
 function onClickClose(event) {
   if (
     event.target === backdrop ||
@@ -89,24 +105,18 @@ function onClickClose(event) {
     event.target.id === 'close-svg'
   ) {
     backdrop.classList.add('is-hidden');
+    body.classList.remove('no-scroll');
+    toTopArrow.classList.add('back-to-top_show');
     document.removeEventListener('click', onClickClose);
     document.removeEventListener('keydown', onEscClose);
-  }
-
-  switch (event.target.dataset.action) {
-    case 'button__watched':
-      myLibrary.addWatched(myLibrary.film);
-      break;
-    case 'button__queue':
-      myLibrary.addQueue(myLibrary.film);
-      break;
   }
 }
 
-function onEscClose(event) {
-  if (event.key === 'Escape') {
-    backdrop.classList.add('is-hidden');
-    document.removeEventListener('click', onClickClose);
-    document.removeEventListener('keydown', onEscClose);
-  }
+switch (event.target.dataset.action) {
+  case 'button__watched':
+    myLibrary.addWatched(myLibrary.film);
+    break;
+  case 'button__queue':
+    myLibrary.addQueue(myLibrary.film);
+    break;
 }
