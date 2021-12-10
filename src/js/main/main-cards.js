@@ -5,6 +5,7 @@ import { startSpin, stopSpin } from '../spinner';
 
 const func = async () => {
   startSpin();
+  setTimeout(stopSpin, 500);
   const res = await fetchPopularMovies().then(({ data }) =>
     data.results.map(num => {
       return `
@@ -27,7 +28,7 @@ const func = async () => {
     }),
   );
   cardsMain.innerHTML = res.join('');
-  stopSpin();
+  // stopSpin();
 };
 
 func();
