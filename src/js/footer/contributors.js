@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const USER = 'Searge';
-const GHT = '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';
+const GHT = process.env.GHT;
 
 const GH_REPO = `https://api.github.com/repos/${USER}/filmoteka/collaborators`;
 
