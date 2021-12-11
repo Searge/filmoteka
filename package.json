@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
+    "dotenv": "^5.0.1",
     "lazysizes": "^5.3.2",
     "notiflix": "^3.2.2",
     "react-loading": "^2.0.3",
