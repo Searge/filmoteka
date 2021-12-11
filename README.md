@@ -85,7 +85,7 @@
 
 ### Bots
 
-<!-- readme: bots -start -->
+<!-- readme: bots,ImgBotApp -start -->
 <table>
 <tr>
     <td align="center">
