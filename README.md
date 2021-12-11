@@ -28,7 +28,7 @@
 ### Contributors
 
 <!-- markdownlint-disable -->
-<!-- readme: ImgBotApp/-,contributors -start -->
+<!-- readme: contributors,ImgBotApp/- -start -->
 <table>
 <tr>
     <td align="center">
@@ -73,8 +73,9 @@
             <sub><b>Сергей</b></sub>
         </a>
     </td></tr>
+
 </table>
-<!-- readme: ImgBotApp/-,contributors -end -->
+<!-- readme: contributors,ImgBotApp/- -end -->
 
 ### Bots
 
