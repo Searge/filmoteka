@@ -13,9 +13,11 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          export GHT=${{ secrets.GHT }}
           npm ci
           npm run build
+        env:
+          CI: true
+          GHT: ${{ secrets.GHT }}
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
