@@ -11,6 +11,7 @@ import {
   stylePagination,
   paginationBoxEl,
 } from '../pagination.js';
+import { onPageClick } from './main-cards';
 
 const WARNING_MESSAGE = 'The search string cannot be empty. Please specify your search query.';
 const ERROR_MESSAGE = 'Sorry, there are no movies matching your search query. Please try again.';
@@ -26,10 +27,10 @@ let isApiResponseNotEmpty = false;
 initPagination();
 
 formEl.addEventListener('submit', onSearchSubmit);
-paginationBoxEl.addEventListener('click', onPageBtnClick);
 
 function onSearchSubmit(e) {
   e.preventDefault();
+  paginationBoxEl.removeEventListener('click', onPageClick);
   currentPage = FIRST_PAGE;
   createMoviesGallery(currentPage);
 }
@@ -43,6 +44,7 @@ async function createMoviesGallery(currentPage) {
   }
 
   startSpin();
+  paginationBoxEl.addEventListener('click', onPageBtnClick);
 
   await fetchMoviesBySearch(searchQuery, currentPage)
     .then(response => {
@@ -146,5 +148,6 @@ function renderGallery(moviesArr) {
 async function onPageBtnClick() {
   currentPage = getCurrentPage();
   backToTop();
+  paginationBoxEl.removeEventListener('click', onPageBtnClick);
   await createMoviesGallery(currentPage);
 }
