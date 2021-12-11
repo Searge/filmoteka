@@ -22,4 +22,4 @@ jobs:
         with:
           branch: gh-pages
           folder: dist
-          repo-token: ${{ secrets.GHT }}
+          # token: ${{ secrets.GHT }}
