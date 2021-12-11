@@ -103,4 +103,4 @@
         </a>
     </td></tr>
 </table>
-<!-- readme: bots -end -->
+<!-- readme: bots,ImgBotApp -end -->
