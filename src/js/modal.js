@@ -7,7 +7,6 @@ import sprite from '../images/sprite.svg';
 import imgPlaceholder from '../images/no-poster-available.jpg';
 import { startSpin, stopSpin } from './spinner';
 
-
 myLibrary.initializationLibrary();
 
 const gallery = document.querySelector('.gallery__list');
@@ -31,6 +30,7 @@ async function onMovieCLick(event) {
   await fetchMovieById(movieId)
     .then(responce => {
       const movieInfo = responce.data;
+      myLibrary.film = movieInfo;
       renderModalCard(movieInfo);
     })
     .catch(error => console.log(error));
@@ -94,6 +94,14 @@ function onEscClose(event) {
 }
 
 function onClickClose(event) {
+  switch (event.target.dataset.action) {
+    case 'button__watched':
+      myLibrary.addWatched(myLibrary.film);
+      break;
+    case 'button__queue':
+      myLibrary.addQueue(myLibrary.film);
+      break;
+  }
   if (
     event.target === backdrop ||
     event.target.id === 'modal-close' ||
@@ -116,13 +124,4 @@ function closeModal() {
   toTopArrow.classList.add('back-to-top_show');
   document.removeEventListener('click', onClickClose);
   document.removeEventListener('keydown', onEscClose);
-}
-
-switch (event.target.dataset.action) {
-  case 'button__watched':
-    myLibrary.addWatched(myLibrary.film);
-    break;
-  case 'button__queue':
-    myLibrary.addQueue(myLibrary.film);
-    break;
 }
