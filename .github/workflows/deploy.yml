@@ -13,7 +13,7 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          echo ${{ secrets.GHT }} > .env
+          echo "GHT=${{ secrets.GHT }}" > .env
           npm ci
           npm run build
 
