@@ -5,6 +5,7 @@ const GHT = process.env.GHT;
 
 const GH_REPO = `https://api.github.com/repos/${USER}/filmoteka/collaborators`;
 
+// It should works now!
 const getRepositoryCollaborators = async () => {
   const config = {
     method: 'get',
