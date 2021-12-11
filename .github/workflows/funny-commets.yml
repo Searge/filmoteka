@@ -1,4 +1,4 @@
-﻿name: 'build-test'
+﻿name: 'Gif Comment'
 on: # rebuild any PRs and main branch changes
   pull_request:
   issues:
@@ -13,10 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Add funny comment
-      - uses: actions/checkout@v2
-      - id: FunnyComment
         uses: Marta83/funny-comment-action@v2.1
+        id: FunnyComment
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GIPHY_TOKEN: ${{ secrets.GIPHY_TOKEN }}
-          comment_type: 'all'
+          comment_type: 'gif'
