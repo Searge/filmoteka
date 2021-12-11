@@ -27,6 +27,7 @@
 
 ### Contributors
 
+<!-- markdownlint-disable -->
 <!-- readme: ImgBotApp/-,contributors -start -->
 <table>
 <tr>
@@ -72,14 +73,6 @@
             <sub><b>Сергей</b></sub>
         </a>
     </td></tr>
-<tr>
-    <td align="center">
-        <a href="https://github.com/ImgBotApp">
-            <img src="https://avatars.githubusercontent.com/u/31427850?v=4" width="100;" alt="ImgBotApp"/>
-            <br />
-            <sub><b>Imgbot</b></sub>
-        </a>
-    </td></tr>
 </table>
 <!-- readme: ImgBotApp/-,contributors -end -->
 
@@ -111,3 +104,4 @@
     </td></tr>
 </table>
 <!-- readme: bots,ImgBotApp -end -->
+<!-- markdownlint-restore -->
