@@ -40,7 +40,7 @@ const updateTotalPagesNumber = (totalResults, totalPages) => {
 
 const getCurrentPage = () => pagination.getCurrentPage();
 
-const stylePagination = (firstPage, currentPage) => {
+const stylePagination = (firstPage, curPage) => {
   let { totalPages, visiblePages } = paginationOptions;
 
   if (totalPages === 1) {
@@ -49,7 +49,7 @@ const stylePagination = (firstPage, currentPage) => {
     document.querySelector('.tui-page-btn-custom.tui-last').innerHTML = `${totalPages}`;
     document.querySelector('.tui-page-btn-custom.tui-first').innerHTML = `${firstPage}`;
 
-    if (currentPage < firstPage + 3 || totalPages <= visiblePages) {
+    if (curPage < firstPage + 3 || totalPages <= visiblePages) {
       document.querySelector('.tui-page-btn-custom.tui-first').classList.add('visually-hidden');
       document.querySelector('.tui-page-btn-custom.tui-prev').classList.add('visually-hidden');
     } else {
@@ -57,7 +57,7 @@ const stylePagination = (firstPage, currentPage) => {
       document.querySelector('.tui-page-btn-custom.tui-prev').classList.remove('visually-hidden');
     }
 
-    if (currentPage > totalPages - 3 || totalPages <= visiblePages) {
+    if (curPage > totalPages - 3 || totalPages <= visiblePages) {
       document.querySelector('.tui-page-btn-custom.tui-last').classList.add('visually-hidden');
       document.querySelector('.tui-page-btn-custom.tui-next').classList.add('visually-hidden');
     } else {
@@ -68,4 +68,11 @@ const stylePagination = (firstPage, currentPage) => {
   }
 };
 
-export { initPagination, updateTotalPagesNumber, getCurrentPage, stylePagination, paginationBoxEl };
+export {
+  initPagination,
+  updateTotalPagesNumber,
+  getCurrentPage,
+  stylePagination,
+  paginationBoxEl,
+  pagination,
+};

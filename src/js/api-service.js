@@ -9,8 +9,8 @@ const fetchMoviesBySearch = async (searchQuery, page) => {
   return response;
 };
 
-const fetchPopularMovies = async () => {
-  const url = `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&language=en-US`;
+const fetchPopularMovies = async page => {
+  const url = `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&language=en-US&page=${page}`;
   const response = await axios(url);
   return response;
 };

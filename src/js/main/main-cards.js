@@ -1,14 +1,28 @@
 import { fetchPopularMovies } from '../api-service';
 import genres from './genres';
 import 'lazysizes';
-const cardsMain = document.querySelector('.gallery__list');
 import { startSpin, stopSpin } from '../spinner';
+import {
+  initPagination,
+  updateTotalPagesNumber,
+  getCurrentPage,
+  stylePagination,
+  paginationBoxEl,
+} from '../pagination.js';
+import { backToTop } from '../scrolling';
 
-const func = async () => {
+const cardsMain = document.querySelector('.gallery__list');
+let page = 1;
+
+const func = async page => {
   startSpin();
-  setTimeout(stopSpin, 500);
-  const res = await fetchPopularMovies().then(({ data }) =>
-    data.results.map(num => {
+  paginationBoxEl.addEventListener('click', onPageClick);
+
+  const res = await fetchPopularMovies(page).then(({ data }) => {
+    page === 1 && updateTotalPagesNumber(data.total_results, data.total_pages);
+    stylePagination(1, page);
+
+    return data.results.map(num => {
       return `
 <li class="gallery__item">
         <button class="gallery__link">
@@ -26,13 +40,15 @@ const func = async () => {
         </button>
       </li>
 `;
-    }),
-  );
+    });
+  });
   cardsMain.innerHTML = res.join('');
-  // stopSpin();
+  stopSpin();
 };
 
-func();
+initPagination();
+
+func(page);
 
 export const genreSwitch = genreID => {
   const list = [];
@@ -56,3 +72,10 @@ export const filterEl = array => {
   });
   return list.join(', ');
 };
+
+export async function onPageClick() {
+  page = getCurrentPage();
+  backToTop();
+  paginationBoxEl.removeEventListener('click', onPageClick);
+  await func(page);
+}
