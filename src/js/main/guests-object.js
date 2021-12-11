@@ -32,12 +32,32 @@ export const myLibrary = {
 
   // slice(begin, end) возвращает новый массив, содержащий копию части исходного массива, не изменяя его. Копия делается от begin и до, но не включая, end - индексы элементов исходного массива.
 
+  getCurrentPage() {
+    return this._pagination.currentPage;
+  },
+
+  getElementsPage() {
+    return this._pagination.elementsPage;
+  },
+
+  getTotalWatched() {
+    return this._pagination.totalWatched;
+  },
+
+  getTotalQueue() {
+    return this._pagination.totalQueue;
+  },
+
   getWatched(currentPage) {
     const maxPage = Math.ceil(this._pagination.totalWatched / this._pagination.elementsPage);
+    // console.log('maxPage -', maxPage);
     this._pagination.currentPage = maxPage < currentPage ? maxPage : currentPage;
+    //  console.log('this._pagination.currentPage -', this._pagination.currentPage);
     const startElement =
       this._pagination.elementsPage * this._pagination.currentPage - this._pagination.elementsPage;
     const endElement = this._pagination.elementsPage * this._pagination.currentPage;
+    //  console.log('startElement -', startElement);
+    //  console.log('endElement -', endElement);
     return this._watched.slice(startElement, endElement);
   },
 
@@ -69,7 +89,8 @@ export const myLibrary = {
   // просмотренные фильмы
   addWatched(movie = {}) {
     // movie.id
-    if (!this._watched.find(element => element.id === movie.id)) {
+    console.log(movie.id);
+    if (!this._watched.find(element => element.id === movie.id) && movie.id) {
       this._watched.push(movie);
       this._saveWatched();
       this._pagination.totalWatched = this._watched.length;
@@ -79,7 +100,8 @@ export const myLibrary = {
 
   // очередь
   addQueue(movie = {}) {
-    if (!this._queue.find(element => element.id === movie.id)) {
+    console.log(movie.id);
+    if (!this._queue.find(element => element.id === movie.id) && movie.id) {
       this._queue.push(movie);
       this._saveQueue();
       this._pagination.totalQueue = this._queue.length;
