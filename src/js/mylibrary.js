@@ -1,55 +1,27 @@
 import { myLibrary } from './main/guests-object';
 import imgPlaceholder from './../images/no-poster-available.jpg';
 
-import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.min.css';
-
 import {
   initPagination,
   updateTotalPagesNumber,
   getCurrentPage,
   stylePagination,
   paginationBoxEl,
-  // pagination,
   HOME,
   SEARCH,
   MY_LIBRARY,
   site,
 } from './pagination.js';
 
-//initPagination();
-
-//console.log(myLibrary);
-
-const paginationOptions = {
-  totalPages: 1,
-  totalItems: 20,
-  itemsPerPage: 20,
-  visiblePages: 5,
-  centerAlign: true,
-  template: {
-    page: '<a href="#" class="tui-page-btn-custom">{{page}}</a>',
-    currentPage: '<strong class="tui-page-btn-custom tui-is-selected-custom">{{page}}</strong>',
-    moveButton:
-      '<a href="#" class="tui-page-btn-custom tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}} moveButton</span>' +
-      '</a>',
-    disabledMoveButton:
-      '<span class="tui-page-btn-custom tui-is-disabled tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</span>',
-    moreButton:
-      '<a href="#" class="tui-page-btn-custom tui-{{type}}-is-ellip">' +
-      '<span class="tui-ico-ellip">...</span>' +
-      '</a>',
-  },
-};
-
 // const paginationBoxEl = document.getElementById('tui-pagination-container');
 // let pagination;
 
 // pagination = new Pagination(paginationBoxEl, paginationOptions);
 //paginationBoxEl.classList.add('visually-hidden');
+const WATCHED = 'WATCHED';
+const QUEUE = 'QUEUE';
+
+let buttonClick = null;
 
 const ref = {
   watched: document.querySelector('.watched-btn'),
@@ -59,38 +31,46 @@ const ref = {
 };
 
 ref.watched.addEventListener('click', e => {
-  // paginationBoxEl.removeEventListener('click', onPageBtnClick);
+  buttonClick = WATCHED;
   console.log('библиотека - watched - ', site.currentPage);
   console.log(e);
-  //ref.paginationBox.addEventListener('click', onPageBtnClickM);
-  const paginationOptions = {
-    totalPages: Math.ceil(myLibrary.getTotalWatched() / myLibrary.getElementsPage()),
-    totalItems: myLibrary.getTotalWatched(),
-    itemsPerPage: myLibrary.getElementsPage(),
-  };
-  console.log(paginationOptions);
-  // initPagination(paginationOptions);
 
   console.log('myLibrary._pagination.totalWatched -', myLibrary.getTotalWatched());
   console.log(myLibrary.getWatched(myLibrary.getCurrentPage()));
+
   updateTotalPagesNumber(
     myLibrary.getTotalWatched(),
     Math.ceil(myLibrary.getTotalWatched() / myLibrary.getElementsPage()),
   );
 
-  site.pagination.setItemsPerPage(9);
-  site.pagination.setTotalItems(13);
+  site.pagination.setItemsPerPage(myLibrary.getElementsPage());
+  site.pagination.setTotalItems(myLibrary.getTotalWatched());
   site.pagination.reset();
 
   console.log(myLibrary.getWatched(1));
+
   renderGallery(myLibrary.getWatched(1));
   stylePagination(1, myLibrary.getCurrentPage());
 });
 
 ref.queue.addEventListener('click', () => {
-  console.log('myLibrary._pagination.totalQueue -', myLibrary._pagination.totalQueue);
-  console.log(myLibrary.getQueue(myLibrary._pagination.currentPage));
-  stylePagination(1, currentPage);
+  buttonClick = QUEUE;
+  updateTotalPagesNumber(
+    myLibrary.getTotalQueue(),
+    Math.ceil(myLibrary.getTotalQueue() / myLibrary.getElementsPage()),
+  );
+
+  site.pagination.setItemsPerPage(myLibrary.getElementsPage());
+  site.pagination.setTotalItems(myLibrary.getTotalQueue());
+  site.pagination.reset();
+
+  console.log(myLibrary.getQueue(1));
+
+  renderGallery(myLibrary.getQueue(1));
+
+  console.log(myLibrary.getCurrentPage());
+
+  stylePagination(1, myLibrary.getCurrentPage());
 });
 
 function renderGallery(moviesArr) {
@@ -122,13 +102,13 @@ function renderGallery(moviesArr) {
   ref.moviesGalleryEl.innerHTML = markup;
 }
 
-function onPageBtnClickM(e) {
-  console.log('mylibrary');
-  console.log(e);
-  //const currentPage = getCurrentPage();
-  //backToTop();
-  //renderGallery();
-}
+// function onPageBtnClickM(e) {
+//   console.log('mylibrary');
+//   console.log(e);
+//   //const currentPage = getCurrentPage();
+//   //backToTop();
+//   //renderGallery();
+// }
 
 // pagination.on('beforeMove', function (eventData) {
 //   //  return confirm('Go to page ' + eventData.page + '?');
@@ -138,11 +118,16 @@ function onPageBtnClickM(e) {
 // });
 
 site.pagination.on('afterMove', function (eventData) {
-  console.log(site.currentPage);
-  //  alert('The current page is ' + eventData.page);
   if (site.currentPage === MY_LIBRARY) {
-    console.log(site.currentPage);
-    console.log('mylibrary');
-    console.log('afterMove - eventData.page - ', eventData.page);
+    switch (buttonClick) {
+      case WATCHED:
+        renderGallery(myLibrary.getWatched(eventData.page));
+        break;
+      case QUEUE:
+        renderGallery(myLibrary.getQueue(eventData.page));
+        console.log(myLibrary.getCurrentPage());
+        break;
+    }
+    stylePagination(1, myLibrary.getCurrentPage());
   }
 });

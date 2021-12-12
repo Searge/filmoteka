@@ -1,6 +1,15 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.min.css';
 
+const HOME = 1;
+const SEARCH = 2;
+const MY_LIBRARY = 3;
+
+const site = {
+  currentPage: 0,
+  pagination: null,
+};
+
 const paginationOptions = {
   totalPages: 1,
   totalItems: 20,
@@ -26,24 +35,24 @@ const paginationOptions = {
 };
 
 const paginationBoxEl = document.querySelector('#tui-pagination-container');
-let pagination;
 
-const initPagination = () => {
-  pagination = new Pagination(paginationBoxEl, paginationOptions);
+const initPagination = (e_paginationOptions = {}) => {
+  const l_paginationOptions = { ...paginationOptions, ...e_paginationOptions };
   paginationBoxEl.classList.add('visually-hidden');
+  site.pagination = new Pagination(paginationBoxEl, l_paginationOptions);
 };
 
 const updateTotalPagesNumber = (totalResults, totalPages) => {
-  pagination.reset(totalResults);
+  site.pagination.reset(totalResults);
   paginationOptions.totalPages = totalPages;
 };
 
-const getCurrentPage = () => pagination.getCurrentPage();
+const getCurrentPage = () => site.pagination.getCurrentPage();
 
 const stylePagination = (firstPage, curPage) => {
   let { totalPages, visiblePages } = paginationOptions;
 
-  if (totalPages === 1) {
+  if (totalPages <= 1) {
     paginationBoxEl.classList.add('visually-hidden');
   } else {
     document.querySelector('.tui-page-btn-custom.tui-last').innerHTML = `${totalPages}`;
@@ -76,5 +85,8 @@ export {
   getCurrentPage,
   stylePagination,
   paginationBoxEl,
-  pagination,
+  HOME,
+  SEARCH,
+  MY_LIBRARY,
+  site,
 };

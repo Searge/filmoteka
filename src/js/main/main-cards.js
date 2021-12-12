@@ -8,6 +8,10 @@ import {
   getCurrentPage,
   stylePagination,
   paginationBoxEl,
+  HOME,
+  SEARCH,
+  MY_LIBRARY,
+  site,
 } from '../pagination.js';
 import { backToTop } from '../scrolling';
 import imgPlaceholder from '../../images/no-poster-available.jpg';
@@ -16,8 +20,9 @@ const cardsMain = document.querySelector('.gallery__list');
 let page = 1;
 
 const func = async page => {
+  site.currentPage = HOME;
   startSpin();
-  paginationBoxEl.addEventListener('click', onPageClick);
+  //paginationBoxEl.addEventListener('click', onPageClick);
 
   const res = await fetchPopularMovies(page).then(({ data }) => {
     page === 1 && updateTotalPagesNumber(data.total_results, data.total_pages);
@@ -47,7 +52,7 @@ const func = async page => {
   stopSpin();
 };
 
-initPagination();
+//initPagination();
 
 func(page);
 
@@ -74,9 +79,20 @@ export const filterEl = array => {
   return list.join(', ');
 };
 
-export async function onPageClick() {
-  page = getCurrentPage();
-  backToTop();
-  paginationBoxEl.removeEventListener('click', onPageClick);
-  await func(page);
-}
+// export async function onPageClick() {
+//   page = getCurrentPage();
+//   backToTop();
+//   paginationBoxEl.removeEventListener('click', onPageClick);
+//   await func(page);
+// }
+
+site.pagination.on('afterMove', function (eventData) {
+  if (site.currentPage === HOME) {
+    // console.log('пагинация поиска');
+    console.log(site.currentPage);
+    // console.log('The current page is ' + eventData.page);
+    backToTop();
+
+    func(eventData.page);
+  }
+});
