@@ -21,16 +21,16 @@ export const func = async page => {
     return data.results.map(num => {
       return `
 <li class="gallery__item">
-        <button class="gallery__link">
+        <button class="gallery__link" data-id="${num.id}">
         <div class="gallery__image-box">
           <img class="gallery__image lazyload" data-src="${
             num.poster_path ? `https://image.tmdb.org/t/p/w500/${num.poster_path}` : imgPlaceholder
           }" alt="" data-id="${num.id}"">
           </div>
-          <h2 class="gallery__title">
+          <h2 class="gallery__title" data-id="${num.id}">
             ${num.original_title}
           </h2>
-          <p class="gallery__text">
+          <p class="gallery__text" data-id="${num.id}">
           ${filterEl(num.genre_ids)} | ${num.release_date.slice(0, 4)}
           </p>
         </button>

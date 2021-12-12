@@ -122,10 +122,10 @@ function renderGallery(moviesArr) {
           alt="${title}" 
           data-id="${id}">
           </div>
-          <h2 class="gallery__title">
+          <h2 class="gallery__title" data-id="${id}">
             ${title}
           </h2>
-          <p class="gallery__text">${genres} | ${year}</p>
+          <p class="gallery__text" data-id="${id}">${genres} | ${year}</p>
         </button>
       </li>
 `;
