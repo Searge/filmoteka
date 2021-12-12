@@ -8,7 +8,7 @@ import { updateTotalPagesNumber, stylePagination, SEARCH, site } from '../pagina
 import { createHomeGallery } from './main-cards';
 
 const WARNING_MESSAGE = 'The search string cannot be empty. Please specify your search query.';
-const ERROR_MESSAGE = 'Sorry, there are no movies matching your search query. Please try again.';
+const ERROR_MESSAGE = 'Search result not successful. Enter the correct movie name and try again.';
 const FIRST_PAGE = 1;
 
 const formEl = document.querySelector('.header__form');
