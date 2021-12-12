@@ -16,7 +16,7 @@ jobs:
           CI: true
           GTKN: ${{ secrets.GHT }}
         run: |
-          echo "GHT=$GTKN" > .env
+          echo "GHT=$GTKN" > ./.env
           npm ci
           npm run build
 
