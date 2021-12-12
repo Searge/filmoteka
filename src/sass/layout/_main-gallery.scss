@@ -47,10 +47,13 @@
     cursor: pointer;
     appearance: none;
     border: none;
+    border-radius: 5px;
     background: none;
     padding: 0;
-    &:hover .gallery__image {
-      box-shadow: 0 0 6px 3px $secondary-color-alpha;
+    transition: box-shadow 500ms ease-in-out;
+
+    &:hover {
+      box-shadow: 0 0 6px 3px $secondary-drop-shadow-color;
     }
   }
   &__image-box {
