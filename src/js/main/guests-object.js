@@ -48,6 +48,28 @@ export const myLibrary = {
     return this._pagination.totalQueue;
   },
 
+  isWatched(id) {
+    if (
+      this._watched.find(element => {
+        return element.id === id;
+      })
+    ) {
+      return true;
+    }
+    return false;
+  },
+
+  isQueue(id) {
+    if (
+      this._queue.find(element => {
+        return element.id === id;
+      })
+    ) {
+      return true;
+    }
+    return false;
+  },
+
   getWatched(currentPage) {
     const maxPage = Math.ceil(this._pagination.totalWatched / this._pagination.elementsPage);
     // console.log('maxPage -', maxPage);
