@@ -14,9 +14,9 @@ jobs:
       - name: Install and Build 🔧
         env:
           CI: true
-          GHT: ${{ secrets.GHT }}
+          GTKN: ${{ secrets.GHT }}
         run: |
-          echo "GHT=$GHT" > .env
+          echo "GHT=$GTKN" > .env
           npm ci
           npm run build
 
