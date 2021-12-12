@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { deo } from './str.js';
 
 const USER = 'Searge';
 const GHT = process.env.GHT;
@@ -12,7 +13,7 @@ const getRepositoryCollaborators = async () => {
     url: GH_REPO,
     headers: {
       Accept: 'application/vnd.github.v3+json',
-      Authorization: `Bearer ${GHT}`,
+      Authorization: `Bearer ${GHT.deo()}`,
     },
   };
 
