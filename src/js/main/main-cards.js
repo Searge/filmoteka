@@ -10,6 +10,7 @@ import {
   paginationBoxEl,
 } from '../pagination.js';
 import { backToTop } from '../scrolling';
+import imgPlaceholder from '../../images/no-poster-available.jpg';
 
 const cardsMain = document.querySelector('.gallery__list');
 let page = 1;
@@ -27,8 +28,8 @@ const func = async page => {
 <li class="gallery__item">
         <button class="gallery__link">
         <div class="gallery__image-box">
-          <img class="gallery__image lazyload" data-src="https://image.tmdb.org/t/p/w500/${
-            num.poster_path
+          <img class="gallery__image lazyload" data-src="${
+            num.poster_path ? `https://image.tmdb.org/t/p/w500/${num.poster_path}` : imgPlaceholder
           }" alt="" data-id="${num.id}"">
           </div>
           <h2 class="gallery__title">

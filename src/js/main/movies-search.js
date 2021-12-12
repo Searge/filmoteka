@@ -125,9 +125,8 @@ function renderGallery(moviesArr) {
         <button class="gallery__link" data-id="${id}">
         <div class="gallery__image-box">
           <img class="gallery__image lazyload"
-          data-src="https://image.tmdb.org/t/p/w500/${poster}"
+          data-src="${poster ? `https://image.tmdb.org/t/p/w500/${poster}` : imgPlaceholder}"
           alt="${title}" 
-          onerror="this.onerror=null;this.src='${imgPlaceholder}';" 
           data-id="${id}">
           </div>
           <h2 class="gallery__title">

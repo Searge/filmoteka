@@ -11,7 +11,7 @@ const paginationOptions = {
     page: '<a href="#" class="tui-page-btn-custom">{{page}}</a>',
     currentPage: '<strong class="tui-page-btn-custom tui-is-selected-custom">{{page}}</strong>',
     moveButton:
-      '<a href="#" class="tui-page-btn-custom tui-{{type}}">' +
+      '<a id="{{type}}" href="#" class="tui-page-btn-custom tui-{{type}}">' +
       '<span class="tui-ico-{{type}}">{{type}} moveButton</span>' +
       '</a>',
     disabledMoveButton:
@@ -53,6 +53,7 @@ const stylePagination = (firstPage, curPage) => {
       document.querySelector('.tui-page-btn-custom.tui-first').classList.add('visually-hidden');
       document.querySelector('.tui-page-btn-custom.tui-prev').classList.add('visually-hidden');
     } else {
+      document.querySelector('#prev').after(document.querySelector('#first'));
       document.querySelector('.tui-page-btn-custom.tui-first').classList.remove('visually-hidden');
       document.querySelector('.tui-page-btn-custom.tui-prev').classList.remove('visually-hidden');
     }
@@ -61,6 +62,7 @@ const stylePagination = (firstPage, curPage) => {
       document.querySelector('.tui-page-btn-custom.tui-last').classList.add('visually-hidden');
       document.querySelector('.tui-page-btn-custom.tui-next').classList.add('visually-hidden');
     } else {
+      document.querySelector('#last').after(document.querySelector('#next'));
       document.querySelector('.tui-page-btn-custom.tui-last').classList.remove('visually-hidden');
       document.querySelector('.tui-page-btn-custom.tui-next').classList.remove('visually-hidden');
     }
