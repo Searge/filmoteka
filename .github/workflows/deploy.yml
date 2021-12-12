@@ -13,6 +13,7 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
+          echo "GHT=$GHT" > .env
           npm ci
           npm run build
         env:
