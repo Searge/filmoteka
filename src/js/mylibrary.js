@@ -6,7 +6,6 @@ import {
   updateTotalPagesNumber,
   getCurrentPage,
   stylePagination,
-  paginationBoxEl,
   HOME,
   SEARCH,
   MY_LIBRARY,
