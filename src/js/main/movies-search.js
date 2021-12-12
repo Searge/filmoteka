@@ -5,7 +5,7 @@ import imgPlaceholder from '../../images/no-poster-available.jpg';
 import { startSpin, stopSpin } from '../spinner';
 import { backToTop } from '../scrolling';
 import { updateTotalPagesNumber, stylePagination, SEARCH, site } from '../pagination.js';
-import { func } from './main-cards';
+import { createHomeGallery } from './main-cards';
 
 const WARNING_MESSAGE = 'The search string cannot be empty. Please specify your search query.';
 const ERROR_MESSAGE = 'Sorry, there are no movies matching your search query. Please try again.';
@@ -46,7 +46,7 @@ async function createMoviesGallery(currentPage) {
 
       if (results.length === 0) {
         Notify.failure(ERROR_MESSAGE);
-        func(currentPage);
+        createHomeGallery(currentPage);
         formEl.reset();
       } else {
         isApiResponseNotEmpty = true;

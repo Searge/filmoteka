@@ -27,6 +27,12 @@
     margin-top: 20px;
     max-width: 280px;
     flex-basis: calc(100% - 20px);
+    border-radius: 5px;
+    transition: all 500ms ease-in-out;
+
+    &:hover {
+      box-shadow: 0 0 6px 3px $secondary-drop-shadow-color;
+    }
 
     @include respond-from-min($tablet) {
       margin-left: 30px;
@@ -50,11 +56,6 @@
     border-radius: 5px;
     background: none;
     padding: 0;
-    transition: box-shadow 500ms ease-in-out;
-
-    &:hover {
-      box-shadow: 0 0 6px 3px $secondary-drop-shadow-color;
-    }
   }
   &__image-box {
     height: 398px;
