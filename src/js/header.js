@@ -1,5 +1,7 @@
 import { myLibrary, foundFilms } from './main/guests-object';
+import { initPagination, HOME, SEARCH, MY_LIBRARY, site } from './pagination.js';
 
+initPagination();
 myLibrary.initializationLibrary();
 
 const homeLink = document.querySelector('[id="home"]');
@@ -15,7 +17,8 @@ homeLink.addEventListener('click', onLoadHome);
 libraryLink.addEventListener('click', onLoadMylibrary);
 
 function onLoadHome(e) {
-  e.preventDefault();
+  //e.preventDefault();
+  site.currentPage = HOME;
   formHeader.classList.remove('is-hidden');
   mylibrarybtn.classList.add('is-hidden');
   bgHeader.classList.add('header__background');
@@ -26,6 +29,9 @@ function onLoadHome(e) {
 
 function onLoadMylibrary(e) {
   e.preventDefault();
+  site.currentPage = MY_LIBRARY;
+  console.log('Mylibrary');
+  console.log(site.currentPage);
   formHeader.classList.add('is-hidden');
   mylibrarybtn.classList.remove('is-hidden');
   bgHeader.classList.remove('header__background');

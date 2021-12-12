@@ -10,7 +10,12 @@ import {
   getCurrentPage,
   stylePagination,
   paginationBoxEl,
+  HOME,
+  SEARCH,
+  MY_LIBRARY,
+  site,
 } from '../pagination.js';
+
 import { onPageClick } from './main-cards';
 
 const WARNING_MESSAGE = 'The search string cannot be empty. Please specify your search query.';
@@ -24,13 +29,14 @@ let currentPage = FIRST_PAGE;
 let list = [];
 let isApiResponseNotEmpty = false;
 
-initPagination();
+//initPagination();
 
 formEl.addEventListener('submit', onSearchSubmit);
 
 function onSearchSubmit(e) {
   e.preventDefault();
-  paginationBoxEl.removeEventListener('click', onPageClick);
+  site.currentPage = SEARCH;
+  // paginationBoxEl.removeEventListener('click', onPageClick);
   currentPage = FIRST_PAGE;
   createMoviesGallery(currentPage);
 }
@@ -44,7 +50,7 @@ async function createMoviesGallery(currentPage) {
   }
 
   startSpin();
-  paginationBoxEl.addEventListener('click', onPageBtnClick);
+  // paginationBoxEl.addEventListener('click', onPageBtnClick);
 
   await fetchMoviesBySearch(searchQuery, currentPage)
     .then(response => {
@@ -144,9 +150,19 @@ function renderGallery(moviesArr) {
   stopSpin();
 }
 
-async function onPageBtnClick() {
-  currentPage = getCurrentPage();
-  backToTop();
-  paginationBoxEl.removeEventListener('click', onPageBtnClick);
-  await createMoviesGallery(currentPage);
-}
+// async function onPageBtnClick() {
+//   currentPage = getCurrentPage();
+//   backToTop();
+//   paginationBoxEl.removeEventListener('click', onPageBtnClick);
+//   await createMoviesGallery(currentPage);
+// }
+
+site.pagination.on('afterMove', function (eventData) {
+  if (site.currentPage === SEARCH) {
+    // console.log('пагинация поиска');
+    console.log(site.currentPage);
+    // console.log('The current page is ' + eventData.page);
+    backToTop();
+    createMoviesGallery(eventData.page);
+  }
+});
