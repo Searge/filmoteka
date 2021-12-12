@@ -1,5 +1,5 @@
 import { myLibrary, foundFilms } from './main/guests-object';
-import { initPagination, HOME, SEARCH, MY_LIBRARY, site } from './pagination.js';
+import { initPagination, HOME, MY_LIBRARY, site } from './pagination.js';
 
 initPagination();
 myLibrary.initializationLibrary();
