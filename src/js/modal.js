@@ -21,7 +21,12 @@ async function onMovieCLick(event) {
   event.preventDefault();
   startSpin();
   modal.innerHTML = '';
-  if (event.target.nodeName !== 'IMG') {
+  if (
+    event.target.nodeName !== 'IMG' &&
+    event.target.nodeName !== 'H2' &&
+    event.target.nodeName !== 'P' &&
+    event.target.nodeName !== 'BUTTON'
+  ) {
     return;
   }
   openModal();
