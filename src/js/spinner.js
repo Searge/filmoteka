@@ -21,16 +21,4 @@ var opts = {
   position: 'absolute', // Element positioning
 };
 
-// const body = document.getElementById('spinner');
-// const spinner = new Spinner(opts);
-
-// const startSpin = () => {
-//   spinner.spin(body);
-// };
-// const stopSpin = () => {
-//   spinner.stop();
-// };
-
-// export { startSpin, stopSpin };
-
 export default opts;

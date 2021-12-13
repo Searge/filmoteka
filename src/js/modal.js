@@ -7,7 +7,6 @@ import sprite from '../images/sprite.svg';
 import imgPlaceholder from '../images/no-poster-available.jpg';
 import { Spinner } from 'spin.js';
 import opts from './spinner';
-// import { startSpin, stopSpin } from './spinner';
 
 myLibrary.initializationLibrary();
 
@@ -21,7 +20,7 @@ gallery.addEventListener('click', onMovieCLick);
 
 async function onMovieCLick(event) {
   event.preventDefault();
-  // startSpin();
+
   var target = document.getElementById('modal-spin');
   var spinner = new Spinner(opts).spin(target);
   modal.innerHTML = '';
@@ -43,7 +42,7 @@ async function onMovieCLick(event) {
       renderModalCard(movieInfo);
     })
     .catch(error => console.log(error));
-  // stopSpin();
+
   spinner.stop();
   document.addEventListener('keydown', onEscClose);
   document.addEventListener('click', onClickClose);
