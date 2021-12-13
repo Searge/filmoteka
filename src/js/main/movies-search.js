@@ -5,10 +5,11 @@ import imgPlaceholder from '../../images/no-poster-available.jpg';
 import { startSpin, stopSpin } from '../spinner';
 import { backToTop } from '../scrolling';
 import { updateTotalPagesNumber, stylePagination, SEARCH, site } from '../pagination.js';
-import { func } from './main-cards';
+import { createHomeGallery } from './main-cards';
 
-const WARNING_MESSAGE = 'The search string cannot be empty. Please specify your search query.';
-const ERROR_MESSAGE = 'Sorry, there are no movies matching your search query. Please try again.';
+const WARNING_MESSAGE = 'The search string cannot be empty. Please, specify your search query.';
+const ERROR_MESSAGE =
+  'Search result not successful. Please, enter the correct movie name and try again.';
 const FIRST_PAGE = 1;
 
 const formEl = document.querySelector('.header__form');
@@ -31,7 +32,7 @@ async function createMoviesGallery(currentPage) {
   const searchQuery = formEl.elements.searchQuery.value.trim();
 
   if (!searchQuery) {
-    Notify.info(WARNING_MESSAGE);
+    Notify.info(WARNING_MESSAGE, { position: 'center-top' });
     return;
   }
 
@@ -45,8 +46,8 @@ async function createMoviesGallery(currentPage) {
       } = response;
 
       if (results.length === 0) {
-        Notify.failure(ERROR_MESSAGE);
-        func(currentPage);
+        Notify.failure(ERROR_MESSAGE, { position: 'center-top' });
+        createHomeGallery(currentPage);
         formEl.reset();
       } else {
         isApiResponseNotEmpty = true;
