@@ -26,7 +26,6 @@ const collaborators = getRepositoryCollaborators();
 
 collaborators.then(response =>
   response.forEach(async obj => {
-    console.dir(obj);
     const { data } = await axios.get(obj.url);
     console.dir(data);
     const listdata = data.map(num => {
