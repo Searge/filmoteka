@@ -2,7 +2,8 @@ import { fetchMoviesBySearch, fetchMoviesGenres } from '../api-service';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import 'lazysizes';
 import imgPlaceholder from '../../images/no-poster-available.jpg';
-import { startSpin, stopSpin } from '../spinner';
+import { Spinner } from 'spin.js';
+import opts from '../spinner';
 import { backToTop } from '../scrolling';
 import { updateTotalPagesNumber, stylePagination, SEARCH, site } from '../pagination.js';
 import { createHomeGallery } from './main-cards';
@@ -35,8 +36,9 @@ async function createMoviesGallery(currentPage) {
     Notify.info(WARNING_MESSAGE, { position: 'center-top' });
     return;
   }
-
-  startSpin();
+  var target = document.getElementById('gallery');
+  var spinner = new Spinner(opts).spin(target);
+  // startSpin();
 
   await fetchMoviesBySearch(searchQuery, currentPage)
     .then(response => {
@@ -135,7 +137,8 @@ function renderGallery(moviesArr) {
 
   moviesGalleryEl.innerHTML = markup;
   isApiResponseNotEmpty = false;
-  stopSpin();
+  // stopSpin();
+  spinner.stop();
 }
 
 site.pagination.on('afterMove', function (eventData) {

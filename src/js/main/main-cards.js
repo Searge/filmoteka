@@ -1,6 +1,8 @@
 import { fetchPopularMovies, fetchMoviesGenres } from '../api-service';
 import 'lazysizes';
-import { startSpin, stopSpin } from '../spinner';
+// import { startSpin, stopSpin } from '../spinner';
+import { Spinner } from 'spin.js';
+import opts from '../spinner';
 import { updateTotalPagesNumber, stylePagination, HOME, site } from '../pagination.js';
 import { backToTop } from '../scrolling';
 import imgPlaceholder from '../../images/no-poster-available.jpg';
@@ -15,7 +17,9 @@ createHomeGallery(page);
 
 export async function createHomeGallery(page) {
   site.currentPage = HOME;
-  startSpin();
+  // startSpin();
+  var target = document.getElementById('gallery');
+  var spinner = new Spinner(opts).spin(target);
 
   await fetchPopularMovies(page)
     .then(({ data, data: { results } }) => {
@@ -91,8 +95,9 @@ export async function createHomeGallery(page) {
 `;
     })
     .join('');
-
-  stopSpin();
+  
+  spinner.stop();
+  //stopSpin();
 }
 
 site.pagination.on('afterMove', function (eventData) {
