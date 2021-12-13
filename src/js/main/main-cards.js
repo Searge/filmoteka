@@ -1,6 +1,5 @@
 import { fetchPopularMovies, fetchMoviesGenres } from '../api-service';
 import 'lazysizes';
-// import { startSpin, stopSpin } from '../spinner';
 import { Spinner } from 'spin.js';
 import opts from '../spinner';
 import { updateTotalPagesNumber, stylePagination, HOME, site } from '../pagination.js';
@@ -17,7 +16,7 @@ createHomeGallery(page);
 
 export async function createHomeGallery(page) {
   site.currentPage = HOME;
-  // startSpin();
+
   var target = document.getElementById('gallery');
   var spinner = new Spinner(opts).spin(target);
 
@@ -95,9 +94,8 @@ export async function createHomeGallery(page) {
 `;
     })
     .join('');
-  
+
   spinner.stop();
-  //stopSpin();
 }
 
 site.pagination.on('afterMove', function (eventData) {

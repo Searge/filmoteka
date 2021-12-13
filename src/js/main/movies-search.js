@@ -38,7 +38,6 @@ async function createMoviesGallery(currentPage) {
   }
   var target = document.getElementById('gallery');
   var spinner = new Spinner(opts).spin(target);
-  // startSpin();
 
   await fetchMoviesBySearch(searchQuery, currentPage)
     .then(response => {
@@ -137,7 +136,7 @@ function renderGallery(moviesArr) {
 
   moviesGalleryEl.innerHTML = markup;
   isApiResponseNotEmpty = false;
-  // stopSpin();
+
   spinner.stop();
 }
 
