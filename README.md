@@ -29,7 +29,66 @@
 
 <!-- markdownlint-disable -->
 <!-- readme: contributors,ImgBotApp/- -start -->
-
+<table>
+<tr>
+    <td align="center">
+        <a href="https://github.com/Searge">
+            <img src="https://avatars.githubusercontent.com/u/2125311?v=4" width="100;" alt="Searge"/>
+            <br />
+            <sub><b>Sergij Boremchuk</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/omykhalska">
+            <img src="https://avatars.githubusercontent.com/u/83216292?v=4" width="100;" alt="omykhalska"/>
+            <br />
+            <sub><b>Oksana Lytvynchuk</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Huk2021">
+            <img src="https://avatars.githubusercontent.com/u/83830229?v=4" width="100;" alt="Huk2021"/>
+            <br />
+            <sub><b>Viktoriia Huk</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/ruslanpetrovup">
+            <img src="https://avatars.githubusercontent.com/u/48686933?v=4" width="100;" alt="ruslanpetrovup"/>
+            <br />
+            <sub><b>Ruslan Petrov</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/OlgaOnoshko">
+            <img src="https://avatars.githubusercontent.com/u/84858305?v=4" width="100;" alt="OlgaOnoshko"/>
+            <br />
+            <sub><b>Olga Onoshko</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Serhii-P79">
+            <img src="https://avatars.githubusercontent.com/u/84634254?v=4" width="100;" alt="Serhii-P79"/>
+            <br />
+            <sub><b>Сергей</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/ImgBotApp">
+            <img src="https://avatars.githubusercontent.com/u/31427850?v=4" width="100;" alt="ImgBotApp"/>
+            <br />
+            <sub><b>Imgbot</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Lozikkk">
+            <img src="https://avatars.githubusercontent.com/u/68775142?v=4" width="100;" alt="Lozikkk"/>
+            <br />
+            <sub><b>Oleksandr Lozinskyi</b></sub>
+        </a>
+    </td></tr>
+</table>
 <!-- readme: contributors,ImgBotApp/- -end -->
 
 ### Bots
