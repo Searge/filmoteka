@@ -25,7 +25,37 @@ const getRepositoryCollaborators = async () => {
 const collaborators = getRepositoryCollaborators();
 
 collaborators.then(response =>
-  response.forEach(obj => {
-    console.log(obj.login);
+  response.forEach(async obj => {
+    const { data } = await axios.get(obj.url);
+    console.dir(data);
+    const listdata = data.map(num => {
+      return `<li class="contributors__modal-item">
+          <img class="contributors__modal-img" src="${num.avatar_url}" alt="avatar">
+          <h2 class="contributors__modal-name">
+            ${num.name}
+          </h2>
+          <ul class="contacts__list">
+            <li class="contacts__item">
+              <a class="contacts__item-link" href="${num.html_url}">
+                GITHUB
+              </a>
+            </li>
+          </ul>
+        </li>`;
+    });
+    document.querySelector('.contributors__modal-list').innerHTML = listdata.join('');
   }),
 );
+const buttonModal = document.querySelector('.contributors__button');
+const modal = document.querySelector('.contributors__backdrop');
+const modalOpen = () => {
+  modal.classList.add('active');
+};
+const modalClose = evn => {
+  if (!evn.target.classList.contains('contributors__backdrop')) {
+    return;
+  }
+  modal.classList.remove('active');
+};
+buttonModal.addEventListener('click', modalOpen);
+modal.addEventListener('click', modalClose);

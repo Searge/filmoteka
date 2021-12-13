@@ -4,17 +4,17 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.25);
 
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .is-hidden {
   opacity: 0;
   pointer-events: none;
-  transform: scale(0.75);
+  transform: scale(1.25);
 }
+
 .modal {
   position: absolute;
   overflow-x: auto;
@@ -188,7 +188,9 @@
   color: $primary-color-light;
   cursor: pointer;
 }
-
+.current-button {
+  background-color: greenyellow;
+}
 .add-button:nth-child(1) {
   margin-right: 15px;
 }
