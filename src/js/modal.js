@@ -5,7 +5,9 @@ import genres from './main/genres';
 import './main/main-cards';
 import sprite from '../images/sprite.svg';
 import imgPlaceholder from '../images/no-poster-available.jpg';
-import { startSpin, stopSpin } from './spinner';
+import { Spinner } from 'spin.js';
+import opts from './spinner';
+// import { startSpin, stopSpin } from './spinner';
 
 myLibrary.initializationLibrary();
 
@@ -19,7 +21,9 @@ gallery.addEventListener('click', onMovieCLick);
 
 async function onMovieCLick(event) {
   event.preventDefault();
-  startSpin();
+  // startSpin();
+  var target = document.getElementById('modal-spin');
+  var spinner = new Spinner(opts).spin(target);
   modal.innerHTML = '';
   if (event.target.nodeName !== 'IMG') {
     return;
@@ -34,7 +38,8 @@ async function onMovieCLick(event) {
       renderModalCard(movieInfo);
     })
     .catch(error => console.log(error));
-  stopSpin();
+  // stopSpin();
+  spinner.stop();
   document.addEventListener('keydown', onEscClose);
   document.addEventListener('click', onClickClose);
 }

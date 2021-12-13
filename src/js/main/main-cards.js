@@ -1,7 +1,9 @@
 import { fetchPopularMovies } from '../api-service';
 import genres from './genres';
 import 'lazysizes';
-import { startSpin, stopSpin } from '../spinner';
+// import { startSpin, stopSpin } from '../spinner';
+import { Spinner } from 'spin.js';
+import opts from '../spinner';
 import { updateTotalPagesNumber, stylePagination, HOME, site } from '../pagination.js';
 import { backToTop } from '../scrolling';
 import imgPlaceholder from '../../images/no-poster-available.jpg';
@@ -12,7 +14,9 @@ let page = START_PAGE;
 
 export const func = async page => {
   site.currentPage = HOME;
-  startSpin();
+  // startSpin();
+  var target = document.getElementById('gallery');
+  var spinner = new Spinner(opts).spin(target);
 
   const res = await fetchPopularMovies(page).then(({ data }) => {
     page === START_PAGE && updateTotalPagesNumber(data.total_results, data.total_pages);
@@ -39,7 +43,8 @@ export const func = async page => {
     });
   });
   cardsMain.innerHTML = res.join('');
-  stopSpin();
+  // stopSpin();
+  spinner.stop();
 };
 
 func(page);
