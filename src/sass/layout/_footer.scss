@@ -23,13 +23,51 @@
 }
 
 .contributors {
+  &__button {
+    appearance: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
   &__heart {
     display: inline;
     width: 14px;
     height: 13px;
     fill: $accent-color;
   }
-
+  &__backdrop {
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    transition: opacity 250ms linear;
+    &.active {
+      opacity: 1;
+      display: flex;
+      pointer-events: auto;
+      justify-content: center;
+    }
+  }
+  &__modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 15px;
+    padding-bottom: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    transform: translate(-50%, -50%);
+  }
   &__heart:hover,
   &__heart:focus,
   &__heart:active {
@@ -37,7 +75,50 @@
     transform-origin: center;
   }
 }
-
+// Modal
+.contributors__modal-title {
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+.contributors__modal-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.contributors__modal-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc((100% - 30px) / 4);
+  text-align: left;
+}
+.contributors__modal-img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background: blue;
+}
+.contributors__modal-name {
+  font-size: 20px;
+  font-weight: 500;
+  color: #ff6b08;
+  // margin-bottom: 10px;
+}
+.contributors__modal-text {
+  font-weight: 400;
+  margin-bottom: 10px;
+  color: $primary-color;
+}
+.contacts__list {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+.contacts__item-link {
+  font-weight: 400;
+  cursor: pointer;
+}
+// -----------------
 /* Heart beat animation */
 @keyframes beat {
   to {
