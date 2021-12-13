@@ -80,8 +80,12 @@ function renderModalCard({
     <h3 class="movie__overview-title">ABOUT</h3>
     <p class="movie__overview-text">${overview}</p>
     <div class="movie__buttons">
-    <button type="button" class="add-button" data-id="${id}" data-action="button__watched">ADD TO WATCHED</button>
-    <button type="button" class="add-button" data-id="${id}" data-action="button__queue">ADD TO QUEUE</button>
+    <button type="button" class="add-button" data-id="${
+      myLibrary.isWatched(id) ? 'current-button' : ''
+    }" data-action="button__watched">ADD TO WATCHED</button>
+    <button type="button" class="add-button" data-id="${
+      myLibrary.isQueue(id) ? 'current-button' : ''
+    }" data-action="button__queue">ADD TO QUEUE</button>
     <button type="button" id="modal-close" class="modal__close">
     <svg class="close-icon" id="close-icon" width="14px" height="14px">
     <use id="close-svg" href="${sprite}#icon-close"></use>

@@ -188,7 +188,9 @@
   color: $primary-color-light;
   cursor: pointer;
 }
-
+.current-button {
+  background-color: greenyellow;
+}
 .add-button:nth-child(1) {
   margin-right: 15px;
 }
