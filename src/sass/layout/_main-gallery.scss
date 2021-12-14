@@ -2,6 +2,8 @@
   padding-top: 20px;
   padding-bottom: 40px;
 
+  min-height: calc(100vh - 230px - 100px);
+
   @include respond-from-min($tablet) {
     padding-top: 60px;
     padding-bottom: 60px;
@@ -68,6 +70,7 @@
     background: none;
     padding: 0;
   }
+
   &__image-box {
     height: 398px;
   }
@@ -93,6 +96,7 @@
     font-size: 12px;
     line-height: 1.33;
     text-transform: uppercase;
+    color: $primary-color;
   }
 
   &__text {
@@ -101,5 +105,36 @@
     font-weight: 500;
     line-height: 1.33;
     color: $accent-color;
+  }
+
+  & .api-error {
+    width: 100%;
+    margin-left: 20px;
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include respond-from-min($tablet) {
+      margin-left: 30px;
+      margin-top: 30px;
+    }
+
+    & .api-error__img {
+      width: 500px;
+    }
+
+    & .api-error__desc {
+      padding: 10px 10px 0;
+      text-align: center;
+      color: $primary-color;
+      font-family: $main-font;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.14;
+      text-align: center;
+    }
   }
 }
