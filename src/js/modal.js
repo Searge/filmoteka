@@ -28,7 +28,7 @@ async function onMovieCLick(event) {
     event.target.nodeName !== 'IMG' &&
     event.target.nodeName !== 'H2' &&
     event.target.nodeName !== 'P' &&
-    event.target.nodeName !== 'BUTTON'
+    event.target.nodeName !== 'A'
   ) {
     return;
   }
