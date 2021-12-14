@@ -1,7 +1,6 @@
 .main__container {
   padding-top: 20px;
   padding-bottom: 40px;
-
   min-height: calc(100vh - 230px - 100px);
 
   @include respond-from-min($tablet) {
@@ -111,7 +110,6 @@
     width: 100%;
     margin-left: 20px;
     margin-top: 20px;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -134,7 +132,6 @@
       font-weight: 400;
       font-size: 14px;
       line-height: 1.14;
-      text-align: center;
     }
   }
 }
