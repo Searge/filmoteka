@@ -24,7 +24,7 @@ const paginationOptions = {
       '<span class="tui-ico-{{type}}"></span>' +
       '</a>',
     disabledMoveButton:
-      '<span class="tui-page-btn-custom tui-is-disabled tui-{{type}}">' +
+      '<span id="{{type}}" class="tui-page-btn-custom tui-is-disabled tui-{{type}}">' +
       '<span class="tui-ico-{{type}}">{{type}}</span>' +
       '</span>',
     moreButton:
@@ -54,29 +54,29 @@ const stylePagination = (firstPage, curPage) => {
   const middleVisiblePage = Math.ceil(visiblePages / 2);
 
   if (totalPages <= 1) {
-    paginationBoxEl.classList.add('.visually-hidden');
+    paginationBoxEl.classList.add('visually-hidden');
   } else {
     document.querySelector('.tui-page-btn-custom.tui-last').innerHTML = `${totalPages}`;
     document.querySelector('.tui-page-btn-custom.tui-first').innerHTML = `${firstPage}`;
 
     if (curPage < firstPage + middleVisiblePage || totalPages <= visiblePages) {
-      document.querySelector('.tui-page-btn-custom.tui-first').classList.add('.visually-hidden');
-      document.querySelector('.tui-page-btn-custom.tui-prev').classList.add('.visually-hidden');
+      document.querySelector('.tui-page-btn-custom.tui-first').classList.add('visually-hidden');
+      document.querySelector('.tui-page-btn-custom.tui-prev').classList.add('visually-hidden');
     } else {
       document.querySelector('#prev')?.after(document.querySelector('#first'));
-      document.querySelector('.tui-page-btn-custom.tui-first').classList.remove('.visually-hidden');
-      document.querySelector('.tui-page-btn-custom.tui-prev').classList.remove('.visually-hidden');
+      document.querySelector('.tui-page-btn-custom.tui-first').classList.remove('visually-hidden');
+      document.querySelector('.tui-page-btn-custom.tui-prev').classList.remove('visually-hidden');
     }
 
     if (curPage > totalPages - middleVisiblePage || totalPages <= visiblePages) {
-      document.querySelector('.tui-page-btn-custom.tui-last').classList.add('.visually-hidden');
-      document.querySelector('.tui-page-btn-custom.tui-next').classList.add('.visually-hidden');
+      document.querySelector('.tui-page-btn-custom.tui-last').classList.add('visually-hidden');
+      document.querySelector('.tui-page-btn-custom.tui-next').classList.add('visually-hidden');
     } else {
       document.querySelector('#last')?.after(document.querySelector('#next'));
-      document.querySelector('.tui-page-btn-custom.tui-last').classList.remove('.visually-hidden');
-      document.querySelector('.tui-page-btn-custom.tui-next').classList.remove('.visually-hidden');
+      document.querySelector('.tui-page-btn-custom.tui-last').classList.remove('visually-hidden');
+      document.querySelector('.tui-page-btn-custom.tui-next').classList.remove('visually-hidden');
     }
-    paginationBoxEl.classList.remove('.visually-hidden');
+    paginationBoxEl.classList.remove('visually-hidden');
   }
 };
 

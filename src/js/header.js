@@ -41,5 +41,5 @@ function onLoadMylibrary(e) {
   libraryLink.classList.add('current');
   homeLink.classList.remove('current');
   cleanGallery.innerHTML = '';
-  paginationBoxEl.classList.add('.visually-hidden');
+  // paginationBoxEl.classList.add('visually-hidden');
 }

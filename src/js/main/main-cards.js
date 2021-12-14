@@ -78,7 +78,7 @@ export async function createHomeGallery(page) {
     .map(({ id, poster, title, genres, year }) => {
       return `
 <li class="gallery__item">
-        <button class="gallery__link" data-id="${id}">
+        <a href="#" class="gallery__link" data-id="${id}">
         <div class="gallery__image-box">
           <img class="gallery__image lazyload"
           data-src="${poster ? `https://image.tmdb.org/t/p/w500/${poster}` : imgPlaceholder}"
@@ -89,7 +89,7 @@ export async function createHomeGallery(page) {
             ${title}
           </h2>
           <p class="gallery__text" data-id="${id}">${genres} | ${year}</p>
-        </button>
+        </a>
       </li>
 `;
     })

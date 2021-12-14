@@ -36,8 +36,9 @@ async function createMoviesGallery(currentPage) {
     Notify.info(WARNING_MESSAGE, { position: 'center-top' });
     return;
   }
-  var target = document.getElementById('gallery');
-  var spinner = new Spinner(opts).spin(target);
+
+  const target = document.getElementById('gallery');
+  const spinner = new Spinner(opts).spin(target);
 
   await fetchMoviesBySearch(searchQuery, currentPage)
     .then(response => {
@@ -68,7 +69,7 @@ async function createMoviesGallery(currentPage) {
         currentPage === FIRST_PAGE && updateTotalPagesNumber(data.total_results, data.total_pages);
       }
 
-      !isApiResponseNotEmpty && stopSpin();
+      !isApiResponseNotEmpty && spinner.stop();
     })
     .catch(error => console.log(error));
 
@@ -117,7 +118,7 @@ function renderGallery(moviesArr) {
     .map(({ id, poster, title, genres, year }) => {
       return `
 <li class="gallery__item">
-        <button class="gallery__link" data-id="${id}">
+        <a href="#" class="gallery__link" data-id="${id}">
         <div class="gallery__image-box">
           <img class="gallery__image lazyload"
           data-src="${poster ? `https://image.tmdb.org/t/p/w500/${poster}` : imgPlaceholder}"
@@ -128,7 +129,7 @@ function renderGallery(moviesArr) {
             ${title}
           </h2>
           <p class="gallery__text" data-id="${id}">${genres} | ${year}</p>
-        </button>
+        </a>
       </li>
 `;
     })
@@ -136,8 +137,6 @@ function renderGallery(moviesArr) {
 
   moviesGalleryEl.innerHTML = markup;
   isApiResponseNotEmpty = false;
-
-  spinner.stop();
 }
 
 site.pagination.on('afterMove', function (eventData) {
