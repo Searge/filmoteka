@@ -24,7 +24,7 @@ const paginationOptions = {
       '<span class="tui-ico-{{type}}"></span>' +
       '</a>',
     disabledMoveButton:
-      '<span class="tui-page-btn-custom tui-is-disabled tui-{{type}}">' +
+      '<span id="{{type}}" class="tui-page-btn-custom tui-is-disabled tui-{{type}}">' +
       '<span class="tui-ico-{{type}}">{{type}}</span>' +
       '</span>',
     moreButton:
