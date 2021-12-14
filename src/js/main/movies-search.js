@@ -8,14 +8,18 @@ import { backToTop } from '../scrolling';
 import { updateTotalPagesNumber, stylePagination, SEARCH, site } from '../pagination.js';
 import { createHomeGallery } from './main-cards';
 
-const WARNING_MESSAGE = 'The search string cannot be empty. Please, specify your search query.';
+const WARNING_MESSAGE = 'The search string cannot be empty. Please, specify your search query';
 const ERROR_MESSAGE =
-  'Search result not successful. Please, enter the correct movie name and try again.';
+  'Search result not successful. Please, enter the correct movie name and try again';
 const FIRST_PAGE = 1;
 
 const formEl = document.querySelector('.header__form');
 const moviesGalleryEl = document.querySelector('.gallery__list');
 
+const notifyOptions = {
+  position: 'center-top',
+  fontSize: '14px',
+};
 let currentPage = FIRST_PAGE;
 let list = [];
 let isApiResponseNotEmpty = false;
@@ -33,7 +37,7 @@ async function createMoviesGallery(currentPage) {
   const searchQuery = formEl.elements.searchQuery.value.trim();
 
   if (!searchQuery) {
-    Notify.info(WARNING_MESSAGE, { position: 'center-top' });
+    Notify.info(WARNING_MESSAGE, notifyOptions);
     return;
   }
 
@@ -48,7 +52,7 @@ async function createMoviesGallery(currentPage) {
       } = response;
 
       if (results.length === 0) {
-        Notify.failure(ERROR_MESSAGE, { position: 'center-top' });
+        Notify.failure(ERROR_MESSAGE, notifyOptions);
         createHomeGallery(currentPage);
         formEl.reset();
       } else {
@@ -59,7 +63,7 @@ async function createMoviesGallery(currentPage) {
             id: movie.id,
             poster: movie.poster_path,
             title: movie.original_title,
-            genres: movie.genre_ids,
+            genres: typeof movie.genre_ids,
             year: movie.release_date ? movie.release_date.slice(0, 4) : 'Year N/A',
           };
 
@@ -71,7 +75,13 @@ async function createMoviesGallery(currentPage) {
 
       !isApiResponseNotEmpty && spinner.stop();
     })
-    .catch(error => console.log(error));
+    .catch(error => {
+      console.log(error);
+      Notify.failure(
+        'Ooops! Something went wrong... You may refresh a page or try again later',
+        notifyOptions,
+      );
+    });
 
   if (isApiResponseNotEmpty) {
     await fetchMoviesGenres()
@@ -106,7 +116,10 @@ async function createMoviesGallery(currentPage) {
           }
         });
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        console.log('Failed to get genres : ', error);
+        list.map(movie => (movie.genres = 'Genres N/A'));
+      });
   }
 
   isApiResponseNotEmpty && renderGallery(list);

@@ -5,6 +5,7 @@ import opts from '../spinner';
 import { updateTotalPagesNumber, stylePagination, HOME, site } from '../pagination.js';
 import { backToTop } from '../scrolling';
 import imgPlaceholder from '../../images/no-poster-available.jpg';
+import imgOnError from '../../images/img-on-error.jpg';
 
 const START_PAGE = 1;
 let page = START_PAGE;
@@ -72,7 +73,10 @@ export async function createHomeGallery(page) {
         }
       });
     })
-    .catch(error => console.log(error));
+    .catch(error => {
+      console.log('Failed to get genres : ', error);
+      popularMoviesList.map(movie => (movie.genres = 'Genres N/A'));
+    });
 
   cardsMain.innerHTML = popularMoviesList
     .map(({ id, poster, title, genres, year }) => {
@@ -94,8 +98,20 @@ export async function createHomeGallery(page) {
 `;
     })
     .join('');
-
   spinner.stop();
+
+  setTimeout(() => {
+    if (popularMoviesList.length === 0) {
+      const errorText = `<li class="api-error">
+        <img class="api-error__img lazyload" data-src="${imgOnError}" alt="service-unavailable">
+        <p class="api-error__desc">The list of popular movies is temporarily unavailable.<br>Please, retry later!
+        </p>
+        </li>`;
+      cardsMain.innerHTML = errorText;
+      document.querySelector('#tui-pagination-container').classList.add('visually-hidden');
+      spinner.stop();
+    }
+  }, 500);
 }
 
 site.pagination.on('afterMove', function (eventData) {
