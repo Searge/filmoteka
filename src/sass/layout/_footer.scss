@@ -102,6 +102,8 @@
   border-radius: 50%;
   width: 100px;
   height: 100px;
+  filter: drop-shadow(0 4px 4px $primary-drop-shadow-color)
+    drop-shadow(0 4px 4px $secondary-drop-shadow-color);
 }
 .contributors__modal-name {
   font-size: 20px;
