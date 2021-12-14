@@ -111,6 +111,7 @@ async function createMoviesGallery(currentPage) {
 
   isApiResponseNotEmpty && renderGallery(list);
   stylePagination(FIRST_PAGE, currentPage);
+  spinner.stop();
 }
 
 function renderGallery(moviesArr) {
