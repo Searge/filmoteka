@@ -10,13 +10,9 @@ import {
   SEARCH,
   MY_LIBRARY,
   site,
+  paginationBoxEl,
 } from './pagination.js';
 
-// const paginationBoxEl = document.getElementById('tui-pagination-container');
-// let pagination;
-
-// pagination = new Pagination(paginationBoxEl, paginationOptions);
-//paginationBoxEl.classList.add('visually-hidden');
 const WATCHED = 'WATCHED';
 const QUEUE = 'QUEUE';
 
@@ -26,16 +22,21 @@ const ref = {
   watched: document.querySelector('.watched-btn'),
   queue: document.querySelector('.queue-btn'),
   moviesGalleryEl: document.querySelector('.gallery__list'),
-  // paginationBox: document.getElementById('tui-pagination-container'),
+  linkMyLibrary: document.getElementById('my-library'),
 };
 
-ref.watched.addEventListener('click', e => {
-  buttonClick = WATCHED;
-  console.log('библиотека - watched - ', site.currentPage);
-  console.log(e);
+ref.watched.addEventListener('click', onClickWatched);
+ref.queue.addEventListener('click', onClickQueue);
 
-  console.log('myLibrary._pagination.totalWatched -', myLibrary.getTotalWatched());
-  console.log(myLibrary.getWatched(myLibrary.getCurrentPage()));
+function onClickWatched() {
+  ref.queue.classList.remove('btn-activ');
+  ref.watched.classList.add('btn-activ');
+  buttonClick = WATCHED;
+  // console.log('библиотека - watched - ', site.currentPage);
+  // console.log(e);
+
+  // console.log('myLibrary._pagination.totalWatched -', myLibrary.getTotalWatched());
+  // console.log(myLibrary.getWatched(myLibrary.getCurrentPage()));
 
   updateTotalPagesNumber(
     myLibrary.getTotalWatched(),
@@ -46,13 +47,19 @@ ref.watched.addEventListener('click', e => {
   site.pagination.setTotalItems(myLibrary.getTotalWatched());
   site.pagination.reset();
 
-  console.log(myLibrary.getWatched(1));
+  //console.log(myLibrary.getWatched(1));
 
   renderGallery(myLibrary.getWatched(1));
   stylePagination(1, myLibrary.getCurrentPage());
-});
+  if (myLibrary.getTotalWatched() <= 0) {
+    ref.moviesGalleryEl.innerHTML =
+      '<span class="empty">Empty, stop sitting at the monitor,<br> go out into nature, take a walk !!!</span>';
+  }
+}
 
-ref.queue.addEventListener('click', () => {
+function onClickQueue() {
+  ref.queue.classList.add('btn-activ');
+  ref.watched.classList.remove('btn-activ');
   buttonClick = QUEUE;
   updateTotalPagesNumber(
     myLibrary.getTotalQueue(),
@@ -63,14 +70,18 @@ ref.queue.addEventListener('click', () => {
   site.pagination.setTotalItems(myLibrary.getTotalQueue());
   site.pagination.reset();
 
-  console.log(myLibrary.getQueue(1));
+  // console.log(myLibrary.getQueue(1));
 
   renderGallery(myLibrary.getQueue(1));
 
-  console.log(myLibrary.getCurrentPage());
+  // console.log(myLibrary.getCurrentPage());
 
   stylePagination(1, myLibrary.getCurrentPage());
-});
+  if (myLibrary.getTotalQueue() <= 0) {
+    ref.moviesGalleryEl.innerHTML =
+      '<span class="empty">Empty, stop sitting at the monitor,<br> go out into nature, take a walk !!!</span>';
+  }
+}
 
 function renderGallery(moviesArr) {
   const markup = moviesArr
@@ -101,21 +112,6 @@ function renderGallery(moviesArr) {
   ref.moviesGalleryEl.innerHTML = markup;
 }
 
-// function onPageBtnClickM(e) {
-//   console.log('mylibrary');
-//   console.log(e);
-//   //const currentPage = getCurrentPage();
-//   //backToTop();
-//   //renderGallery();
-// }
-
-// pagination.on('beforeMove', function (eventData) {
-//   //  return confirm('Go to page ' + eventData.page + '?');
-//   console.log(Site.currentPage);
-//   console.log('mylibrary');
-//   console.log('beforeMove - eventData.page - ', eventData.page);
-// });
-
 site.pagination.on('afterMove', function (eventData) {
   if (site.currentPage === MY_LIBRARY) {
     switch (buttonClick) {
@@ -124,9 +120,20 @@ site.pagination.on('afterMove', function (eventData) {
         break;
       case QUEUE:
         renderGallery(myLibrary.getQueue(eventData.page));
-        console.log(myLibrary.getCurrentPage());
+        //  console.log(myLibrary.getCurrentPage());
         break;
     }
     stylePagination(1, myLibrary.getCurrentPage());
+  }
+});
+
+ref.linkMyLibrary.addEventListener('click', () => {
+  // console.log('my library');
+  ref.queue.classList.add('btn-activ');
+  onClickQueue();
+
+  if (myLibrary.getTotalQueue() <= 0) {
+    ref.moviesGalleryEl.innerHTML =
+      '<span class="empty">Empty, stop sitting at the monitor,<br> go out into nature, take a walk !!!</span>';
   }
 });

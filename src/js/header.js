@@ -1,9 +1,22 @@
 import { myLibrary, foundFilms } from './main/guests-object';
-import { initPagination, HOME, MY_LIBRARY, site } from './pagination.js';
-import { paginationBoxEl } from './pagination.js';
+import {
+  initPagination,
+  updateTotalPagesNumber,
+  getCurrentPage,
+  stylePagination,
+  HOME,
+  SEARCH,
+  MY_LIBRARY,
+  site,
+  paginationBoxEl,
+} from './pagination.js';
+
+//import { onClickQueue, onClickWatched } from './mylibraryrender';
 
 initPagination();
 myLibrary.initializationLibrary();
+
+//import { onClickQueue, onClickWatched } from './mylibrary';
 
 const homeLink = document.querySelector('[id="home"]');
 const libraryLink = document.querySelector('[id="my-library"]');
@@ -32,8 +45,8 @@ function onLoadHome(e) {
 function onLoadMylibrary(e) {
   e.preventDefault();
   site.currentPage = MY_LIBRARY;
-  console.log('Mylibrary');
-  console.log(site.currentPage);
+  // console.log('Mylibrary');
+  // console.log(site.currentPage);
   formHeader.classList.add('is-hidden');
   mylibrarybtn.classList.remove('is-hidden');
   bgHeader.classList.remove('header__background');
@@ -41,5 +54,8 @@ function onLoadMylibrary(e) {
   libraryLink.classList.add('current');
   homeLink.classList.remove('current');
   cleanGallery.innerHTML = '';
-  // paginationBoxEl.classList.add('visually-hidden');
+  paginationBoxEl.classList.add('visually-hidden');
+  // console.log('heder');
+  // console.log(paginationBoxEl);
+  //onClickQueue();
 }
