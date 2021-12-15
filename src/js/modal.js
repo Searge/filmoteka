@@ -169,9 +169,13 @@ function onClickAddQueue() {
     myLibrary.deleteQueue(myLibrary.film);
     ref.btnQueue.classList.remove('current-button');
     ref.btnQueue.textContent = 'ADD TO QUEUE';
+    if (myLibrary.isWatched(myLibrary.film.id)) {
+      ref.btnWatched.textContent = 'VIEWED';
+    }
   } else {
     myLibrary.addQueue(myLibrary.film);
     ref.btnQueue.classList.add('current-button');
     ref.btnQueue.textContent = 'QUEUE';
+    ref.btnWatched.textContent = 'ADD TO WATCHED';
   }
 }
