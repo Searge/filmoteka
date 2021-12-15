@@ -1,14 +1,16 @@
 .back-to-top {
   position: fixed;
-  bottom: 50vh;
+  bottom: 5vh;
   right: 2vw;
   z-index: 1000;
   width: 30px;
   height: 30px;
-  background-color: $primary-color-light;
-  color: $primary-color;
+  color: $primary-color-light;
+  background-color: $accent-color;
   cursor: pointer;
   border-radius: 50%;
+  border-color: none;
+  border: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,8 +27,8 @@
 
   &:hover,
   &:focus {
-    color: $primary-color-light;
-    background-color: $accent-color;
+    background-color: $primary-color-light;
+    color: $primary-color;
   }
 
   &_show {

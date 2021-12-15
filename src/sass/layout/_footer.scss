@@ -66,7 +66,7 @@
     top: 50%;
     left: 50%;
     padding: 15px;
-    padding-bottom: 20px;
+    min-width: 245px;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -74,6 +74,7 @@
     align-items: center;
     background: $primary-color-light;
     transform: translate(-50%, -50%);
+    overflow: auto;
   }
   &__heart:hover,
   &__heart:focus,
@@ -90,35 +91,60 @@
 .contributors__modal-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  justify-content: space-evenly;
+  margin-left: -15px;
+  margin-top: -15px;
+
+  @include respond-from-min($tablet) {
+    margin-left: -30px;
+    margin-top: -30px;
+  }
 }
+
 .contributors__modal-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: calc((100% - 60px) / 4);
-  text-align: left;
+  flex-basis: calc((100% - 30px) / 2);
+  min-width: 80px;
+  margin-left: 15px;
+  margin-top: 15px;
+
+  @include respond-from-min($tablet) {
+    margin-left: 30px;
+    margin-top: 30px;
+    flex-basis: calc((100% - 90px) / 3);
+    min-width: 100px;
+    max-width: 140px;
+  }
 }
+
 .contributors__modal-item-link {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 10px;
 }
 .contributors__modal-img {
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   filter: drop-shadow(0 4px 4px $primary-drop-shadow-color)
     drop-shadow(0 4px 4px $secondary-drop-shadow-color);
+
+  @include respond-from-min($tablet) {
+    width: 100px;
+    height: 100px;
+  }
 }
 .contributors__modal-name {
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 500;
   color: $accent-color;
   margin-top: 10px;
-  text-align: center;
-  margin-bottom: 10px;
+  padding-bottom: 10px;
+
+  @include respond-from-min($tablet) {
+    font-size: 18px;
+  }
 }
 .contributors__modal-text {
   font-weight: 600;
@@ -126,6 +152,9 @@
   color: $primary-color;
 }
 .contacts__item-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   font-weight: 600;
   color: $primary-color;
