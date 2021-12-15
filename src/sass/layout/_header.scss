@@ -87,28 +87,29 @@
     width: 130px;
     height: 44px;
     color: $primary-color-light;
-    background: $accent-color-fill;
+    border: 1px solid $primary-color-light;
+    background: transparent;
     border-radius: 5px;
     text-transform: uppercase;
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
-    border: transparent;
+
     cursor: pointer;
     text-align: center;
     align-items: center;
     box-shadow: 0, 8px rgba(255, 107, 1, 0.6);
     &:hover,
     &:focus {
-      border: 1px solid $primary-color-light;
-      background: transparent;
+      background: $accent-color-fill;
+      border: transparent;
     }
   }
 }
 
 .btn-activ {
-  border: 1px solid $primary-color-light;
-  background: transparent;
+  background: $accent-color-fill;
+  border: transparent;
 }
 
 .empty {

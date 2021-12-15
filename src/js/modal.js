@@ -7,6 +7,8 @@ import sprite from '../images/sprite.svg';
 import imgPlaceholder from '../images/no-poster-available.jpg';
 import { Spinner } from 'spin.js';
 import opts from './spinner';
+import { site, HOME, SEARCH, MY_LIBRARY } from './pagination';
+import { onClickQueue, onClickWatched } from './mylibrary';
 
 myLibrary.initializationLibrary();
 
@@ -45,9 +47,12 @@ async function onMovieCLick(event) {
     .then(responce => {
       const movieInfo = responce.data;
       myLibrary.film = movieInfo;
+      // console.log(myLibrary.film);
       renderModalCard(movieInfo);
       ref.btnQueue = document.querySelector('button[data-action="button__queue"]');
       ref.btnWatched = document.querySelector('button[data-action="button__watched"]');
+      ref.btnQueue.addEventListener('click', onClickAddQueue);
+      ref.btnWatched.addEventListener('click', onClickAddWatched);
     })
     .catch(error => console.log(error));
 
@@ -71,7 +76,9 @@ function renderModalCard({
   modal.innerHTML = `<div>
   <div class="movie__container">
     <div class="image__container"> 
-    <img class="modal__movie-img" src='https://image.tmdb.org/t/p/w500/${poster_path}' alt="${title}" onerror="this.onerror=null;this.src='${imgPlaceholder}';">
+    <img class="modal__movie-img" src='${
+      poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : imgPlaceholder
+    }' alt="${title}" >
     </div>
     <div class="movie__info">
     <h2 class="modal__movie-title">${title}</h2>
@@ -122,14 +129,14 @@ function onEscClose(event) {
 
 function onClickClose(event) {
   // console.log(event.target.dataset);
-  switch (event.target.dataset.action) {
-    case 'button__watched':
-      onClickAddWatched();
-      break;
-    case 'button__queue':
-      onClickAddQueue();
-      break;
-  }
+  // switch (event.target.dataset.action) {
+  //   case 'button__watched':
+  //     onClickAddWatched();
+  //     break;
+  //   case 'button__queue':
+  //     onClickAddQueue();
+  //     break;
+  // }
   if (
     event.target === backdrop ||
     event.target.id === 'modal-close' ||
@@ -147,6 +154,7 @@ function openModal() {
 }
 
 function closeModal() {
+  // console.log(site.currentPage);
   backdrop.classList.add('is-hidden');
   body.classList.remove('no-scroll');
   toTopArrow.classList.add('back-to-top_show');
@@ -161,10 +169,16 @@ function onClickAddWatched() {
   ref.btnQueue.textContent = 'ADD TO QUEUE';
   ref.btnWatched.classList.add('current-button');
   ref.btnWatched.textContent = 'VIEWED';
+  // if (site.currentPage === MY_LIBRARY) {
+  //   onClickWatched();
+  // }
   //  }
 }
 
 function onClickAddQueue() {
+  //  console.log(site.currentPage);
+  //  console.log(myLibrary.film);
+  //  console.log(myLibrary.film.id);
   if (myLibrary.isQueue(myLibrary.film.id)) {
     myLibrary.deleteQueue(myLibrary.film);
     ref.btnQueue.classList.remove('current-button');
@@ -177,5 +191,8 @@ function onClickAddQueue() {
     ref.btnQueue.classList.add('current-button');
     ref.btnQueue.textContent = 'QUEUE';
     ref.btnWatched.textContent = 'ADD TO WATCHED';
+  }
+  if (site.currentPage === MY_LIBRARY) {
+    onClickQueue();
   }
 }

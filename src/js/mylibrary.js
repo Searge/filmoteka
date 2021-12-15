@@ -32,11 +32,11 @@ function onClickWatched() {
   ref.queue.classList.remove('btn-activ');
   ref.watched.classList.add('btn-activ');
   buttonClick = WATCHED;
-  // console.log('библиотека - watched - ', site.currentPage);
-  // console.log(e);
+  // //console.log('библиотека - watched - ', site.currentPage);
+  // //console.log(e);
 
-  // console.log('myLibrary._pagination.totalWatched -', myLibrary.getTotalWatched());
-  // console.log(myLibrary.getWatched(myLibrary.getCurrentPage()));
+  // //console.log('myLibrary._pagination.totalWatched -', myLibrary.getTotalWatched());
+  // //console.log(myLibrary.getWatched(myLibrary.getCurrentPage()));
 
   updateTotalPagesNumber(
     myLibrary.getTotalWatched(),
@@ -47,7 +47,7 @@ function onClickWatched() {
   site.pagination.setTotalItems(myLibrary.getTotalWatched());
   site.pagination.reset();
 
-  //console.log(myLibrary.getWatched(1));
+  ////console.log(myLibrary.getWatched(1));
 
   renderGallery(myLibrary.getWatched(1));
   stylePagination(1, myLibrary.getCurrentPage());
@@ -70,11 +70,11 @@ function onClickQueue() {
   site.pagination.setTotalItems(myLibrary.getTotalQueue());
   site.pagination.reset();
 
-  // console.log(myLibrary.getQueue(1));
-
+  // //console.log(myLibrary.getQueue(1));
+  //console.log('myLibrary.getQueue(1) - ', myLibrary.getQueue(1));
   renderGallery(myLibrary.getQueue(1));
 
-  // console.log(myLibrary.getCurrentPage());
+  // //console.log(myLibrary.getCurrentPage());
 
   stylePagination(1, myLibrary.getCurrentPage());
   if (myLibrary.getTotalQueue() <= 0) {
@@ -120,7 +120,7 @@ site.pagination.on('afterMove', function (eventData) {
         break;
       case QUEUE:
         renderGallery(myLibrary.getQueue(eventData.page));
-        //  console.log(myLibrary.getCurrentPage());
+        //  //console.log(myLibrary.getCurrentPage());
         break;
     }
     stylePagination(1, myLibrary.getCurrentPage());
@@ -128,7 +128,7 @@ site.pagination.on('afterMove', function (eventData) {
 });
 
 ref.linkMyLibrary.addEventListener('click', () => {
-  // console.log('my library');
+  // //console.log('my library');
   ref.queue.classList.add('btn-activ');
   onClickQueue();
 
@@ -137,3 +137,5 @@ ref.linkMyLibrary.addEventListener('click', () => {
       '<span class="empty">Empty, stop sitting at the monitor,<br> go out into nature, take a walk !!!</span>';
   }
 });
+
+export { onClickQueue, onClickWatched };
