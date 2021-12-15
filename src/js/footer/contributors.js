@@ -36,13 +36,13 @@ const arrayCon = [
 
 const respons = async array => {
   const nice = obj => {
-    const open = `<li class="contributors__modal-item">
-      <a class="contacts__item-link" href="${obj.html_url}" target="_blank" rel="noopener noreferrer">
-        <img class="contributors__modal-img" src="${obj.avatar_url}" alt="${obj.name}" />
-        <h2 class="contributors__modal-name">${obj.name}</h2>
+    const open = `<li class="contributors-modal__item">
+      <a class="contacts__link" href="${obj.html_url}" target="_blank" rel="noopener noreferrer">
+        <img class="contributors-modal__img" src="${obj.avatar_url}" alt="${obj.name}" />
+        <h2 class="contributors-modal__name">${obj.name}</h2>
       </a>
     </li>`;
-    document.querySelector('.contributors__modal-list').insertAdjacentHTML('beforeend', open);
+    document.querySelector('.contributors-modal__list').insertAdjacentHTML('beforeend', open);
   };
 
   const suka = await array.map(async num => {
@@ -53,7 +53,7 @@ const respons = async array => {
 
 respons(arrayCon);
 
-const buttonModal = document.querySelector('.contributors__button');
+const buttonModal = document.querySelector('.contributors__link');
 const modal = document.querySelector('.contributors__backdrop');
 const modalOpen = () => {
   modal.classList.add('active');

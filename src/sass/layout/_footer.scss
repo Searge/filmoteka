@@ -30,11 +30,15 @@
 }
 
 .contributors {
-  &__button {
-    appearance: none;
-    border: none;
-    background: none;
+  &__link {
+    text-decoration: underline;
     cursor: pointer;
+  }
+
+  &__link:hover,
+  &__link:active,
+  &__link:focus {
+    color: $accent-color;
   }
 
   &__heart {
@@ -43,6 +47,14 @@
     height: 13px;
     fill: $accent-color;
   }
+  &__link:hover &__heart,
+  &__heart:hover,
+  &__heart:focus,
+  &__heart:active {
+    animation: beat 0.25s infinite alternate;
+    transform-origin: center;
+  }
+
   &__backdrop {
     z-index: 10000;
     opacity: 0;
@@ -61,97 +73,90 @@
       justify-content: center;
     }
   }
-  &__modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    padding: 15px;
-    min-width: 245px;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: $primary-color-light;
-    transform: translate(-50%, -50%);
-    overflow: auto;
-  }
-  &__heart:hover,
-  &__heart:focus,
-  &__heart:active {
-    animation: beat 0.25s infinite alternate;
-    transform-origin: center;
-  }
 }
+
 // Modal
-.contributors__modal-title {
-  font-weight: 600;
-  margin-bottom: 30px;
-}
-.contributors__modal-list {
+.contributors-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 15px;
+  min-width: 245px;
+  border-radius: 5px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin-left: -15px;
-  margin-top: -15px;
-
-  @include respond-from-min($tablet) {
-    margin-left: -30px;
-    margin-top: -30px;
-  }
-}
-
-.contributors__modal-item {
-  flex-basis: calc((100% - 30px) / 2);
-  min-width: 80px;
-  margin-left: 15px;
-  margin-top: 15px;
-
-  @include respond-from-min($tablet) {
-    margin-left: 30px;
-    margin-top: 30px;
-    flex-basis: calc((100% - 90px) / 3);
-    min-width: 100px;
-    max-width: 140px;
-  }
-}
-
-.contributors__modal-item-link {
-  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  padding: 10px;
-}
-.contributors__modal-img {
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  filter: drop-shadow(0 4px 4px $primary-drop-shadow-color)
-    drop-shadow(0 4px 4px $secondary-drop-shadow-color);
+  background: $primary-color-light;
+  transform: translate(-50%, -50%);
+  overflow: auto;
 
-  @include respond-from-min($tablet) {
-    width: 100px;
-    height: 100px;
+  &__title {
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-left: -15px;
+    margin-top: -15px;
+
+    @include respond-from-min($tablet) {
+      margin-left: -30px;
+      margin-top: -30px;
+    }
+  }
+
+  &__item {
+    flex-basis: calc((100% - 30px) / 2);
+    min-width: 80px;
+    margin-left: 15px;
+    margin-top: 15px;
+
+    @include respond-from-min($tablet) {
+      margin-left: 30px;
+      margin-top: 30px;
+      flex-basis: calc((100% - 90px) / 3);
+      min-width: 100px;
+      max-width: 140px;
+    }
+  }
+
+  &__img {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    filter: drop-shadow(0 4px 4px $primary-drop-shadow-color)
+      drop-shadow(0 4px 4px $secondary-drop-shadow-color);
+
+    @include respond-from-min($tablet) {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  &__name {
+    font-size: 14px;
+    font-weight: 500;
+    color: $accent-color;
+    margin-top: 10px;
+    padding-bottom: 10px;
+
+    @include respond-from-min($tablet) {
+      font-size: 18px;
+    }
+  }
+
+  &__text {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: $primary-color;
   }
 }
-.contributors__modal-name {
-  font-size: 14px;
-  font-weight: 500;
-  color: $accent-color;
-  margin-top: 10px;
-  padding-bottom: 10px;
 
-  @include respond-from-min($tablet) {
-    font-size: 18px;
-  }
-}
-.contributors__modal-text {
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: $primary-color;
-}
-.contacts__item-link {
+.contacts__link {
   display: flex;
   flex-direction: column;
   align-items: center;
