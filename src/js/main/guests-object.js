@@ -111,18 +111,18 @@ export const myLibrary = {
   // просмотренные фильмы
   addWatched(movie = {}) {
     // movie.id
-    console.log(movie.id);
+    //  console.log(movie.id);
     if (!this._watched.find(element => element.id === movie.id) && movie.id) {
       this._watched.push(movie);
       this._saveWatched();
       this._pagination.totalWatched = this._watched.length;
     }
-    this._deleteQueue(movie);
+    this.deleteQueue(movie);
   },
 
   // очередь
   addQueue(movie = {}) {
-    console.log(movie.id);
+    // console.log(movie.id);
     if (!this._queue.find(element => element.id === movie.id) && movie.id) {
       this._queue.push(movie);
       this._saveQueue();
@@ -131,7 +131,7 @@ export const myLibrary = {
   },
 
   // удалить из очереди
-  _deleteQueue(movie = {}) {
+  deleteQueue(movie = {}) {
     this._queue.find((element, index) => {
       if (element.id === movie.id) {
         this._queue.splice(index, 1);
