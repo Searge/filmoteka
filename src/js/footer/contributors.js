@@ -37,14 +37,11 @@ const arrayCon = [
 const respons = async array => {
   const nice = obj => {
     const open = `<li class="contributors__modal-item">
-          <img class="contributors__modal-img" src="${obj.avatar_url}" alt="avatar">
-          <h2 class="contributors__modal-name">
-            ${obj.name}
-          </h2>
-          <a class="contacts__item-link" href="${obj.html_url}">
-                GITHUB
-          </a>
-        </li>`;
+      <a class="contacts__item-link" href="${obj.html_url}">
+        <img class="contributors__modal-img" src="${obj.avatar_url}" alt="${obj.name}" />
+        <h2 class="contributors__modal-name">${obj.name}</h2>
+      </a>
+    </li>`;
     document.querySelector('.contributors__modal-list').insertAdjacentHTML('beforeend', open);
   };
 
