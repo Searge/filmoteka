@@ -63,7 +63,7 @@ async function createMoviesGallery(currentPage) {
             id: movie.id,
             poster: movie.poster_path,
             title: movie.original_title,
-            genres: typeof movie.genre_ids,
+            genres: movie.genre_ids,
             year: movie.release_date ? movie.release_date.slice(0, 4) : 'Year N/A',
           };
 
