@@ -37,7 +37,7 @@ const arrayCon = [
 const respons = async array => {
   const nice = obj => {
     const open = `<li class="contributors__modal-item">
-      <a class="contacts__item-link" href="${obj.html_url}">
+      <a class="contacts__item-link" href="${obj.html_url}" target="_blank" rel="noopener noreferrer">
         <img class="contributors__modal-img" src="${obj.avatar_url}" alt="${obj.name}" />
         <h2 class="contributors__modal-name">${obj.name}</h2>
       </a>
