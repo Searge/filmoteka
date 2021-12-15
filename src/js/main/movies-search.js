@@ -62,7 +62,7 @@ async function createMoviesGallery(currentPage) {
           let movieData = {
             id: movie.id,
             poster: movie.poster_path,
-            title: movie.original_title,
+            title: movie.original_title ? movie.original_title : 'Title N/A',
             genres: movie.genre_ids,
             year: movie.release_date ? movie.release_date.slice(0, 4) : 'Year N/A',
           };

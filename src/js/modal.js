@@ -1,7 +1,5 @@
 import { fetchMovieById } from './api-service';
 import { myLibrary, foundFilms } from './main/guests-object';
-import axios from 'axios';
-import genres from './main/genres';
 import './main/main-cards';
 import sprite from '../images/sprite.svg';
 import imgPlaceholder from '../images/no-poster-available.jpg';
