@@ -10,7 +10,7 @@
   line-height: 1.2;
   text-align: center;
 
-  .footer__wrapper {
+  &__wrapper {
     @include respond-from-min($tablet) {
       display: flex;
       justify-content: space-around;
@@ -18,6 +18,13 @@
       max-width: $mobile;
       margin-left: auto;
       margin-right: auto;
+    }
+  }
+
+  &__copyright {
+    @include respond-from-min($tablet) {
+      padding-right: 10px;
+      border-right: 2pt solid $ternary-color;
     }
   }
 }
@@ -45,7 +52,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.25);
+    background: $primary-drop-shadow-color;
     transition: opacity 250ms linear;
     &.active {
       opacity: 1;
@@ -65,7 +72,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #ffffff;
+    background: $primary-color-light;
     transform: translate(-50%, -50%);
   }
   &__heart:hover,
@@ -108,7 +115,7 @@
 .contributors__modal-name {
   font-size: 20px;
   font-weight: 500;
-  color: #ff6b08;
+  color: $accent-color;
   margin-top: 10px;
   text-align: center;
   margin-bottom: 10px;
@@ -123,6 +130,7 @@
   font-weight: 600;
   color: $primary-color;
 }
+
 // -----------------
 /* Heart beat animation */
 @keyframes beat {
