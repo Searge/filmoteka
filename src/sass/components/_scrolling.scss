@@ -18,7 +18,7 @@
   visibility: hidden;
   filter: drop-shadow(0 4px 4px $primary-drop-shadow-color)
     drop-shadow(0 4px 4px $secondary-drop-shadow-color);
-  transition: background-color 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
 
   @include respond-from-min($tablet) {
     width: 50px;

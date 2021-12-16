@@ -43,7 +43,7 @@
     transition: all 500ms ease-in-out;
 
     &:hover {
-      box-shadow: 0 0 6px 3px $secondary-drop-shadow-color;
+      transform: scale(1.05);
     }
 
     @include respond-from-min($tablet) {
