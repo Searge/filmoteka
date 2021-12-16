@@ -38,7 +38,7 @@ const respons = async array => {
   const nice = obj => {
     let work = 'Developer';
     if (obj.name === 'Oksana Lytvynchuk') {
-      work = 'Scrume Master';
+      work = 'Scrum Master';
     } else if (obj.name === 'Ruslan Petrov') {
       work = 'Tech Lead';
     } else if (obj.name === 'Sergij Boremchuk') {
