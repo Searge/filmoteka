@@ -76,7 +76,13 @@
         </a>
     </td></tr>
 <tr>
-
+    <td align="center">
+        <a href="https://github.com/ImgBotApp">
+            <img src="https://avatars.githubusercontent.com/u/31427850?v=4" width="100;" alt="ImgBotApp"/>
+            <br />
+            <sub><b>Imgbot</b></sub>
+        </a>
+    </td>
     <td align="center">
         <a href="https://github.com/Lozikkk">
             <img src="https://avatars.githubusercontent.com/u/68775142?v=4" width="100;" alt="Lozikkk"/>
@@ -84,7 +90,6 @@
             <sub><b>Oleksandr Lozinskyi</b></sub>
         </a>
     </td></tr>
-
 </table>
 <!-- readme: contributors,ImgBotApp/- -end -->
 
