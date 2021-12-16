@@ -126,15 +126,6 @@ function onEscClose(event) {
 }
 
 function onClickClose(event) {
-  // console.log(event.target.dataset);
-  // switch (event.target.dataset.action) {
-  //   case 'button__watched':
-  //     onClickAddWatched();
-  //     break;
-  //   case 'button__queue':
-  //     onClickAddQueue();
-  //     break;
-  // }
   if (
     event.target === backdrop ||
     event.target.id === 'modal-close' ||
@@ -145,7 +136,11 @@ function onClickClose(event) {
   }
 }
 
+const widthBodyScroll = body.offsetWidth;
+
 function openModal() {
+  const widthScrolll = widthBodyScroll - body.offsetWidth;
+  body.style.marginRight = `${widthScrolll}px`;
   backdrop.classList.remove('is-hidden');
   body.classList.add('no-scroll');
   toTopArrow.classList.remove('back-to-top_show');
@@ -158,6 +153,7 @@ function closeModal() {
   toTopArrow.classList.add('back-to-top_show');
   document.removeEventListener('click', onClickClose);
   document.removeEventListener('keydown', onEscClose);
+  body.style.marginRight = `0px`;
 }
 
 function onClickAddWatched() {
