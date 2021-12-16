@@ -36,10 +36,20 @@ const arrayCon = [
 
 const respons = async array => {
   const nice = obj => {
+    let work = 'Developer';
+    if (obj.name === 'Oksana Lytvynchuk') {
+      work = 'Scrume Master';
+    } else if (obj.name === 'Ruslan Petrov') {
+      work = 'Tech Lead';
+    } else if (obj.name === 'Sergij Boremchuk') {
+      work = 'Team Lead';
+    }
     const open = `<li class="contributors-modal__item">
       <a class="contacts__link" href="${obj.html_url}" target="_blank" rel="noopener noreferrer">
         <img class="contributors-modal__img" src="${obj.avatar_url}" alt="${obj.name}" />
         <h2 class="contributors-modal__name">${obj.name}</h2>
+        <p class="contributors-modal__text">
+        ${work}</p>
       </a>
     </li>`;
     document.querySelector('.contributors-modal__list').insertAdjacentHTML('beforeend', open);
