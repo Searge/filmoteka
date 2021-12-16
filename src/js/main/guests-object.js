@@ -7,6 +7,7 @@ export const foundFilms = {
 };
 
 export const myLibrary = {
+  film: {},
   _watched: [], // просмотренные фильмы
   _queue: [], // добавленные в очередь
   _pagination: {
@@ -72,14 +73,14 @@ export const myLibrary = {
 
   getWatched(currentPage) {
     const maxPage = Math.ceil(this._pagination.totalWatched / this._pagination.elementsPage);
-    // console.log('maxPage -', maxPage);
+    // //console.log('maxPage -', maxPage);
     this._pagination.currentPage = maxPage < currentPage ? maxPage : currentPage;
-    //  console.log('this._pagination.currentPage -', this._pagination.currentPage);
+    //  //console.log('this._pagination.currentPage -', this._pagination.currentPage);
     const startElement =
       this._pagination.elementsPage * this._pagination.currentPage - this._pagination.elementsPage;
     const endElement = this._pagination.elementsPage * this._pagination.currentPage;
-    //  console.log('startElement -', startElement);
-    //  console.log('endElement -', endElement);
+    //  //console.log('startElement -', startElement);
+    //  //console.log('endElement -', endElement);
     return this._watched.slice(startElement, endElement);
   },
 
@@ -111,7 +112,7 @@ export const myLibrary = {
   // просмотренные фильмы
   addWatched(movie = {}) {
     // movie.id
-    //  console.log(movie.id);
+    //  //console.log(movie.id);
     if (!this._watched.find(element => element.id === movie.id) && movie.id) {
       this._watched.push(movie);
       this._saveWatched();
@@ -122,8 +123,9 @@ export const myLibrary = {
 
   // очередь
   addQueue(movie = {}) {
-    // console.log(movie.id);
+    //console.log('addQueue - ', movie.id);
     if (!this._queue.find(element => element.id === movie.id) && movie.id) {
+      //console.log('addQueue - ', movie.id);
       this._queue.push(movie);
       this._saveQueue();
       this._pagination.totalQueue = this._queue.length;
@@ -132,11 +134,16 @@ export const myLibrary = {
 
   // удалить из очереди
   deleteQueue(movie = {}) {
+    //console.log('deleteQueue 1 - ', movie);
+    //console.log('deleteQueue 2 - ', movie.id);
     this._queue.find((element, index) => {
+      //console.log('deleteQueue 3 - ', element.id);
       if (element.id === movie.id) {
+        //console.log('deleteQueue 4 - ', movie.id);
         this._queue.splice(index, 1);
         this._saveQueue();
         this._pagination.totalQueue = this._queue.length;
+        return true;
       }
     });
   },
