@@ -68,8 +68,14 @@ const modal = document.querySelector('.contributors__backdrop');
 const modalOpen = () => {
   modal.classList.add('active');
   document.querySelector('body').style.overflow = 'hidden';
+  window.document.addEventListener('keydown', modalClose);
 };
 const modalClose = evn => {
+  if (evn.code === 'Escape') {
+    modal.classList.remove('active');
+    document.querySelector('body').style.overflow = 'auto';
+    return;
+  }
   if (!evn.target.classList.contains('contributors__backdrop')) {
     return;
   }
