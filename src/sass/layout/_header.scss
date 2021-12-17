@@ -220,3 +220,24 @@
     @include retina('../images/desktop/header_mylibrary@2x.jpg', $desktop, $line-gradient);
   }
 }
+
+.header__theme {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: -45px;
+  @media screen and (min-width: $tablet) {
+    bottom: 0;
+  }
+  right: 15px;
+  width: 110px;
+}
+
+.themetoggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: wheat;
+  width: 100%;
+}
