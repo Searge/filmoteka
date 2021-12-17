@@ -136,11 +136,11 @@ function onClickClose(event) {
   }
 }
 
-const widthBodyScroll = body.offsetWidth;
+const widthBodyScroll = body.offsetWidth; // для добавление маржина с правой стороны при отключении скрола
 
 function openModal() {
-  const widthScrolll = widthBodyScroll - body.offsetWidth;
-  body.style.marginRight = `${widthScrolll}px`;
+  const widthScrolll = widthBodyScroll - body.offsetWidth; // для добавление маржина с правой стороны при отключении скрола
+  body.style.marginRight = `${widthScrolll}px`; // для добавление маржина с правой стороны при отключении скрола
   backdrop.classList.remove('is-hidden');
   body.classList.add('no-scroll');
   toTopArrow.classList.remove('back-to-top_show');
@@ -153,7 +153,7 @@ function closeModal() {
   toTopArrow.classList.add('back-to-top_show');
   document.removeEventListener('click', onClickClose);
   document.removeEventListener('keydown', onEscClose);
-  body.style.marginRight = `0px`;
+  body.style.marginRight = `0px`; // для добавление маржина с правой стороны при отключении скрола
 }
 
 function onClickAddWatched() {

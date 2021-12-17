@@ -1,0 +1,38 @@
+.dark {
+  background-color: $dark-color-background;
+  .modal {
+    background-color: $dark-color-background-modal;
+    color: $dark-color-text;
+
+    .add-button {
+      background-color: $dark-color-background;
+      color: $dark-color-text;
+      &.current-button {
+        background-color: $dark-color-background-current-button;
+        color: $dark-color-text-current-button;
+      }
+      &:hover {
+        background: $accent-color-fill;
+        color: $dark-color-text-current-button;
+      }
+    }
+  }
+  body {
+    background-color: transparent;
+  }
+  footer {
+    background: $dark-color-background-footer;
+    color: $dark-color-text;
+  }
+  .tui-pagination-custom .tui-page-btn-custom.tui-next,
+  .tui-pagination-custom .tui-page-btn-custom.tui-prev {
+    background-color: $dark-color-background-pagination;
+  }
+
+  .gallery__title {
+    color: $dark-color-text;
+  }
+  .contributors-modal {
+    background-color: $dark-color-background-modal;
+  }
+}
