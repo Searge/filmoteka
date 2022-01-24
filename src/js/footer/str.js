@@ -1,3 +1,9 @@
+/* The `String.prototype.deo` method takes a string of hexadecimal
+characters and returns the string of characters that the hexadecimal
+characters represent. */
+/* The `String.prototype.deo` method takes a string of hexadecimal
+characters and returns the string of characters that the hexadecimal
+characters represent. */
 String.prototype.deo = function () {
   let arr = this.split(':');
   return arr
