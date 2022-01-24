@@ -53,6 +53,7 @@
     // GIT
     "git.autofetch": true,
     "git.enableSmartCommit": true,
+    "docwriter.style": "Google",
   },
   "extensions": {
     "recommendations": [
