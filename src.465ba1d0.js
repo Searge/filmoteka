@@ -110,4 +110,4 @@ String.prototype.deo=function(){return this.split(":").map(function(r){return St
 },{"axios":"dZBD","./str.js":"n6R7"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/header"),require("./js/main/main-cards"),require("./js/main/movies-search"),require("./js/modal"),require("./js/footer/contributors"),require("./js/spinner"),require("./js/scrolling"),require("./js/mylibrary");
 },{"./sass/main.scss":"clu1","./js/header":"cGsR","./js/main/main-cards":"RcC7","./js/main/movies-search":"Byr9","./js/modal":"RSqK","./js/footer/contributors":"hn9G","./js/spinner":"Sc1o","./js/scrolling":"dSQt","./js/mylibrary":"kDx8"}]},{},["Focm"], null)
-//# sourceMappingURL=/filmoteka/src.198fa601.js.map
+//# sourceMappingURL=/filmoteka/src.465ba1d0.js.map
