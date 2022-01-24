@@ -62,6 +62,7 @@
       "formulahendry.auto-rename-tag",
       "mrmlnc.vscode-attrs-sorter",
       "winkchen.parser-jsdoc",
+      "mintlify.document",
       // Visual helpers
       "eamodio.gitlens",
       "mhutchie.git-graph",
